@@ -1,0 +1,26 @@
+{
+  "name": "@hln/ui-system-v2.5",
+  "version": "2026.09.18-linear-editorial",
+  "type": "module",
+  "private": true,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./tokens.css": "./dist/tokens.css",
+    "./themes.css": "./dist/themes.css",
+    "./base.css": "./dist/base.css",
+    "./build": "./build.mjs",
+    "./edition.css": "./dist/edition.css",
+    "./hln-ui-system-v2.5.css": "./dist/hln-ui-system-v2.5.css"
+  },
+  "scripts": {
+    "build": "node ./build.mjs",
+    "verify": "node ./verify.mjs",
+    "test": "node --test ./node-contract.test.mjs"
+  }
+}

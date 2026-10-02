@@ -1,0 +1,290 @@
+/* antidispona-arknights-theme.css
+ * AntiDispona x Arknights tactical fusion theme.
+ *
+ * Design language pillars:
+ *   1. Arknights / Endfield: sharp geometry (1-3 px radius), diagonal
+ *      slash-cut borders, amber + teal instrumentation palette, hard-offset
+ *      box-shadows, heavy grid overlays.
+ *   2. Cyberpunk (ui-ux-pro-max): #020617 abyss base, #22C55E neon-green
+ *      primary accent, bloom glow, scanline texture.
+ *   3. HLN motion framework: reuses --hln-ui-motion-* and --hln-ui-ease
+ *      tokens; adds AntiDispona-specific animation presets.
+ *
+ * Selector strategy: matches the canonical pattern from themes.css so both
+ * React and Solid hosts work without duplication.
+ */
+
+:root[data-hln-theme="antidispona"],
+[data-hln-theme="antidispona"],
+[data-theme="antidispona"] {
+
+  /* ── Core palette ──────────────────────────────────────────────────── */
+  /* Deep cyberpunk abyss — ui-ux-pro-max recommendation */
+  --ad-bg-abyss:   #020617;
+  --ad-bg-deep:    #05091a;
+  --ad-bg-base:    #080d1e;
+  --ad-bg-raised:  #0e1528;
+  --ad-bg-surface: #141c32;
+
+  /* Neon green — ui-ux-pro-max primary accent */
+  --ad-neon-green:        #22C55E;
+  --ad-neon-green-bright: #4ade80;
+  --ad-neon-green-dim:    #16a34a;
+  --ad-neon-green-ghost:  rgb(34 197 94 / 18%);
+
+  /* Arknights teal instrumentation */
+  --ad-teal:        #7bd1c3;
+  --ad-teal-bright: #a7efe2;
+  --ad-teal-dim:    #4da89c;
+  --ad-teal-ghost:  rgb(123 209 195 / 14%);
+
+  /* Arknights amber status / warning */
+  --ad-amber:       #e9c15b;
+  --ad-amber-dim:   #b89230;
+  --ad-amber-ghost: rgb(233 193 91 / 14%);
+
+  /* Danger / critical */
+  --ad-danger:       #ef5144;
+  --ad-danger-dim:   #c0392b;
+  --ad-danger-ghost: rgb(239 81 68 / 16%);
+
+  /* ── HLN semantic tokens (required surface area) ─────────────────── */
+  --hln-ui-bg-0: var(--ad-bg-abyss);
+  --hln-ui-bg-1: var(--ad-bg-base);
+  --hln-ui-bg-2: var(--ad-bg-surface);
+
+  --hln-ui-glass:        rgb(8 13 30 / 95%);
+  --hln-ui-glass-strong: #0e1528;
+  --hln-ui-glass-soft:   rgb(14 21 40 / 72%);
+
+  /* Structural lines: green-tinted at rest, full neon on active/focus */
+  --hln-ui-line:        #1a2d42;
+  --hln-ui-line-strong: rgb(34 197 94 / 55%);
+
+  --hln-ui-text:       #e8f5ee;
+  --hln-ui-text-muted: #94b8a4;
+  --hln-ui-text-faint: #5e8070;
+
+  /* Primary accent: neon green. Cool accent: teal (Arknights scan color) */
+  --hln-ui-accent:        var(--ad-neon-green);
+  --hln-ui-accent-strong: var(--ad-neon-green-bright);
+  --hln-ui-accent-cool:   var(--ad-teal);
+
+  --hln-ui-amber:   var(--ad-amber);
+  --hln-ui-danger:  var(--ad-danger);
+  --hln-ui-success: var(--ad-neon-green-bright);
+  --hln-ui-focus:   #b9ffce;
+
+  /* ── Geometry — Arknights: near-zero radius, hard edges ────────── */
+  --hln-ui-radius-xs: 1px;
+  --hln-ui-radius-sm: 2px;
+  --hln-ui-radius-md: 3px;
+
+  /* ── Shadows — hard military offset (Arknights signature) ───────── */
+  --hln-ui-shadow:      4px 4px 0 rgb(0 0 0 / 55%), 0 0 32px rgb(34 197 94 / 8%);
+  --hln-ui-shadow-soft: 2px 2px 0 rgb(0 0 0 / 38%);
+
+  /* ── Shell / panel tokens ──────────────────────────────────────── */
+  --hln-ui-shell-border:    1px solid color-mix(in srgb, var(--hln-ui-line) 88%, transparent);
+  --hln-ui-panel-bg:        color-mix(in srgb, var(--hln-ui-glass) 96%, transparent);
+  --hln-ui-panel-highlight: inset 0 1px 0 rgb(34 197 94 / 8%);
+
+  /* Button: neon-green outline, hard drop shadow */
+  --hln-ui-button-shadow: 3px 3px 0 rgb(0 0 0 / 50%);
+  --hln-ui-button-border: 1px solid var(--hln-ui-line-strong);
+
+  /* ── Background image — scanlines + hex grid + glow ─────────────── */
+  --hln-ui-bg-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px,
+      transparent 2px,
+      rgb(0 0 0 / 18%) 2px,
+      rgb(0 0 0 / 18%) 3px
+    ),
+    radial-gradient(900px 500px at 8% -8%,  rgb(34 197 94 / 10%), transparent 60%),
+    radial-gradient(800px 480px at 94% 2%, rgb(123 209 195 / 9%), transparent 58%),
+    linear-gradient(
+      136deg,
+      transparent 0 42%,
+      rgb(233 193 91 / 5%) 42.1% 42.4%,
+      transparent 42.5% 100%
+    ),
+    linear-gradient(
+      136deg,
+      transparent 0 44%,
+      rgb(123 209 195 / 4%) 44.1% 44.35%,
+      transparent 44.5% 100%
+    ),
+    linear-gradient(
+      90deg,
+      transparent 0 79px,
+      var(--hln-ui-grid-line) 79px 80px,
+      transparent 80px 160px
+    ),
+    linear-gradient(
+      0deg,
+      transparent 0 79px,
+      var(--hln-ui-grid-line) 79px 80px,
+      transparent 80px 160px
+    ),
+    linear-gradient(180deg, #04091a 0%, var(--hln-ui-bg-0) 55%, #010408 100%);
+
+  --hln-ui-grid-line: color-mix(in srgb, #1e3352 30%, transparent);
+
+  color-scheme: dark;
+
+  /* ── AntiDispona extended tokens ──────────────────────────────────── */
+
+  /* Glow effects */
+  --ad-glow-green:  0 0 0 1px rgb(34 197 94 / 30%), 0 0 20px rgb(34 197 94 / 20%), 0 0 48px rgb(34 197 94 / 10%);
+  --ad-glow-teal:   0 0 0 1px rgb(123 209 195 / 28%), 0 0 16px rgb(123 209 195 / 16%);
+  --ad-glow-amber:  0 0 0 1px rgb(233 193 91 / 28%), 0 0 14px rgb(233 193 91 / 14%);
+  --ad-glow-danger: 0 0 0 1px rgb(239 81 68 / 30%), 0 0 18px rgb(239 81 68 / 18%);
+
+  /* Focus ring — neon-green bloom */
+  --hln-ui-focus-ring:
+    0 0 0 2px var(--hln-ui-focus),
+    0 0 0 5px color-mix(in srgb, var(--ad-neon-green) 30%, transparent),
+    var(--ad-glow-green);
+
+  /* Slash-cut clip paths (tactical corner notches) */
+  --ad-clip-panel:  polygon(8px 0%, 100% 0%, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0% 100%, 0% 8px);
+  --ad-clip-button: polygon(6px 0%, 100% 0%, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0% 100%, 0% 6px);
+  --ad-clip-badge:  polygon(4px 0%, 100% 0%, 100% calc(100% - 4px), calc(100% - 4px) 100%, 0% 100%, 0% 4px);
+  --ad-clip-hex:    polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+
+  /* Status colors */
+  --ad-status-ok:      var(--ad-neon-green);
+  --ad-status-warn:    var(--ad-amber);
+  --ad-status-crit:    var(--ad-danger);
+  --ad-status-offline: #4a5568;
+  --ad-status-active:  var(--ad-teal-bright);
+
+  /* HEX indicator fills */
+  --ad-hex-fill:         rgb(34 197 94 / 12%);
+  --ad-hex-stroke:       var(--ad-neon-green);
+  --ad-hex-fill-amber:   rgb(233 193 91 / 12%);
+  --ad-hex-stroke-amber: var(--ad-amber);
+
+  /* Scanline pseudo-element background */
+  --ad-scanline-bg:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px,
+      transparent 2px,
+      rgb(0 0 0 / 14%) 2px,
+      rgb(0 0 0 / 14%) 3px
+    );
+
+  /* ── Motion tokens ────────────────────────────────────────────────── */
+
+  /* HLN base (documented for clarity) */
+  --hln-ui-motion-panel:      220ms;
+  --hln-ui-motion-hover:      160ms;
+  --hln-ui-duration-fast:     160ms;
+  --hln-ui-duration-standard: 220ms;
+  --hln-ui-ease:              cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  /* Tactical entry: snappy slide + fade */
+  --ad-motion-entry-duration: 180ms;
+  --ad-motion-entry-ease:     cubic-bezier(0.0, 0.9, 0.3, 1);
+
+  /* Scan shimmer sweep */
+  --ad-motion-scan-duration:  1400ms;
+  --ad-motion-scan-ease:      linear;
+
+  /* Status pulse glow */
+  --ad-motion-pulse-duration: 2200ms;
+  --ad-motion-pulse-ease:     ease-in-out;
+
+  /* HUD flicker */
+  --ad-motion-flicker-duration: 80ms;
+  --ad-motion-flicker-ease:     step-end;
+
+  /* Overlay wipe from left */
+  --ad-motion-wipe-duration: 260ms;
+  --ad-motion-wipe-ease:     cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── Keyframe library ──────────────────────────────────────────────────── */
+
+@keyframes ad-scan-sweep {
+  0%   { background-position: 0 -100%; }
+  100% { background-position: 0 200%; }
+}
+
+@keyframes ad-pulse-glow {
+  0%, 100% { box-shadow: var(--ad-glow-green); opacity: 1; }
+  50%       { box-shadow: 0 0 0 1px rgb(34 197 94 / 14%), 0 0 36px rgb(34 197 94 / 28%); opacity: 0.88; }
+}
+
+@keyframes ad-ping {
+  0%   { transform: scale(1);   opacity: 1; }
+  80%  { transform: scale(2.2); opacity: 0; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+@keyframes ad-flicker {
+  0%, 90%, 100% { opacity: 1; }
+  92%           { opacity: 0.78; }
+  95%           { opacity: 0.94; }
+}
+
+@keyframes ad-wipe-in {
+  from { clip-path: inset(0 100% 0 0); opacity: 0.4; }
+  to   { clip-path: inset(0 0% 0 0);   opacity: 1;   }
+}
+
+@keyframes ad-hex-appear {
+  from { transform: scale(0.6); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+/* ── Utility class shims ────────────────────────────────────────────────── */
+
+[data-hln-theme="antidispona"] .ad-panel,
+[data-theme="antidispona"] .ad-panel {
+  background: var(--hln-ui-panel-bg);
+  border:     var(--hln-ui-shell-border);
+  box-shadow: var(--hln-ui-shadow);
+  clip-path:  var(--ad-clip-panel);
+}
+
+[data-hln-theme="antidispona"] .ad-glow-green,
+[data-theme="antidispona"] .ad-glow-green {
+  box-shadow: var(--ad-glow-green);
+}
+
+[data-hln-theme="antidispona"] .ad-glow-teal,
+[data-theme="antidispona"] .ad-glow-teal {
+  box-shadow: var(--ad-glow-teal);
+}
+
+[data-hln-theme="antidispona"] .ad-scanline::after,
+[data-theme="antidispona"] .ad-scanline::after {
+  content:        "";
+  position:       absolute;
+  inset:          0;
+  pointer-events: none;
+  background:     var(--ad-scanline-bg);
+  opacity:        0.6;
+}
+
+[data-hln-theme="antidispona"] .ad-pulse,
+[data-theme="antidispona"] .ad-pulse {
+  animation: ad-pulse-glow var(--ad-motion-pulse-duration) var(--ad-motion-pulse-ease) infinite;
+}
+
+[data-hln-theme="antidispona"] .ad-wipe-in,
+[data-theme="antidispona"] .ad-wipe-in {
+  animation: ad-wipe-in var(--ad-motion-wipe-duration) var(--ad-motion-wipe-ease) both;
+}
+
+[data-hln-theme="antidispona"] .ad-hex,
+[data-theme="antidispona"] .ad-hex {
+  clip-path:  var(--ad-clip-hex);
+  background: var(--ad-hex-fill);
+  border:     1px solid var(--ad-hex-stroke);
+  animation:  ad-hex-appear var(--ad-motion-entry-duration) var(--ad-motion-entry-ease) both;
+}

@@ -1,0 +1,47 @@
+[data-component="antidispona-chat-shell"] [data-slot="anti-composer"] {
+  display: grid;
+  gap: var(--hln-ui-space-2);
+  width: min(100%, 68rem);
+  margin-inline: auto;
+}
+
+[data-component="antidispona-chat-shell"] [data-slot="anti-composer-heading"] {
+  display: flex;
+  align-items: baseline;
+  gap: var(--hln-ui-space-2);
+  min-width: 0;
+  color: var(--hln-ui-text-muted);
+  font-size: 12px;
+}
+
+[data-component="antidispona-chat-shell"] [data-slot="anti-composer-heading"] strong {
+  color: var(--hln-ui-text);
+  font-family: var(--hln-ui-font-display);
+  font-size: 14px;
+}
+
+[data-component="antidispona-chat-shell"] [data-slot="anti-composer-heading"] span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+[data-component="antidispona-chat-shell"] [data-slot="anti-composer"] :where(
+  [data-component="session-composer"],
+  [data-component="session-new-composer"],
+  [data-dock-surface="shell"]
+) {
+  width: 100%;
+  min-height: 48px;
+  border: var(--hln-ui-border) solid var(--hln-ui-line);
+  border-radius: var(--hln-ui-radius-sm);
+  color: var(--hln-ui-text);
+  background: var(--hln-ui-bg-2);
+  box-shadow: var(--hln-ui-shadow-soft);
+}
+
+[data-component="antidispona-chat-shell"] [data-slot="anti-composer"] [contenteditable="true"] {
+  min-height: 44px;
+  padding: var(--hln-ui-space-3);
+  outline: none;
+}

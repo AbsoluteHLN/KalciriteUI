@@ -1,0 +1,19 @@
+{
+  "name": "@hln/ui-system",
+  "version": "2026.8.15-p3",
+  "type": "module",
+  "main": "./index.ts",
+  "exports": {
+    ".": "./index.ts",
+    "./tokens.css": "./tokens.css",
+    "./themes.css": "./themes.css",
+    "./compatibility.css": "./compatibility.css",
+    "./motion.css": "./motion.css",
+    "./motion": "./motion.ts",
+    "./icons": "./icons.ts",
+    "./skins": "./skins.ts",
+    "./contract": "./contract.md",
+    "./surfaces.css": "./surfaces.css",
+    "./components.css": "./components.css"
+  }
+}

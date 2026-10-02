@@ -1,0 +1,25 @@
+{
+  "name": "@hln/ui-system-v2.3",
+  "version": "2026.09.05-industrial-tactical",
+  "type": "module",
+  "private": true,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./tokens.css": "./dist/tokens.css",
+    "./themes.css": "./dist/themes.css",
+    "./base.css": "./dist/base.css",
+    "./build": "./build.mjs",
+    "./hln-ui-system-v2.3.css": "./dist/hln-ui-system-v2.3.css"
+  },
+  "scripts": {
+    "build": "node ./build.mjs",
+    "verify": "node ./verify.mjs",
+    "test": "node --test ./node-contract.test.mjs"
+  }
+}

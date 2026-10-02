@@ -1,0 +1,65 @@
+{
+  "version": "2026.08.15-p3-canonical-source-tree",
+  "source": "ui-system/src",
+  "generatedDistribution": "ui-system",
+  "sourceFiles": [
+    "core/tokens.css",
+    "themes/themes.css",
+    "themes/compatibility.css",
+    "themes/registry.ts",
+    "surfaces/surfaces.css",
+    "components/components.css",
+    "components/composer.css",
+    "motion/motion.css",
+    "motion/motion.ts",
+    "icons/icons.ts",
+    "skins/skins.ts",
+    "index.ts",
+    "contract.md"
+  ],
+  "generatedFiles": [
+    "tokens.css",
+    "themes.css",
+    "compatibility.css",
+    "surfaces.css",
+    "components.css",
+    "composer.css",
+    "motion.css",
+    "motion.ts",
+    "icons.ts",
+    "skins.ts",
+    "registry.ts",
+    "theme-registry.js",
+    "index.ts",
+    "contract.md",
+    "hln-ui-system.css"
+  ],
+  "themes": [
+    "flat-design",
+    "aurora",
+    "liquid-glass",
+    "organic-biophilic",
+    "arknights",
+    "endfield"
+  ],
+  "motion": {
+    "panelTransition": "shared-panel-transition",
+    "background": "one-shot-panel-and-item-transitions-only",
+    "presets": [
+      "panel",
+      "item",
+      "control"
+    ],
+    "springVariant": true
+  },
+  "buildArtifacts": "artifacts/<agent-id>/",
+  "agents": [
+    {
+      "id": "artist-Paralos-preview",
+      "kind": "ui-preview",
+      "root": "artist-Paralos-main",
+      "destination": "styles",
+      "status": "preview-workbench"
+    }
+  ]
+}

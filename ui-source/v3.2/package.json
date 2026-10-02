@@ -1,0 +1,17 @@
+{
+  "name": "@projecthln/ui-system-v3.2",
+  "version": "3.2.0",
+  "description": "ProjectHLN UI System v3.2 - Subtractive Linear Architecture Edition",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./css": "./dist/hln-ui-system-v3.2.css"
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "verify": "node verify.mjs",
+    "test": "node --test node-contract.test.mjs"
+  }
+}

@@ -1,0 +1,113 @@
+:root {
+  /* Typography is intentionally explicit so desktop hosts can install the
+     named families without inventing per-screen font stacks. */
+  --hln-ui-font-display: "Book Antiqua", "Berlin Sans BF", "方正小标宋简体", "FZXiaoBiaoSong-B05S", "Georgia", "Segoe UI Variable", serif;
+  --hln-ui-font-title: "方正小标宋简体", "FZXiaoBiaoSong-B05S", "Book Antiqua", "STSong", serif;
+  --hln-ui-font-body: "Berlin Sans BF", "仿宋", "FangSong", "STFangsong", "Segoe UI Variable", "Microsoft YaHei UI", sans-serif;
+  --hln-ui-font-form: var(--hln-ui-font-body);
+  --hln-ui-font-classic: "Book Antiqua", "Georgia", "Palatino", serif;
+  --hln-ui-font-berlin: "Berlin Sans BF", "Segoe UI Variable", sans-serif;
+  --hln-ui-font-fangsong: "仿宋", "FangSong", "STFangsong", serif;
+  --hln-ui-font-xiaobiaosong: "方正小标宋简体", "FZXiaoBiaoSong-B05S", "STSong", serif;
+  --hln-ui-font-technical: "Cascadia Mono", Consolas, "SFMono-Regular", monospace;
+
+  /* Flat design is the deterministic fallback when no theme attribute is
+     mounted yet. Theme files replace these semantic values. */
+  --hln-ui-bg-0: #f4f6f4;
+  --hln-ui-bg-1: #ffffff;
+  --hln-ui-bg-2: #e8ecea;
+  --hln-ui-glass: #ffffff;
+  --hln-ui-glass-strong: #ffffff;
+  --hln-ui-glass-soft: #eef2ef;
+  --hln-ui-glass-specular: rgb(255 255 255 / 78%);
+  --hln-ui-line: #b9c5c0;
+  --hln-ui-line-strong: #0b6b62;
+  --hln-ui-text: #16201b;
+  --hln-ui-text-muted: #405149;
+  --hln-ui-text-faint: #5d6c64;
+  --hln-ui-accent: #0b6b62;
+  --hln-ui-accent-strong: #064e49;
+  --hln-ui-accent-cool: #2c5d84;
+  --hln-ui-amber: #8a5815;
+  --hln-ui-danger: #9d2f2f;
+  --hln-ui-success: #176b45;
+  --hln-ui-focus: #003f3c;
+
+  --hln-ui-radius-xs: 2px;
+  --hln-ui-radius-sm: 4px;
+  --hln-ui-radius-md: 6px;
+  --hln-ui-radius-pill: 9999px;
+  --hln-ui-border: 1px;
+  --hln-ui-blur: 0px;
+  --hln-ui-shadow: 0 8px 22px rgb(18 38 28 / 12%);
+  --hln-ui-shadow-soft: 0 2px 8px rgb(18 38 28 / 10%);
+  --hln-ui-panel-highlight: inset 0 1px 0 var(--hln-ui-glass-specular);
+  --hln-ui-button-shadow: none;
+  --hln-ui-shell-border: 1px solid var(--hln-ui-line);
+  --hln-ui-panel-bg: var(--hln-ui-glass);
+  --hln-ui-button-border: 1px solid var(--hln-ui-line);
+  --hln-ui-bg-image: linear-gradient(135deg, #ffffff 0%, var(--hln-ui-bg-0) 100%);
+  --hln-ui-grid-line: color-mix(in srgb, var(--hln-ui-line) 35%, transparent);
+
+  --hln-ui-space-1: 4px;
+  --hln-ui-space-2: 8px;
+  --hln-ui-space-3: 12px;
+  --hln-ui-space-4: 16px;
+  --hln-ui-space-5: 20px;
+  --hln-ui-space-6: 24px;
+  --hln-ui-space-7: 28px;
+  --hln-ui-space-8: 32px;
+
+  --hln-ui-topbar-height: 58px;
+  --hln-ui-drawer-width: min(360px, calc(100vw - 24px));
+  --hln-ui-panel-gap: 8px;
+  --hln-ui-content-gutter: clamp(12px, 2vw, 24px);
+  --hln-ui-focus-offset: 2px;
+  --hln-ui-focus-ring: 0 0 0 2px var(--hln-ui-focus), 0 0 0 5px color-mix(in srgb, var(--hln-ui-accent) 28%, transparent);
+
+  --hln-ui-duration-fast: 160ms;
+  --hln-ui-duration-standard: 220ms;
+  --hln-ui-duration-slow: 280ms;
+  --hln-ui-motion-stagger: 24ms;
+  --hln-ui-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --hln-ui-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --hln-ui-ease-spring: cubic-bezier(0.34, 1.25, 0.64, 1);
+
+  --hln-ui-scrollbar-size: 10px;
+  --hln-ui-scrollbar-thumb: color-mix(in srgb, var(--hln-ui-accent) 48%, transparent);
+  --hln-ui-scrollbar-thumb-hover: color-mix(in srgb, var(--hln-ui-accent) 72%, transparent);
+  --hln-ui-resize-hit-size: 14px;
+}
+
+[data-hln-ui-root],
+[data-hln-ui-root] * {
+  box-sizing: border-box;
+}
+
+[data-hln-ui-root] {
+  min-width: 0;
+  min-height: 0;
+  color: var(--hln-ui-text);
+  background: var(--hln-ui-bg-image), var(--hln-ui-bg-0);
+  font-family: var(--hln-ui-font-body);
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: 0;
+  text-rendering: optimizeLegibility;
+}
+
+[data-hln-ui-root] :where(button, input, textarea, select, a, [tabindex]):focus-visible {
+  outline: none;
+  box-shadow: var(--hln-ui-focus-ring);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-hln-ui-root] *,
+  [data-hln-ui-root] *::before,
+  [data-hln-ui-root] *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

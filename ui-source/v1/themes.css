@@ -1,0 +1,236 @@
+/* Canonical ProjectHLN themes. Each block changes semantic tokens only;
+   component geometry remains owned by the shared component layer. */
+
+:root[data-hln-theme="flat-design"],
+[data-hln-theme="flat-design"],
+[data-theme="flat-design"] {
+  --hln-ui-bg-0: #f0f4f2;
+  --hln-ui-bg-1: #ffffff;
+  --hln-ui-bg-2: #e2e8e5;
+  --hln-ui-glass: #ffffff;
+  --hln-ui-panel-bg: var(--hln-ui-glass);
+  --hln-ui-glass-strong: #ffffff;
+  --hln-ui-glass-soft: #e9f0ec;
+  --hln-ui-glass-specular: rgb(255 255 255 / 90%);
+  --hln-ui-line: #b9c5c0;
+  --hln-ui-line-strong: #0b6b62;
+  --hln-ui-text: #16201b;
+  --hln-ui-text-muted: #405149;
+  --hln-ui-text-faint: #5d6c64;
+  --hln-ui-accent: #0b6b62;
+  --hln-ui-accent-strong: #064e49;
+  --hln-ui-accent-cool: #2c5d84;
+  --hln-ui-amber: #8a5815;
+  --hln-ui-danger: #9d2f2f;
+  --hln-ui-success: #176b45;
+  --hln-ui-focus: #003f3c;
+  --hln-ui-radius-xs: 2px;
+  --hln-ui-radius-sm: 4px;
+  --hln-ui-radius-md: 6px;
+  --hln-ui-blur: 0px;
+  --hln-ui-shadow: 0 8px 22px rgb(18 38 28 / 12%);
+  --hln-ui-shadow-soft: 0 2px 8px rgb(18 38 28 / 10%);
+  --hln-ui-panel-highlight: inset 0 1px 0 rgb(255 255 255 / 82%);
+  --hln-ui-button-shadow: none;
+  --hln-ui-bg-image:
+    radial-gradient(circle at 12px 12px, color-mix(in srgb, #0b6b62 14%, transparent) 1.5px, transparent 1.5px),
+    linear-gradient(135deg, #ffffff 0%, #f0f4f2 60%, #e2e8e5 100%);
+  --hln-ui-grid-line: color-mix(in srgb, #7a8d84 22%, transparent);
+  color-scheme: light;
+}
+
+:root[data-hln-theme="aurora"],
+[data-hln-theme="aurora"],
+[data-theme="aurora"] {
+  --hln-ui-bg-0: #0b1022;
+  --hln-ui-bg-1: #141b35;
+  --hln-ui-bg-2: #1c264a;
+  --hln-ui-glass: rgb(20 27 53 / 94%);
+  --hln-ui-panel-bg: var(--hln-ui-glass);
+  --hln-ui-glass-strong: #1a2345;
+  --hln-ui-glass-soft: rgb(28 38 74 / 85%);
+  --hln-ui-glass-specular: rgb(225 238 255 / 22%);
+  --hln-ui-line: #3d4c78;
+  --hln-ui-line-strong: #a995ff;
+  --hln-ui-text: #f6f8ff;
+  --hln-ui-text-muted: #c2cdfa;
+  --hln-ui-text-faint: #96a5d8;
+  --hln-ui-accent: #65ebd8;
+  --hln-ui-accent-strong: #cbfdf7;
+  --hln-ui-accent-cool: #afc7ff;
+  --hln-ui-amber: #f5c875;
+  --hln-ui-danger: #ffa1ab;
+  --hln-ui-success: #a3ebd0;
+  --hln-ui-focus: #eceeff;
+  --hln-ui-radius-xs: 2px;
+  --hln-ui-radius-sm: 5px;
+  --hln-ui-radius-md: 8px;
+  --hln-ui-blur: 10px;
+  --hln-ui-shadow: 0 22px 52px rgb(2 4 20 / 65%);
+  --hln-ui-shadow-soft: 0 8px 26px rgb(2 4 20 / 40%);
+  --hln-ui-panel-highlight: inset 0 1px 0 rgb(225 238 255 / 22%), inset 0 0 0 1px rgb(101 235 216 / 12%);
+  --hln-ui-button-shadow: 0 4px 16px rgb(105 90 210 / 25%);
+  --hln-ui-bg-image:
+    radial-gradient(ellipse at 12% 18%, rgb(101 235 216 / 18%), transparent 36%),
+    radial-gradient(ellipse at 88% 82%, rgb(169 149 255 / 18%), transparent 42%),
+    radial-gradient(circle at 50% 50%, rgb(55 105 255 / 14%), transparent 55%),
+    linear-gradient(180deg, #121a3a 0%, #0b1022 70%, #050814 100%);
+  --hln-ui-grid-line: color-mix(in srgb, #6571a7 24%, transparent);
+  color-scheme: dark;
+}
+
+:root[data-hln-theme="liquid-glass"],
+[data-hln-theme="liquid-glass"],
+[data-theme="liquid-glass"] {
+  --hln-ui-bg-0: #07101a;
+  --hln-ui-bg-1: #0e2032;
+  --hln-ui-bg-2: #152d45;
+  --hln-ui-glass: rgb(14 32 50 / 72%);
+  --hln-ui-panel-bg: var(--hln-ui-glass);
+  --hln-ui-glass-strong: rgb(20 44 68 / 90%);
+  --hln-ui-glass-soft: rgb(20 44 68 / 48%);
+  --hln-ui-glass-specular: rgb(255 255 255 / 45%);
+  --hln-ui-line: #2e5374;
+  --hln-ui-line-strong: #5cd4ff;
+  --hln-ui-text: #f5faff;
+  --hln-ui-text-muted: #b8d6ed;
+  --hln-ui-text-faint: #88b0d0;
+  --hln-ui-accent: #5cd4ff;
+  --hln-ui-accent-strong: #dcf5ff;
+  --hln-ui-accent-cool: #b2c2ff;
+  --hln-ui-amber: #facb75;
+  --hln-ui-danger: #ff93a0;
+  --hln-ui-success: #7cedc0;
+  --hln-ui-focus: #e5f8ff;
+  --hln-ui-radius-xs: 3px;
+  --hln-ui-radius-sm: 6px;
+  --hln-ui-radius-md: 8px;
+  --hln-ui-blur: 24px;
+  --hln-ui-shadow: 0 24px 54px rgb(0 6 18 / 70%);
+  --hln-ui-shadow-soft: 0 8px 26px rgb(0 6 18 / 44%);
+  --hln-ui-panel-highlight: inset 0 1.5px 1px rgb(255 255 255 / 42%), inset 0 0 0 1px rgb(92 212 255 / 22%);
+  --hln-ui-button-shadow: 0 4px 20px rgb(0 32 70 / 40%);
+  --hln-ui-bg-image:
+    radial-gradient(circle at 14% 14%, rgb(92 212 255 / 20%), transparent 42%),
+    radial-gradient(circle at 86% 86%, rgb(160 185 255 / 16%), transparent 44%),
+    linear-gradient(180deg, #0d1e30 0%, #07101a 75%, #03060c 100%);
+  --hln-ui-grid-line: color-mix(in srgb, #406d90 28%, transparent);
+  color-scheme: dark;
+}
+
+:root[data-hln-theme="organic-biophilic"],
+[data-hln-theme="organic-biophilic"],
+[data-theme="organic-biophilic"] {
+  --hln-ui-bg-0: #eef7ef;
+  --hln-ui-bg-1: #f7fcf7;
+  --hln-ui-bg-2: #dfeee0;
+  --hln-ui-glass: #f9fdf9;
+  --hln-ui-panel-bg: var(--hln-ui-glass);
+  --hln-ui-glass-strong: #ffffff;
+  --hln-ui-glass-soft: #eaf4ea;
+  --hln-ui-glass-specular: rgb(255 255 255 / 86%);
+  --hln-ui-line: #a9c1ad;
+  --hln-ui-line-strong: #19754d;
+  --hln-ui-text: #193322;
+  --hln-ui-text-muted: #45634d;
+  --hln-ui-text-faint: #5f7765;
+  --hln-ui-accent: #19754d;
+  --hln-ui-accent-strong: #0d5032;
+  --hln-ui-accent-cool: #2d6e74;
+  --hln-ui-amber: #8b601d;
+  --hln-ui-danger: #a33a32;
+  --hln-ui-success: #176b45;
+  --hln-ui-focus: #0d5032;
+  --hln-ui-radius-xs: 3px;
+  --hln-ui-radius-sm: 6px;
+  --hln-ui-radius-md: 8px;
+  --hln-ui-blur: 0px;
+  --hln-ui-shadow: 0 10px 24px rgb(24 67 36 / 13%);
+  --hln-ui-shadow-soft: 0 3px 10px rgb(24 67 36 / 10%);
+  --hln-ui-panel-highlight: inset 0 1px 0 rgb(255 255 255 / 86%);
+  --hln-ui-button-shadow: none;
+  --hln-ui-bg-image:
+    radial-gradient(circle at 14px 14px, color-mix(in srgb, #19754d 12%, transparent) 1.5px, transparent 1.5px),
+    linear-gradient(120deg, #f7fcf7 0%, #eef7ef 52%, #dfeee0 100%);
+  --hln-ui-grid-line: color-mix(in srgb, #709379 24%, transparent);
+  color-scheme: light;
+}
+
+:root[data-hln-theme="arknights"],
+[data-hln-theme="arknights"],
+[data-theme="arknights"] {
+  --hln-ui-bg-0: #111417;
+  --hln-ui-bg-1: #1a1f23;
+  --hln-ui-bg-2: #242c31;
+  --hln-ui-glass: #1b2024;
+  --hln-ui-panel-bg: var(--hln-ui-glass);
+  --hln-ui-glass-strong: #222a2e;
+  --hln-ui-glass-soft: #21292e;
+  --hln-ui-glass-specular: rgb(255 255 255 / 10%);
+  --hln-ui-line: #4a565d;
+  --hln-ui-line-strong: #00e5ff;
+  --hln-ui-text: #f7f4ea;
+  --hln-ui-text-muted: #c8d3d3;
+  --hln-ui-text-faint: #a4b0b0;
+  --hln-ui-accent: #00e5ff;
+  --hln-ui-accent-strong: #b8f8ff;
+  --hln-ui-accent-cool: #8bb7e8;
+  --hln-ui-amber: #f5c742;
+  --hln-ui-danger: #ff5e52;
+  --hln-ui-success: #9de3bc;
+  --hln-ui-focus: #00e5ff;
+  --hln-ui-radius-xs: 1px;
+  --hln-ui-radius-sm: 3px;
+  --hln-ui-radius-md: 4px;
+  --hln-ui-blur: 0px;
+  --hln-ui-shadow: 4px 4px 0 rgb(0 0 0 / 58%);
+  --hln-ui-shadow-soft: 2px 2px 0 rgb(0 0 0 / 42%);
+  --hln-ui-panel-highlight: inset 0 0 0 1px rgb(0 229 255 / 22%);
+  --hln-ui-button-shadow: none;
+  --hln-ui-bg-image:
+    radial-gradient(circle at 10px 10px, rgb(0 229 255 / 16%) 1px, transparent 1px),
+    linear-gradient(90deg, transparent 0 39px, rgb(0 229 255 / 6%) 39px 40px, transparent 40px 80px),
+    linear-gradient(0deg, transparent 0 39px, rgb(0 229 255 / 6%) 39px 40px, transparent 40px 80px),
+    linear-gradient(180deg, #181d21 0%, #111417 100%);
+  --hln-ui-grid-line: color-mix(in srgb, #4e5a61 36%, transparent);
+  color-scheme: dark;
+}
+
+:root[data-hln-theme="endfield"],
+[data-hln-theme="endfield"],
+[data-theme="endfield"] {
+  --hln-ui-bg-0: #0c1318;
+  --hln-ui-bg-1: #152127;
+  --hln-ui-bg-2: #1e2e36;
+  --hln-ui-glass: #152127;
+  --hln-ui-panel-bg: var(--hln-ui-glass);
+  --hln-ui-glass-strong: #1b2b32;
+  --hln-ui-glass-soft: #1d2c33;
+  --hln-ui-glass-specular: rgb(255 255 255 / 12%);
+  --hln-ui-line: #4c5e66;
+  --hln-ui-line-strong: #f5d000;
+  --hln-ui-text: #f8fbf9;
+  --hln-ui-text-muted: #c2d2d4;
+  --hln-ui-text-faint: #a0b2b5;
+  --hln-ui-accent: #f5d000;
+  --hln-ui-accent-strong: #fff176;
+  --hln-ui-accent-cool: #54e6df;
+  --hln-ui-amber: #f5d000;
+  --hln-ui-danger: #ff5252;
+  --hln-ui-success: #69f0ae;
+  --hln-ui-focus: #f5d000;
+  --hln-ui-radius-xs: 1px;
+  --hln-ui-radius-sm: 3px;
+  --hln-ui-radius-md: 5px;
+  --hln-ui-blur: 0px;
+  --hln-ui-shadow: 4px 4px 0 rgb(0 0 0 / 56%);
+  --hln-ui-shadow-soft: 2px 2px 0 rgb(0 0 0 / 40%);
+  --hln-ui-panel-highlight: inset 0 0 0 1px rgb(245 208 0 / 20%);
+  --hln-ui-button-shadow: none;
+  --hln-ui-bg-image:
+    linear-gradient(135deg, transparent 0 48%, rgb(245 208 0 / 9%) 48.5% 49.5%, transparent 50% 100%),
+    linear-gradient(45deg, transparent 0 48%, rgb(84 230 223 / 7%) 48.5% 49.5%, transparent 50% 100%),
+    linear-gradient(180deg, #152228 0%, #0c1318 100%);
+  --hln-ui-grid-line: color-mix(in srgb, #51636a 32%, transparent);
+  color-scheme: dark;
+}

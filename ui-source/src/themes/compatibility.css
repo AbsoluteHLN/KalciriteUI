@@ -1,0 +1,129 @@
+/* Legacy theme ids are isolated here so new UI only imports the six
+   canonical languages. These aliases retain enough semantic contrast for
+   older hosts while sharing the current component geometry. */
+
+:root[data-hln-theme="flat-glass"],
+[data-hln-theme="flat-glass"],
+[data-theme="flat-glass"] {
+  --hln-ui-bg-0: #f4f6f4;
+  --hln-ui-bg-1: #ffffff;
+  --hln-ui-bg-2: #e8ecea;
+  --hln-ui-glass: #ffffff;
+  --hln-ui-glass-strong: #ffffff;
+  --hln-ui-glass-soft: #eef2ef;
+  --hln-ui-line: #b9c5c0;
+  --hln-ui-line-strong: #0b6b62;
+  --hln-ui-text: #16201b;
+  --hln-ui-text-muted: #405149;
+  --hln-ui-text-faint: #5d6c64;
+  --hln-ui-accent: #0b6b62;
+  --hln-ui-accent-strong: #064e49;
+  --hln-ui-focus: #003f3c;
+  --hln-ui-bg-image: linear-gradient(135deg, #ffffff 0%, #f4f6f4 100%);
+  color-scheme: light;
+}
+
+:root[data-hln-theme="neumorphism"],
+[data-hln-theme="neumorphism"],
+[data-theme="neumorphism"] {
+  --hln-ui-bg-0: #dfe8e8;
+  --hln-ui-bg-1: #edf4f3;
+  --hln-ui-bg-2: #d0dcdb;
+  --hln-ui-glass: #edf4f3;
+  --hln-ui-glass-strong: #f5fbfa;
+  --hln-ui-glass-soft: #e4edeb;
+  --hln-ui-line: #a8b8b5;
+  --hln-ui-line-strong: #216b68;
+  --hln-ui-text: #203033;
+  --hln-ui-text-muted: #4a5b5e;
+  --hln-ui-text-faint: #5d6d6e;
+  --hln-ui-accent: #216b68;
+  --hln-ui-accent-strong: #15504e;
+  --hln-ui-focus: #15504e;
+  --hln-ui-bg-image: linear-gradient(135deg, #f5fbfa 0%, #dfe8e8 100%);
+  color-scheme: light;
+}
+
+:root[data-hln-theme="modern-dark"],
+[data-hln-theme="modern-dark"],
+[data-theme="modern-dark"] {
+  --hln-ui-bg-0: #0b0f14;
+  --hln-ui-bg-1: #121a22;
+  --hln-ui-bg-2: #1b2732;
+  --hln-ui-glass: #121a22;
+  --hln-ui-glass-strong: #1b2a36;
+  --hln-ui-glass-soft: #1b2732;
+  --hln-ui-line: #42525d;
+  --hln-ui-line-strong: #6de1cf;
+  --hln-ui-text: #f1f7f5;
+  --hln-ui-text-muted: #b8c9c6;
+  --hln-ui-text-faint: #91a6a2;
+  --hln-ui-accent: #6de1cf;
+  --hln-ui-accent-strong: #b2fff2;
+  --hln-ui-focus: #d6fff8;
+  --hln-ui-bg-image: linear-gradient(180deg, #101820 0%, #0b0f14 100%);
+  color-scheme: dark;
+}
+
+:root[data-hln-theme="swiss"],
+[data-hln-theme="swiss"],
+[data-theme="swiss"] {
+  --hln-ui-bg-0: #f4f1ea;
+  --hln-ui-bg-1: #fffdf8;
+  --hln-ui-bg-2: #e7e1d8;
+  --hln-ui-glass: #fffdf8;
+  --hln-ui-glass-strong: #ffffff;
+  --hln-ui-glass-soft: #f0ebe3;
+  --hln-ui-line: #b6afa5;
+  --hln-ui-line-strong: #1c4f91;
+  --hln-ui-text: #171a1d;
+  --hln-ui-text-muted: #4e555b;
+  --hln-ui-text-faint: #626a70;
+  --hln-ui-accent: #1c4f91;
+  --hln-ui-accent-strong: #10366a;
+  --hln-ui-focus: #10366a;
+  --hln-ui-bg-image: linear-gradient(135deg, #fffdf8 0%, #f4f1ea 100%);
+  color-scheme: light;
+}
+
+:root[data-hln-theme="oled"],
+[data-hln-theme="oled"],
+[data-theme="oled"] {
+  --hln-ui-bg-0: #000000;
+  --hln-ui-bg-1: #050505;
+  --hln-ui-bg-2: #0d0d0d;
+  --hln-ui-glass: #050505;
+  --hln-ui-glass-strong: #0d0d0d;
+  --hln-ui-glass-soft: #080808;
+  --hln-ui-line: #303030;
+  --hln-ui-line-strong: #35e6ae;
+  --hln-ui-text: #f4fff9;
+  --hln-ui-text-muted: #b8cec4;
+  --hln-ui-text-faint: #8da99d;
+  --hln-ui-accent: #35e6ae;
+  --hln-ui-accent-strong: #a6ffdb;
+  --hln-ui-focus: #dbfff1;
+  --hln-ui-bg-image: #000000;
+  color-scheme: dark;
+}
+
+:root[data-hln-theme="ai-native"],
+[data-hln-theme="ai-native"],
+[data-theme="ai-native"] {
+  --hln-ui-bg-0: #0d0b1a;
+  --hln-ui-bg-1: #17132b;
+  --hln-ui-bg-2: #241d42;
+  --hln-ui-glass: #17132b;
+  --hln-ui-glass-strong: #2a2050;
+  --hln-ui-glass-soft: #241d42;
+  --hln-ui-line: #554887;
+  --hln-ui-line-strong: #9f8bff;
+  --hln-ui-text: #f7f3ff;
+  --hln-ui-text-muted: #c7bee5;
+  --hln-ui-text-faint: #a49abb;
+  --hln-ui-accent: #7de8ff;
+  --hln-ui-accent-strong: #d1f9ff;
+  --hln-ui-focus: #e4ddff;
+  --hln-ui-bg-image: linear-gradient(135deg, #17112e 0%, #0d0b1a 100%);
+  color-scheme: dark;
+}

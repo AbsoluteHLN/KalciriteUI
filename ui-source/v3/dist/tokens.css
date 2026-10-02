@@ -1,0 +1,193 @@
+/* ProjectHLN UI System v3.0 - Design Tokens (Euclidean Vector Flat Edition)
+   Mathematical Geometry & Vectorized Flat Graphic Design System.
+   Core principles:
+   - Mathematical proportions: Golden Ratio (phi = 1.618), Silver Ratio (sqrt(2) = 1.414), Isometric (sqrt(3) = 1.732)
+   - Vector Flat Surface Discipline: Zero glass blur (--hln-ui-blur: 0px), crisp 1px structural hairlines,
+     and clean single-plane vector geometry without muddy glow or duplicate offset boxes.
+   - Euclidean Coordinate & Bezier Vertex primitives (--hln-v3-vertex-size, --hln-v3-axis-tick).
+   Source of truth: ui-source/v3/src. Generated copy: ui-source/v3/dist. */
+
+:root,
+[data-hln-ui-root] {
+  /* ==========================================================================
+     1. Mathematical Constants & Geometric Ratios
+     ========================================================================== */
+  --hln-v3-phi: 1.6180339887;
+  --hln-v3-inv-phi: 0.6180339887;
+  --hln-v3-sqrt2: 1.4142135623;
+  --hln-v3-sqrt3: 1.7320508075;
+  --hln-v3-pi: 3.1415926535;
+  --hln-v3-angle-iso: 30deg;
+  --hln-v3-angle-chamfer: 45deg;
+  --hln-v3-angle-hex: 60deg;
+
+  /* ==========================================================================
+     2. Curated Chinese (Hanzi / CJK) & Paired Mathematical Typography Stacks
+     ========================================================================== */
+  --hln-ui-font-cjk-hei: "HarmonyOS Sans SC", "MiSans", "PingFang SC", "Source Han Sans SC", "Noto Sans SC", "DengXian", "等线", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", sans-serif;
+  --hln-ui-font-cjk-display: "Alibaba PuHuiTi 3.0", "HarmonyOS Sans SC", "MiSans", "Source Han Sans SC", "Noto Sans SC", "PingFang SC", "Microsoft YaHei UI", "Microsoft YaHei", sans-serif;
+  --hln-ui-font-cjk-song: "Source Han Serif SC", "Noto Serif SC", "Songti SC", "方正小标宋简体", "FZXiaoBiaoSong-B05S", "STZhongsong", "华文中宋", "STSong", "华文宋体", serif;
+  --hln-ui-font-cjk-kai: "LXGW WenKai", "霞鹜文楷", "STKaiti", "华文楷体", "Kaiti SC", "KaiTi", "楷体", "STFangsong", "华文仿宋", "FangSong", "仿宋", "Noto Serif SC", serif;
+  --hln-ui-font-cjk-mono: "Sarasa Mono SC", "更纱黑体 Mono SC", "LXGW WenKai Mono", "HarmonyOS Sans SC", "Source Han Sans SC", "Noto Sans SC", "PingFang SC", "Microsoft YaHei UI", monospace;
+  --hln-ui-font-cjk-fangsong: "STFangsong", "华文仿宋", "FangSong_GB2312", "FangSong", "仿宋", "LXGW WenKai", "Noto Serif SC", serif;
+  --hln-ui-font-cjk-active: var(--hln-ui-font-cjk-override, var(--hln-ui-font-cjk-auto, var(--hln-ui-font-cjk-hei)));
+  --hln-ui-cjk-tracking: 0.015em;
+  --hln-ui-cjk-heading-tracking: 0.02em;
+  --hln-ui-cjk-heading-weight: 600;
+
+  --hln-ui-font-display: "DIN Alternate", "Bahnschrift", "Futura", var(--hln-ui-font-cjk-override, var(--hln-ui-font-cjk-display)), sans-serif;
+  --hln-ui-font-title: "Bahnschrift", "DIN Alternate", var(--hln-ui-font-cjk-override, var(--hln-ui-font-cjk-display)), sans-serif;
+  --hln-ui-font-body: "Inter", -apple-system, BlinkMacSystemFont, var(--hln-ui-font-cjk-override, var(--hln-ui-font-cjk-hei)), sans-serif;
+  --hln-ui-font-form: var(--hln-ui-font-body);
+  --hln-ui-font-berlin: "Berlin Sans FB", "Bahnschrift", var(--hln-ui-font-cjk-override, var(--hln-ui-font-cjk-kai)), serif;
+  --hln-ui-font-technical: "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, var(--hln-ui-font-cjk-override, var(--hln-ui-font-cjk-mono)), monospace;
+  --hln-ui-font-vector: "DIN Alternate", "Bahnschrift", "JetBrains Mono", var(--hln-ui-font-cjk-override, var(--hln-ui-font-cjk-mono)), monospace;
+  --hln-ui-font-neo-grotesque: "Inter", "Helvetica Neue", "Arial", var(--hln-ui-font-cjk-override, var(--hln-ui-font-cjk-hei)), sans-serif;
+  --hln-ui-font-cyber-mono: "JetBrains Mono", "Fira Code", "Cascadia Code", var(--hln-ui-font-cjk-override, var(--hln-ui-font-cjk-mono)), monospace;
+  --hln-ui-font-condensed: "Bahnschrift SemiCondensed", "Arial Narrow", "Impact", var(--hln-ui-font-cjk-override, var(--hln-ui-font-cjk-display)), sans-serif;
+  --hln-ui-font-editorial: "Aptos Display", "Book Antiqua", "Georgia", var(--hln-ui-font-cjk-override, var(--hln-ui-font-cjk-song)), serif;
+  --hln-ui-font-label: "JetBrains Mono", "Cascadia Mono", var(--hln-ui-font-cjk-override, var(--hln-ui-font-cjk-hei)), monospace;
+  --hln-ui-font-geometric: "Futura", "Century Gothic", "Bahnschrift", "Inter", var(--hln-ui-font-cjk-override, var(--hln-ui-font-cjk-hei)), sans-serif;
+
+  /* ==========================================================================
+     3. Default Deterministic Palette (Euclidean Cyan Dark Vector Flat)
+     ========================================================================== */
+  --hln-ui-bg-0: #0b0f14;
+  --hln-ui-bg-1: #121820;
+  --hln-ui-bg-2: #19222d;
+  --hln-ui-glass: rgb(18 24 32 / 72%);
+  --hln-ui-glass-strong: rgb(22 30 40 / 80%);
+  --hln-ui-glass-soft: rgb(18 24 32 / 64%);
+  --hln-ui-glass-specular: rgb(255 255 255 / 8%);
+  --hln-ui-line: #283646;
+  --hln-ui-line-strong: #00d4ff;
+  --hln-ui-text: #f0f5fa;
+  --hln-ui-text-muted: #8ca0b5;
+  --hln-ui-text-faint: #586c82;
+  --hln-ui-accent: #00d4ff;
+  --hln-ui-accent-strong: #7be8ff;
+  --hln-ui-accent-cool: #3b82f6;
+  --hln-ui-accent-secondary: #ff5533;
+  --hln-ui-amber: #f5c400;
+  --hln-ui-danger: #ff3355;
+  --hln-ui-success: #00d68f;
+  --hln-ui-focus: #00d4ff;
+
+  /* ==========================================================================
+     4. Vector Flat Surface & Geometric Primitives (Zero Blur, Minimalist Plane)
+     ========================================================================== */
+  --hln-ui-radius-xs: 0px;
+  --hln-ui-radius-sm: 0px;
+  --hln-ui-radius-md: 0px;
+  --hln-ui-radius-pill: 9999px;
+  --hln-ui-border: 1px;
+  --hln-ui-blur: 0px;
+  --hln-ui-vector-offset: 2px;
+  --hln-ui-vector-shadow-color: color-mix(in srgb, var(--hln-ui-accent) 18%, transparent);
+  --hln-ui-shadow: 0 1px 0 color-mix(in srgb, var(--hln-ui-line) 70%, transparent);
+  --hln-ui-shadow-soft: none;
+  --hln-ui-panel-highlight: inset 0 1px 0 color-mix(in srgb, var(--hln-ui-text) 5%, transparent);
+  --hln-ui-button-shadow: none;
+  --hln-ui-shell-border: 1px solid var(--hln-ui-line);
+  --hln-ui-panel-bg: color-mix(in srgb, var(--hln-ui-bg-1) 72%, transparent);
+  --hln-ui-button-border: 1px solid var(--hln-ui-line);
+  --hln-ui-bg-image:
+    linear-gradient(90deg, color-mix(in srgb, var(--hln-ui-line) 28%, transparent) 1px, transparent 1px) 0 0 / 32px 32px,
+    linear-gradient(0deg, color-mix(in srgb, var(--hln-ui-line) 28%, transparent) 1px, transparent 1px) 0 0 / 32px 32px;
+  --hln-ui-grid-line: color-mix(in srgb, var(--hln-ui-accent) 18%, transparent);
+
+  /* ==========================================================================
+     5. Euclidean 4px / 8px Modular Grid Scale
+     ========================================================================== */
+  --hln-ui-space-1: 4px;
+  --hln-ui-space-2: 8px;
+  --hln-ui-space-3: 12px;
+  --hln-ui-space-4: 16px;
+  --hln-ui-space-5: 20px;
+  --hln-ui-space-6: 24px;
+  --hln-ui-space-7: 32px;
+  --hln-ui-space-8: 40px;
+
+  /* ==========================================================================
+     6. Layout & Ergonomic Hit Dimensions
+     ========================================================================== */
+  --hln-ui-topbar-height: 52px;
+  --hln-ui-drawer-width: min(340px, calc(100vw - 24px));
+  --hln-ui-panel-gap: 12px;
+  --hln-ui-content-gutter: clamp(16px, 2.5vw, 32px);
+  --hln-ui-control-height: 38px;
+  --hln-ui-field-height: 38px;
+  --hln-ui-focus-offset: 2px;
+  --hln-ui-focus-ring: 0 0 0 2px var(--hln-ui-bg-0), 0 0 0 4px var(--hln-ui-focus);
+
+  /* ==========================================================================
+     7. Deterministic Mathematical Kinetics (Quintic & Physics Spring Curves)
+     ========================================================================== */
+  --hln-ui-duration-fast: 160ms;
+  --hln-ui-duration-standard: 280ms;
+  --hln-ui-duration-slow: 420ms;
+  --hln-ui-motion-stagger: 28ms;
+  --hln-ui-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --hln-ui-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --hln-ui-ease-spring: linear(0, 0.009, 0.035 2.1%, 0.141, 0.281 6.7%, 0.723 12.9%, 0.938 16.7%, 1.017, 1.077, 1.121, 1.149 24.3%, 1.159, 1.163, 1.161, 1.154 29.9%, 1.129 32.8%, 1.051 39.6%, 1.017 43.1%, 0.991, 0.977 51%, 0.974 53.8%, 0.975 57.1%, 0.997 69.8%, 1.003 76.9%, 1);
+
+  /* ==========================================================================
+     8. Precision Vector Micro Scrollbar & Bezier Vertex Tokens
+     ========================================================================== */
+  --hln-ui-scrollbar-size: 6px;
+  --hln-ui-scrollbar-thumb: var(--hln-ui-line-strong);
+  --hln-ui-scrollbar-thumb-hover: var(--hln-ui-accent-strong);
+  --hln-ui-resize-hit-size: 14px;
+
+  /* Vector Graphic Primitives */
+  --hln-v3-vertex-size: 5px;
+  --hln-v3-chamfer-size: 8px;
+  --hln-v3-rule-strong: 1.5px solid var(--hln-ui-line-strong);
+  --hln-v3-rule-hairline: 1px solid var(--hln-ui-line);
+  --hln-v3-hatch-pattern: repeating-linear-gradient(
+    -45deg,
+    color-mix(in srgb, var(--hln-ui-accent) 24%, transparent) 0px,
+    color-mix(in srgb, var(--hln-ui-accent) 24%, transparent) 1px,
+    transparent 1px,
+    transparent 6px
+  );
+  --hln-ui-vector-hazard-stripe: var(--hln-v3-hatch-pattern);
+  --hln-ui-rule: color-mix(in srgb, var(--hln-ui-line-strong) 55%, var(--hln-ui-line));
+  --hln-ui-rule-soft: color-mix(in srgb, var(--hln-ui-line) 78%, transparent);
+  --hln-ui-title-size: 2rem;
+}
+
+[data-hln-ui-root],
+[data-hln-ui-root] * {
+  box-sizing: border-box;
+}
+
+[data-hln-ui-root] {
+  min-width: 0;
+  min-height: 0;
+  color: var(--hln-ui-text);
+  background: var(--hln-ui-bg-image), var(--hln-ui-bg-0);
+  font-family: var(--hln-ui-font-body);
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: 0;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+}
+
+[data-hln-ui-root] :where(button, input, textarea, select, a, [tabindex]):focus-visible {
+  outline: 2px solid var(--hln-ui-focus);
+  outline-offset: 2px;
+  box-shadow: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-hln-ui-root] *,
+  [data-hln-ui-root] *::before,
+  [data-hln-ui-root] *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
