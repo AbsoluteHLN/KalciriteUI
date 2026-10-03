@@ -1267,9 +1267,9 @@ function bindControls() {
   })
 
   // v3.8 Cosmic Viewport Lens & Astrophysics Telemetry interactivity
+  // v3.8 Deep Space Astrometric Observatory & Gravitational Deck interactivity
   let v38CollimatorLocked = true
   const btnLock = document.querySelector("#v38-btn-lock")
-  const collimator = document.querySelector(".hln-v38-collimator")
   const lockStatus = document.querySelector("#v38-lock-status")
 
   btnLock?.addEventListener("click", () => {
@@ -1277,12 +1277,11 @@ function bindControls() {
     btnLock.dataset.active = String(v38CollimatorLocked)
     btnLock.setAttribute("aria-pressed", String(v38CollimatorLocked))
     if (lockStatus) {
-      lockStatus.textContent = v38CollimatorLocked ? "LOCKED" : "SEARCHING..."
+      lockStatus.textContent = v38CollimatorLocked ? "准直锁定 · LOCKED" : "搜索追踪 · SEARCH"
     }
-    collimator?.classList.toggle("is-locked", v38CollimatorLocked)
-    const hud = document.querySelector(".hln-v38-hud")
-    if (hud && v38CollimatorLocked) {
-      playMotion(hud, "panel", "enter", "reticle-lock")
+    const layout = document.querySelector("#demo-layout-v38")
+    if (layout && v38CollimatorLocked) {
+      playMotion(layout, "panel", "enter", "reticle-lock")
     }
   })
 
@@ -1302,26 +1301,35 @@ function bindControls() {
     // Deflection angle \hat{\alpha} = 4GM / c^2b
     const alpha = ((mass * 3.42) / impact).toFixed(2)
     const thetaE = (Math.sqrt(mass) * 0.789).toFixed(3)
-    const rE = Math.round(28 + Math.sqrt(mass) * 12.5)
+    const rE = Math.round(24 + Math.sqrt(mass) * 11.5)
 
     const massReadout = document.querySelector("#v38-mass-readout")
     const impactReadout = document.querySelector("#v38-impact-readout")
     const einsteinReadout = document.querySelector("#v38-einstein-readout")
+    const einsteinBadge = document.querySelector("#v38-einstein-badge")
     const deflReadout = document.querySelector("#v38-deflection-readout")
+    const lensingSat = document.querySelector("#v38-lensing-sat")
+    const railSat = document.querySelector("#linear-rail-v38-sat")
 
-    if (massReadout) massReadout.textContent = `${mass} M⊙ (φ³ M⊙)`
-    if (impactReadout) impactReadout.textContent = `${impact} kpc (4GM/c²α)`
+    if (massReadout) massReadout.textContent = `${mass} M⊙`
+    if (impactReadout) impactReadout.textContent = `${impact} kpc`
     if (einsteinReadout) einsteinReadout.textContent = `θ_E = ${thetaE}″ (爱因斯坦环)`
+    if (einsteinBadge) einsteinBadge.textContent = `θ_E = ${thetaE}″`
     if (deflReadout) deflReadout.textContent = `α̂ = 4GM / c²b = +${alpha}″`
+    if (lensingSat) {
+      const satVal = Math.min(100, Math.round(Number(alpha) * 24.8))
+      lensingSat.textContent = `${satVal}.0%`
+      railSat?.style.setProperty("--rail-fill", `${satVal}%`)
+    }
 
     if (einsteinRing) einsteinRing.setAttribute("r", String(rE))
 
     // Bend geodesics closer to singularity as mass increases / impact decreases
     const bendShift = Math.round((mass / impact) * 16)
-    const topY = Math.min(94, 84 + bendShift)
-    const botY = Math.max(106, 116 - bendShift)
-    if (geoTop) geoTop.setAttribute("d", `M 24,52 C 100,52 128,${topY} 160,${topY} C 192,${topY} 220,52 296,52`)
-    if (geoBot) geoBot.setAttribute("d", `M 24,148 C 100,148 128,${botY} 160,${botY} C 192,${botY} 220,148 296,148`)
+    const topY = Math.min(88, 76 + bendShift)
+    const botY = Math.max(92, 104 - bendShift)
+    if (geoTop) geoTop.setAttribute("d", `M 20,44 C 95,44 135,${topY} 170,${topY} C 205,${topY} 245,44 320,44`)
+    if (geoBot) geoBot.setAttribute("d", `M 20,136 C 95,136 135,${botY} 170,${botY} C 205,${botY} 245,136 320,136`)
   }
 
   sliderMass?.addEventListener("input", updateV38Lensing)
@@ -1334,15 +1342,6 @@ function bindControls() {
       document.querySelectorAll("[data-v38-lens-mode]").forEach((b) => {
         b.dataset.active = String(b === btn)
       })
-      const label = document.querySelector("#v38-lens-mode-label")
-      if (label) {
-        label.textContent =
-          mode === "geodesic"
-            ? "GEODESIC DEFLECTION"
-            : mode === "microlens"
-              ? "MICROLENSING CUSP"
-              : "EINSTEIN RING"
-      }
       if (einsteinRing) {
         if (mode === "einstein") {
           einsteinRing.style.strokeDasharray = "4 4"
@@ -1351,11 +1350,41 @@ function bindControls() {
           einsteinRing.style.strokeDasharray = "1 5"
           einsteinRing.style.opacity = "0.45"
         } else if (mode === "microlens") {
-          einsteinRing.style.strokeDasharray = "12 6"
+          einsteinRing.style.strokeDasharray = "10 5"
           einsteinRing.style.opacity = "0.85"
         }
       }
     })
+  })
+
+  // Survey Spectral Band Selector
+  const surveyBands = {
+    radio: { label: "射电 Radio 21cm", baseline: "B = 12,800 km" },
+    nir: { label: "近红外 NIR 1.2μm", baseline: "B = 8,400 km" },
+    optical: { label: "可见光 V 550nm", baseline: "B = 4,200 km" },
+    xray: { label: "高能 X-Ray 0.1nm", baseline: "B = 18,600 km" },
+  }
+  document.querySelectorAll("[data-v38-band]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const bandId = btn.dataset.v38Band || "nir"
+      document.querySelectorAll("[data-v38-band]").forEach((b) => {
+        b.dataset.active = String(b === btn)
+      })
+      const info = surveyBands[bandId] || surveyBands.nir
+      const bandLabel = document.querySelector("#v38-band-label")
+      const chipBaseline = document.querySelector("#v38-chip-baseline")
+      if (bandLabel) bandLabel.textContent = info.label
+      if (chipBaseline) chipBaseline.textContent = info.baseline
+    })
+  })
+
+  // FOV Scrubber
+  const sliderFov = document.querySelector("#v38-slider-fov")
+  const fovReadout = document.querySelector("#v38-fov-readout")
+  sliderFov?.addEventListener("input", () => {
+    const fov = Number(sliderFov.value)
+    const fovH = (fov * 0.625).toFixed(1)
+    if (fovReadout) fovReadout.textContent = `${fov}.0° × ${fovH}°`
   })
 
   // Wavelength Scrubber & Doppler Shift
@@ -1378,7 +1407,7 @@ function bindControls() {
     if (lambdaReadout) lambdaReadout.textContent = `λ = ${lambda}.0 nm (${band})`
     if (dopplerReadout) {
       const sign = Number(deltaV) >= 0 ? "+" : ""
-      dopplerReadout.textContent = `Δv = ${sign}${deltaV} km/s (z = ${z})`
+      dopplerReadout.textContent = `${sign}${deltaV} km/s (z=${z})`
     }
     if (kpiZ) {
       const sign = Number(z) >= 0 ? "+" : ""
@@ -1388,13 +1417,13 @@ function bindControls() {
 
   // Morgan-Keenan Spectral Classification
   const stellarClasses = {
-    O: { temp: "38,000 K", label: "O5V (HOT BLUE GIANT)", flux: "1.280×10³¹", mag: "−32.40", curveY: 6, curveX: 45 },
-    B: { temp: "18,500 K", label: "B2V (BLUE-WHITE DWARF)", flux: "8.420×10²⁸", mag: "−29.80", curveY: 10, curveX: 75 },
-    A: { temp: "9,800 K", label: "A0V (VEGA STANDARD)", flux: "2.140×10²⁷", mag: "−28.10", curveY: 14, curveX: 110 },
-    F: { temp: "7,200 K", label: "F5V (YELLOW-WHITE)", flux: "9.540×10²⁶", mag: "−27.20", curveY: 18, curveX: 140 },
-    G: { temp: "5,778 K", label: "G2V (SOL-TYPE DWARF)", flux: "3.828×10²⁶", mag: "−26.74", curveY: 20, curveX: 165 },
-    K: { temp: "4,400 K", label: "K2V (ORANGE DWARF)", flux: "1.120×10²⁶", mag: "−25.10", curveY: 26, curveX: 215 },
-    M: { temp: "3,200 K", label: "M4V (COOL RED DWARF)", flux: "2.400×10²⁴", mag: "−22.80", curveY: 34, curveX: 275 },
+    O: { temp: "38,000 K", label: "O5V (HOT BLUE GIANT)", flux: "1.280×10³¹ W", curveY: 4, curveX: 45 },
+    B: { temp: "18,500 K", label: "B2V (BLUE-WHITE DWARF)", flux: "8.420×10²⁸ W", curveY: 8, curveX: 75 },
+    A: { temp: "9,800 K", label: "A0V (VEGA STANDARD)", flux: "2.140×10²⁷ W", curveY: 12, curveX: 110 },
+    F: { temp: "7,200 K", label: "F5V (YELLOW-WHITE)", flux: "9.540×10²⁶ W", curveY: 15, curveX: 140 },
+    G: { temp: "5,778 K", label: "G2V (SOL-TYPE DWARF)", flux: "3.828×10²⁶ W", curveY: 18, curveX: 165 },
+    K: { temp: "4,400 K", label: "K2V (ORANGE DWARF)", flux: "1.120×10²⁶ W", curveY: 24, curveX: 215 },
+    M: { temp: "3,200 K", label: "M4V (COOL RED DWARF)", flux: "2.400×10²⁴ W", curveY: 30, curveX: 275 },
   }
 
   document.querySelectorAll("[data-v38-class]").forEach((btn) => {
@@ -1407,40 +1436,13 @@ function bindControls() {
       const classLabel = document.querySelector("#v38-class-label")
       const kpiTemp = document.querySelector("#v38-kpi-temp")
       const kpiFlux = document.querySelector("#v38-kpi-flux")
-      const kpiMag = document.querySelector("#v38-kpi-mag")
       const planck = document.querySelector("#v38-planck-curve")
 
       if (classLabel) classLabel.textContent = spec.label
       if (kpiTemp) kpiTemp.textContent = spec.temp
       if (kpiFlux) kpiFlux.textContent = spec.flux
-      if (kpiMag) kpiMag.textContent = spec.mag
       if (planck) {
-        planck.setAttribute("d", `M 0,50 Q ${spec.curveX * 0.5},${spec.curveY} ${spec.curveX},${spec.curveY} T 320,48`)
-      }
-    })
-  })
-
-  // Narrowband Filter Wheel Strip
-  document.querySelectorAll("[data-v38-filter]").forEach((pill) => {
-    pill.addEventListener("click", () => {
-      const filterId = pill.dataset.v38Filter || "ha"
-      document.querySelectorAll("[data-v38-filter]").forEach((p) => {
-        p.dataset.active = String(p === pill)
-      })
-      const label = document.querySelector("#v38-filter-label")
-      if (label) label.textContent = pill.textContent.trim()
-      const rainbow = document.querySelector("#v38-rainbow-bar")
-      if (rainbow) {
-        rainbow.querySelectorAll(".hln-v38-abs-line").forEach((line) => {
-          const text = line.dataset.lineLabel || ""
-          const match =
-            (filterId === "ha" && text.includes("Hα")) ||
-            (filterId === "o3" && text.includes("Hβ")) ||
-            (filterId === "s2" && text.includes("Na-D")) ||
-            (filterId === "nir" && text.includes("Hδ"))
-          line.style.boxShadow = match ? "0 0 6px var(--hln-ui-accent)" : "none"
-          line.style.opacity = match ? "1" : "0.7"
-        })
+        planck.setAttribute("d", `M 0,38 Q ${spec.curveX * 0.5},${spec.curveY} ${spec.curveX},${spec.curveY} T 320,36`)
       }
     })
   })
@@ -1449,12 +1451,6 @@ function bindControls() {
   let v38PulseCounter = 2026
   document.querySelector("#v38-btn-pulse")?.addEventListener("click", () => {
     v38PulseCounter += 7
-    const busClock = document.querySelector("#v38-bus-clock")
-    if (busClock) {
-      const sec = String((v38PulseCounter % 60)).padStart(2, "0")
-      busClock.textContent = `TDB 11:15:${sec}`
-    }
-
     // Perturb metric tensor calipers
     document.querySelectorAll("#v38-metric-calipers .hln-v38-caliper-row").forEach((row, idx) => {
       const baseW = [86, 78, 62, 54][idx] || 60
@@ -1463,24 +1459,10 @@ function bindControls() {
       row.querySelector("i")?.style.setProperty("--meter-w", `${newW}%`)
     })
 
-    // Prepend to telemetry bus
-    const bus = document.querySelector("#v38-telemetry-bus")
-    if (bus) {
-      const row = document.createElement("div")
-      row.className = "hln-v38-bus-row"
-      row.innerHTML = `
-        <span class="hln-v38-bus-tag">PULSE</span>
-        <span class="hln-v38-bus-msg">引力透镜焦平面光子通量注入 · Photon Flux Burst</span>
-        <span class="hln-v38-bus-val">0.01ms</span>
-      `
-      bus.prepend(row)
-      while (bus.children.length > 4) bus.lastElementChild?.remove()
-    }
-
     const aperture = document.querySelector("#v38-aperture-box")
     if (aperture) {
       aperture.classList.add("is-pulsing")
-      setTimeout(() => aperture.classList.remove("is-pulsing"), 420)
+      setTimeout(() => aperture.classList.remove("is-pulsing"), 360)
     }
   })
 
@@ -1490,48 +1472,13 @@ function bindControls() {
       sliderImpact.value = "58"
       updateV38Lensing()
     }
-    document.querySelectorAll("[data-v38-tab]").forEach((t) => {
-      t.dataset.active = String(t.dataset.v38Tab === "dual")
-    })
-    const v38Stage = document.querySelector("#v38-viewport-stage")
-    if (v38Stage) v38Stage.dataset.stageMode = "dual"
+    if (sliderLambda) {
+      sliderLambda.value = "545"
+      sliderLambda.dispatchEvent(new Event("input"))
+    }
     const layout = document.querySelector("#demo-layout-v38")
     if (layout) playMotion(layout, "panel", "enter", "reticle-lock")
   })
-
-  // Minimalist Floating Cosmic Viewport Lens Tab Switching & Stage Mode
-  const v38Stage = document.querySelector("#v38-viewport-stage")
-  document.querySelectorAll("[data-v38-tab]").forEach((tabBtn) => {
-    tabBtn.addEventListener("click", () => {
-      const mode = tabBtn.dataset.v38Tab || "dual"
-      document.querySelectorAll("[data-v38-tab]").forEach((t) => {
-        t.dataset.active = String(t === tabBtn)
-        t.setAttribute("aria-selected", String(t === tabBtn))
-      })
-      if (v38Stage) {
-        v38Stage.dataset.stageMode = mode
-      }
-    })
-  })
-
-  // Dynamic Polar Coordinate Tracking on Glass Viewport Surface
-  const v38GlassViewport = document.querySelector("#demo-layout-v38")
-  const cursorPolar = document.querySelector("#v38-cursor-polar")
-  v38GlassViewport?.addEventListener("pointermove", (e) => {
-    const rect = v38GlassViewport.getBoundingClientRect()
-    if (!rect.width || !rect.height) return
-    const cx = rect.left + rect.width / 2
-    const cy = rect.top + rect.height / 2
-    const dx = e.clientX - cx
-    const dy = e.clientY - cy
-    const theta = Math.round((Math.atan2(dy, dx) * 180 / Math.PI + 360) % 360)
-    const normDist = Math.hypot(dx, dy) / (Math.min(rect.width, rect.height) / 2)
-    const r = Math.min(1.0, normDist).toFixed(3)
-
-    if (cursorPolar) {
-      cursorPolar.textContent = `θ = ${String(theta).padStart(3, "0")}° · r = ${r}`
-    }
-  }, { passive: true })
 
   // Interactive split-pane resize divider (v3)
   const resizeBox = document.querySelector("#resize-demo-box")

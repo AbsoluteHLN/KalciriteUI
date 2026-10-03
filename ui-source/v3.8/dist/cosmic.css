@@ -1,7 +1,6 @@
-/* ProjectHLN UI System v3.8 - Cosmic Viewport Lens & Observatory Optics Layer (cosmic.css)
-   Deep-space floating minimalist viewport lens, gravitational lensing geodesics,
-   stellar spectrograph absorption lines, and Keplerian orbital telemetry.
-   Zero game terminology. Pure subtractive linear discipline. */
+/* ProjectHLN UI System v3.8 - Deep Space Astrometric Observatory & Gravitational Deck (cosmic.css)
+   Based on v3's 3-column architectural harmony, elevated into pure cosmic astrophysics.
+   Zero game terminology. Strict 1px hairline vector discipline with zero blur and zero shadow. */
 
 [data-hln-ui-root][data-hln-ui-version="v3.8"] :where(h1, h2, h3, h4) {
   font-family: var(--hln-ui-font-current, var(--hln-ui-font-display));
@@ -11,223 +10,112 @@
 }
 
 /* ==========================================================================
-   1. Deep Space Floating Minimalist Viewport Frame (.hln-v38-glass-viewport)
+   1. Observatory Console Shell & Top Celestial Horizon Bar
    ========================================================================== */
-.hln-v38-workbench,
-.hln-v38-glass-viewport {
-  position: relative;
+.hln-v38-observatory {
   display: grid;
   grid-template-rows: auto minmax(0, 1fr) auto;
-  gap: 8px;
+  gap: 10px;
   height: 100%;
   min-height: 0;
   padding: 10px 14px;
   box-sizing: border-box;
   overflow: hidden;
-  background: color-mix(in srgb, var(--hln-ui-bg-0) 94%, transparent);
-  border: 1px solid var(--hln-ui-line);
-  --v38-cosmic-stream: 3.2s;
-}
-
-/* Minimalist Optical Registration & Corner Fiducials Layer */
-.hln-v38-optics-registration {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* 4 Ultra-refined 1px Vector Corner Optical Brackets */
-.hln-v38-corner-fiducial {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: var(--hln-ui-text-muted);
-  font-family: var(--hln-ui-font-technical, monospace);
-  font-size: 8.5px;
-  letter-spacing: 0.04em;
-  opacity: 0.85;
-  user-select: none;
-}
-
-.hln-v38-corner-fiducial svg {
-  width: 11px;
-  height: 11px;
-  color: var(--hln-ui-accent);
-}
-
-.hln-v38-corner-fiducial.is-tl {
-  top: 5px;
-  left: 8px;
-}
-
-.hln-v38-corner-fiducial.is-tr {
-  top: 5px;
-  right: 8px;
-  flex-direction: row-reverse;
-}
-
-.hln-v38-corner-fiducial.is-bl {
-  bottom: 5px;
-  left: 8px;
-}
-
-.hln-v38-corner-fiducial.is-br {
-  bottom: 5px;
-  right: 8px;
-  flex-direction: row-reverse;
-}
-
-.hln-v38-coord-chip {
-  padding: 1px 4px;
-  background: color-mix(in srgb, var(--hln-ui-bg-1) 80%, transparent);
-  border: 1px solid color-mix(in srgb, var(--hln-ui-line) 60%, transparent);
-  color: var(--hln-ui-text-muted);
-}
-
-/* 4 Cardinal Axis Micro-Markers */
-.hln-v38-axis-marker {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  gap: 3px;
-  font-family: var(--hln-ui-font-technical, monospace);
-  font-size: 7.5px;
-  color: var(--hln-ui-accent);
-  opacity: 0.75;
-  user-select: none;
-}
-
-.hln-v38-axis-marker.is-n {
-  top: 4px;
-  left: 50%;
-  transform: translateX(-50%);
-  flex-direction: column;
-}
-
-.hln-v38-axis-marker.is-s {
-  bottom: 4px;
-  left: 50%;
-  transform: translateX(-50%);
-  flex-direction: column;
-}
-
-.hln-v38-axis-marker.is-w {
-  left: 4px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.hln-v38-axis-marker.is-e {
-  right: 4px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.hln-v38-axis-marker i {
-  font-style: normal;
-  color: var(--hln-ui-line-strong);
-}
-
-/* Pure Optical Lens Reticle on the Glass Surface */
-.hln-v38-glass-reticle {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  opacity: 0.42;
-  transition: opacity 240ms ease;
-}
-
-/* ==========================================================================
-   2. Minimalist Software Viewport Header (.hln-v38-viewport-header)
-   ========================================================================== */
-.hln-v38-viewport-header {
   position: relative;
-  z-index: 2;
+  background: color-mix(in srgb, var(--hln-ui-bg-0) 95%, transparent);
+}
+
+.hln-v38-celestial-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  min-height: 34px;
-  padding: 4px 10px;
+  gap: 14px;
+  min-height: 40px;
+  padding: 6px 12px;
   background: color-mix(in srgb, var(--hln-ui-bg-1) 88%, transparent);
   border: 1px solid var(--hln-ui-line);
+  position: relative;
+  overflow: hidden;
 }
 
-.hln-v38-header-lead {
+.hln-v38-bar-lead {
   display: flex;
   align-items: center;
   gap: 8px;
   min-width: 0;
 }
 
-.hln-v38-status-pulse {
+.hln-v38-pulse-dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
   background: var(--hln-ui-accent);
   box-shadow: 0 0 0 1px color-mix(in srgb, var(--hln-ui-accent) 40%, transparent);
-  animation: hln-v38-pulse-glow 2.4s ease-in-out infinite alternate;
+  animation: hln-v38-pulse 2.2s ease-in-out infinite alternate;
 }
 
-@keyframes hln-v38-pulse-glow {
-  0% { opacity: 0.45; }
+@keyframes hln-v38-pulse {
+  0%   { opacity: 0.45; }
   100% { opacity: 1; }
 }
 
-.hln-v38-header-tag {
+.hln-v38-bar-tag {
   font-family: var(--hln-ui-font-technical, monospace);
   font-size: 9px;
   font-weight: 700;
   color: var(--hln-ui-accent);
   letter-spacing: 0.08em;
+  white-space: nowrap;
 }
 
-.hln-v38-header-title {
-  margin: 0;
+.hln-v38-bar-title {
   font-size: 12px;
   font-weight: 600;
   color: var(--hln-ui-text);
   white-space: nowrap;
 }
 
-/* View Mode Segmented Tabs */
-.hln-v38-tab-group {
-  display: inline-flex;
-  align-items: center;
-  gap: 2px;
-  padding: 2px;
+.hln-v38-coord-chip {
+  padding: 2px 6px;
   background: var(--hln-ui-bg-0);
   border: 1px solid var(--hln-ui-line);
-}
-
-.hln-v38-tab {
-  padding: 3px 10px;
-  background: transparent;
-  border: 1px solid transparent;
   color: var(--hln-ui-text-muted);
   font-family: var(--hln-ui-font-technical, monospace);
-  font-size: 10px;
-  cursor: pointer;
-  transition: all 160ms var(--hln-ui-ease);
+  font-size: 9px;
+  white-space: nowrap;
 }
 
-.hln-v38-tab:hover {
-  color: var(--hln-ui-text);
+.hln-v38-bar-metrics {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
 }
 
-.hln-v38-tab[data-active="true"] {
-  border-color: var(--hln-ui-accent);
-  background: color-mix(in srgb, var(--hln-ui-accent) 12%, transparent);
+.hln-v38-metric-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 2px 6px;
+  background: var(--hln-ui-bg-0);
+  border: 1px solid var(--hln-ui-line);
+  font-family: var(--hln-ui-font-technical, monospace);
+  white-space: nowrap;
+}
+
+.hln-v38-metric-chip small {
+  font-size: 7.5px;
+  color: var(--hln-ui-text-muted);
+  letter-spacing: 0.04em;
+}
+
+.hln-v38-metric-chip strong {
+  font-size: 10.5px;
   color: var(--hln-ui-accent);
-  font-weight: 600;
+  font-variant-numeric: tabular-nums;
 }
 
-/* Header Actions */
-.hln-v38-header-actions {
+.hln-v38-bar-actions {
   display: flex;
   align-items: center;
   gap: 6px;
@@ -244,7 +132,7 @@
   font-family: var(--hln-ui-font-technical, monospace);
   font-size: 10px;
   cursor: pointer;
-  transition: border-color 160ms var(--hln-ui-ease), color 160ms var(--hln-ui-ease);
+  transition: all 160ms var(--hln-ui-ease);
 }
 
 .hln-v38-action-btn:hover {
@@ -266,102 +154,197 @@
 }
 
 /* ==========================================================================
-   3. Spacious Viewport Body: Modern 2-Zone Software Layout (.hln-v38-viewport-stage)
+   2. Three-Column Observatory Command Deck (.hln-v38-deck)
    ========================================================================== */
-.hln-v38-viewport-stage {
-  position: relative;
-  z-index: 2;
+.hln-v38-deck {
   display: grid;
-  grid-template-columns: minmax(0, 1.42fr) minmax(360px, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
   height: 100%;
   min-height: 0;
   overflow: hidden;
-  transition: grid-template-columns 280ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Viewport Stage Focus Modes */
-.hln-v38-viewport-stage[data-stage-mode="lens"] {
-  grid-template-columns: minmax(0, 1fr) 0px;
+@media (max-width: 1100px) {
+  .hln-v38-deck {
+    grid-template-columns: 1fr;
+    overflow-y: auto;
+  }
 }
 
-.hln-v38-viewport-stage[data-stage-mode="lens"] .hln-v38-stage-dock {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.hln-v38-viewport-stage[data-stage-mode="data"] {
-  grid-template-columns: 0px minmax(0, 1fr);
-}
-
-.hln-v38-viewport-stage[data-stage-mode="data"] .hln-v38-stage-canvas {
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* --------------------------------------------------------------------------
-   Zone A: Central Optical Viewport Canvas (.hln-v38-stage-canvas)
-   -------------------------------------------------------------------------- */
-.hln-v38-stage-canvas {
-  display: flex;
-  flex-direction: column;
-  min-height: 0;
-  height: 100%;
-  overflow: hidden;
-  transition: opacity 240ms ease;
-}
-
-.hln-v38-lens-view {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  min-height: 0;
-  background: color-mix(in srgb, var(--hln-ui-bg-1) 75%, transparent);
-  border: 1px solid var(--hln-ui-line);
-  padding: 12px;
-  box-sizing: border-box;
-}
-
-.hln-v38-lens-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+/* ==========================================================================
+   3. Column 1: Astrometry & Celestial Geodesics Components
+   ========================================================================== */
+.hln-v38-num-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 8px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid var(--hln-ui-line);
-  font-family: var(--hln-ui-font-technical, monospace);
-  font-size: 10.5px;
+  margin-bottom: 12px;
 }
 
-.hln-v38-lens-title {
+.hln-v38-num-card {
+  padding: 10px;
+  background: var(--hln-ui-bg-0);
+  border: 1px solid var(--hln-ui-line);
   display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.hln-v38-lens-title span {
-  color: var(--hln-ui-text-muted);
-}
-
-.hln-v38-lens-title strong {
-  color: var(--hln-ui-accent);
-}
-
-.hln-v38-lens-modes {
-  display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 4px;
 }
 
-.hln-v38-mode-pill {
-  padding: 3px 7px;
-  background: transparent;
+.hln-v38-num-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--hln-ui-font-technical, monospace);
+  font-size: 8.5px;
+  color: var(--hln-ui-text-muted);
+}
+
+.hln-v38-num-card__idx {
+  color: var(--hln-ui-accent);
+  font-weight: 700;
+}
+
+.hln-v38-num-card__val {
+  font-family: var(--hln-ui-font-technical, monospace);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--hln-ui-text);
+  line-height: 1.1;
+}
+
+.hln-v38-num-card__val small {
+  font-size: 10px;
+  color: var(--hln-ui-accent);
+  margin-left: 2px;
+}
+
+.hln-v38-num-card__sub {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--hln-ui-font-technical, monospace);
+  font-size: 8.5px;
+  color: var(--hln-ui-text-muted);
+}
+
+.hln-v38-num-card__bar {
+  height: 3px;
+  background: color-mix(in srgb, var(--hln-ui-line) 50%, transparent);
+  position: relative;
+  overflow: hidden;
+  margin-top: 2px;
+}
+
+.hln-v38-num-card__bar i {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: var(--hln-ui-accent);
+  display: block;
+}
+
+/* Astrometric Celestial Coordinate Diagram */
+.hln-v38-diagram {
+  background: var(--hln-ui-bg-0);
+  border: 1px solid var(--hln-ui-line);
+  padding: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hln-v38-diagram svg {
+  width: 100%;
+  height: auto;
+  max-height: 160px;
+  display: block;
+}
+
+.hln-v38-diagram__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 6px;
+  padding-top: 5px;
+  border-top: 1px solid var(--hln-ui-line);
+  font-family: var(--hln-ui-font-technical, monospace);
+  font-size: 9px;
+  color: var(--hln-ui-text-muted);
+}
+
+.hln-v38-diagram__formula {
+  color: var(--hln-ui-accent);
+}
+
+.hln-v38-survey-reticle {
+  transform-origin: 204px 56px;
+  animation: hln-v38-reticle-spin 48s linear infinite;
+}
+
+@keyframes hln-v38-reticle-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Survey Spectral Band Buttons */
+.hln-v38-band-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 4px;
+}
+
+.hln-v38-band-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px 2px;
+  background: var(--hln-ui-bg-0);
   border: 1px solid var(--hln-ui-line);
   color: var(--hln-ui-text-muted);
   font-family: var(--hln-ui-font-technical, monospace);
-  font-size: 9.5px;
   cursor: pointer;
-  transition: all 160ms var(--hln-ui-ease);
+  transition: all 150ms var(--hln-ui-ease);
+}
+
+.hln-v38-band-btn span {
+  font-size: 9.5px;
+  font-weight: 600;
+}
+
+.hln-v38-band-btn small {
+  font-size: 8px;
+  opacity: 0.75;
+}
+
+.hln-v38-band-btn:hover {
+  border-color: var(--hln-ui-accent);
+  color: var(--hln-ui-text);
+}
+
+.hln-v38-band-btn[data-active="true"] {
+  border-color: var(--hln-ui-accent);
+  color: var(--hln-ui-accent);
+  background: color-mix(in srgb, var(--hln-ui-accent) 12%, transparent);
+}
+
+/* ==========================================================================
+   4. Column 2: Gravitational Lensing & Geodesics Artboard
+   ========================================================================== */
+.hln-v38-mode-pills {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.hln-v38-mode-pill {
+  padding: 2px 6px;
+  background: var(--hln-ui-bg-0);
+  border: 1px solid var(--hln-ui-line);
+  color: var(--hln-ui-text-muted);
+  font-family: var(--hln-ui-font-technical, monospace);
+  font-size: 9px;
+  cursor: pointer;
+  transition: all 150ms var(--hln-ui-ease);
 }
 
 .hln-v38-mode-pill:hover,
@@ -371,38 +354,30 @@
   background: color-mix(in srgb, var(--hln-ui-accent) 12%, transparent);
 }
 
-/* Gravitational Lensing Optical SVG Canvas */
-.hln-v38-lens-svg-container,
-.hln-v38-aperture-box {
-  flex: 1;
-  min-height: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
+.hln-v38-lens-artboard {
+  background: var(--hln-ui-bg-0);
+  border: 1px solid var(--hln-ui-line);
+  padding: 8px;
   position: relative;
   overflow: hidden;
   transition: opacity 180ms ease;
 }
 
-.hln-v38-lens-svg-container.is-pulsing,
-.hln-v38-aperture-box.is-pulsing {
+.hln-v38-lens-artboard.is-pulsing {
   opacity: 0.75;
 }
 
-.hln-v38-lens-svg-container svg,
-.hln-v38-aperture-box svg {
+.hln-v38-lens-artboard svg {
   width: 100%;
-  height: 100%;
-  max-height: 380px;
+  height: auto;
+  max-height: 180px;
   display: block;
 }
 
-/* Geodesic Ray Animations */
 .hln-v38-geodesic-base {
   fill: none;
   stroke: color-mix(in srgb, var(--hln-ui-line-strong) 65%, transparent);
-  stroke-width: 1.1;
+  stroke-width: 1;
 }
 
 .hln-v38-geodesic-ray {
@@ -410,7 +385,7 @@
   stroke: var(--hln-ui-accent);
   stroke-width: 1.5;
   stroke-dasharray: 8 16;
-  animation: hln-v38-ray-flow 2.4s linear infinite;
+  animation: hln-v38-geodesic-flow 2.4s linear infinite;
 }
 
 .hln-v38-geodesic-ray.is-cool {
@@ -420,7 +395,7 @@
   animation-direction: reverse;
 }
 
-@keyframes hln-v38-ray-flow {
+@keyframes hln-v38-geodesic-flow {
   to { stroke-dashoffset: -96; }
 }
 
@@ -432,137 +407,61 @@
   fill: var(--hln-ui-accent-cool, var(--hln-ui-accent));
 }
 
-.hln-v38-reticle-azimuth {
-  transform-origin: 270px 120px;
-  animation: hln-v38-spin 64s linear infinite;
-}
-
-@keyframes hln-v38-spin {
-  to { transform: rotate(360deg); }
-}
-
-/* Lens Scrubbers Bar */
-.hln-v38-lens-controls {
+.hln-v38-scrubber-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.2fr) auto;
-  gap: 14px;
-  align-items: center;
-  padding-top: 10px;
-  border-top: 1px solid var(--hln-ui-line);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
 }
 
-.hln-v38-scrubber-item {
+.hln-v38-scrubber-cell {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
 
-.hln-v38-scrubber-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-family: var(--hln-ui-font-technical, monospace);
-  font-size: 10px;
-  color: var(--hln-ui-text-muted);
-}
-
-.hln-v38-scrubber-head strong {
-  color: var(--hln-ui-accent);
-}
-
-.hln-v38-scrubber-readout {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  font-family: var(--hln-ui-font-technical, monospace);
-  font-size: 10px;
-  padding-left: 8px;
-}
-
-.hln-v38-scrubber-readout small {
-  color: var(--hln-ui-text-muted);
-  font-size: 9px;
-}
-
-.hln-v38-scrubber-readout strong {
-  color: var(--hln-ui-accent);
-  font-size: 12px;
-}
-
-/* --------------------------------------------------------------------------
-   Zone B: Side Analysis Dock (.hln-v38-stage-dock)
-   -------------------------------------------------------------------------- */
-.hln-v38-stage-dock {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  min-height: 0;
-  height: 100%;
-  overflow-y: auto;
-  transition: opacity 240ms ease;
-}
-
-.hln-v38-dock-card {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 12px;
-  background: color-mix(in srgb, var(--hln-ui-bg-1) 85%, transparent);
+/* Gravitational Wave Quadrupole Box */
+.hln-v38-gw-box {
+  background: var(--hln-ui-bg-0);
   border: 1px solid var(--hln-ui-line);
+  padding: 4px;
 }
 
-.hln-v38-dock-card__head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-bottom: 6px;
-  border-bottom: 1px solid var(--hln-ui-line);
+.hln-v38-gw-box svg {
+  width: 100%;
+  height: 38px;
+  display: block;
 }
 
-.hln-v38-dock-card__title {
-  display: flex;
-  align-items: center;
-  gap: 6px;
+.hln-v38-gw-wave {
+  fill: none;
+  stroke-width: 1.4;
 }
 
-.hln-v38-dock-card__title h4 {
-  margin: 0;
-  font-size: 11.5px;
-  font-weight: 600;
-  color: var(--hln-ui-text);
+.hln-v38-gw-wave.is-plus {
+  stroke: var(--hln-ui-accent);
 }
 
-.hln-v38-card-dot {
-  width: 4px;
-  height: 4px;
-  background: var(--hln-ui-accent);
+.hln-v38-gw-wave.is-cross {
+  stroke: var(--hln-ui-accent-cool, var(--hln-ui-accent));
+  opacity: 0.65;
+  stroke-dasharray: 4 3;
 }
 
-.hln-v38-badge-mini {
-  font-family: var(--hln-ui-font-technical, monospace);
-  font-size: 9.5px;
-  color: var(--hln-ui-accent);
-}
-
-.hln-v38-dock-row {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-/* Spectrograph Component */
-.hln-v38-spectrograph-wrap {
+/* ==========================================================================
+   5. Column 3: Stellar Spectrograph & Spacetime Metric Tensor
+   ========================================================================== */
+.hln-v38-spectrograph-box {
+  background: var(--hln-ui-bg-0);
+  border: 1px solid var(--hln-ui-line);
+  padding: 4px;
   display: flex;
   flex-direction: column;
   gap: 3px;
-  border: 1px solid var(--hln-ui-line);
-  background: var(--hln-ui-bg-0);
-  padding: 4px;
 }
 
 .hln-v38-spectrum-rainbow {
   position: relative;
-  height: 18px;
+  height: 16px;
   background: linear-gradient(90deg, #7e22ce, #3b82f6, #06b6d4, #10b981, #eab308, #ef4444);
   overflow: hidden;
 }
@@ -578,7 +477,7 @@
 
 .hln-v38-spectrum-svg {
   width: 100%;
-  height: 38px;
+  height: 34px;
   display: block;
 }
 
@@ -586,19 +485,20 @@
   fill: none;
   stroke: var(--hln-ui-accent);
   stroke-width: 1.5;
-  transition: d 300ms ease;
+  transition: d 280ms ease;
 }
 
-/* MK Stellar Class Grid */
+/* MK Class Selector Grid & Subcell KPI */
 .hln-v38-class-grid {
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));
   gap: 3px;
+  margin-bottom: 6px;
 }
 
 .hln-v38-class-btn {
-  padding: 3px 0;
-  background: transparent;
+  padding: 4px 0;
+  background: var(--hln-ui-bg-0);
   border: 1px solid var(--hln-ui-line);
   color: var(--hln-ui-text-muted);
   font-family: var(--hln-ui-font-technical, monospace);
@@ -616,75 +516,46 @@
   background: color-mix(in srgb, var(--hln-ui-accent) 15%, transparent);
 }
 
-/* Narrowband Filters */
-.hln-v38-filter-strip {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 3px;
-}
-
-.hln-v38-filter-pill {
-  padding: 3px 4px;
-  background: transparent;
-  border: 1px solid var(--hln-ui-line);
-  color: var(--hln-ui-text-muted);
-  font-family: var(--hln-ui-font-technical, monospace);
-  font-size: 9px;
-  cursor: pointer;
-  white-space: nowrap;
-  text-align: center;
-  transition: all 150ms var(--hln-ui-ease);
-}
-
-.hln-v38-filter-pill:hover,
-.hln-v38-filter-pill[data-active="true"] {
-  border-color: var(--hln-ui-accent);
-  color: var(--hln-ui-accent);
-  background: color-mix(in srgb, var(--hln-ui-accent) 15%, transparent);
-}
-
-/* Keplerian Orbital Elements Matrix */
-.hln-v38-orbital-grid {
+.hln-v38-kpi-subgrid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 4px;
 }
 
-.hln-v38-orbital-cell {
+.hln-v38-kpi-subcell {
   display: flex;
   flex-direction: column;
-  gap: 2px;
-  padding: 5px 6px;
+  padding: 4px 6px;
   background: var(--hln-ui-bg-0);
   border: 1px solid var(--hln-ui-line);
+  font-family: var(--hln-ui-font-technical, monospace);
 }
 
-.hln-v38-orbital-cell span {
-  font-family: var(--hln-ui-font-technical, monospace);
-  font-size: 8.5px;
+.hln-v38-kpi-subcell small {
+  font-size: 7.5px;
   color: var(--hln-ui-text-muted);
   white-space: nowrap;
 }
 
-.hln-v38-orbital-cell strong {
-  font-family: var(--hln-ui-font-technical, monospace);
-  font-size: 11px;
+.hln-v38-kpi-subcell strong {
+  font-size: 10px;
   color: var(--hln-ui-accent);
   font-variant-numeric: tabular-nums;
+  white-space: nowrap;
 }
 
-/* Spacetime Metric Tensor Caliper Bars */
+/* Metric Tensor Caliper Bars */
 .hln-v38-metric-calipers {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 3px;
 }
 
 .hln-v38-caliper-row {
   display: grid;
-  grid-template-columns: 36px minmax(0, 1fr) 52px;
+  grid-template-columns: 34px minmax(0, 1fr) 56px;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   font-family: var(--hln-ui-font-technical, monospace);
   font-size: 9.5px;
 }
@@ -706,9 +577,10 @@
   left: 0;
   top: 0;
   bottom: 0;
-  width: var(--meter-w, 60%);
+  width: var(--meter-w, 50%);
   background: var(--hln-ui-accent);
-  transition: width 240ms var(--hln-ui-ease);
+  display: block;
+  transition: width 240ms ease;
 }
 
 .hln-v38-caliper-row strong {
@@ -717,43 +589,10 @@
   font-variant-numeric: tabular-nums;
 }
 
-/* KPI Chips */
-.hln-v38-kpi-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 4px;
-  padding-top: 4px;
-}
-
-.hln-v38-kpi-card {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-  padding: 4px 5px;
-  background: var(--hln-ui-bg-0);
-  border: 1px solid var(--hln-ui-line);
-}
-
-.hln-v38-kpi-card small {
-  font-family: var(--hln-ui-font-technical, monospace);
-  font-size: 8px;
-  color: var(--hln-ui-text-muted);
-  white-space: nowrap;
-}
-
-.hln-v38-kpi-card strong {
-  font-family: var(--hln-ui-font-technical, monospace);
-  font-size: 11px;
-  color: var(--hln-ui-accent);
-  font-variant-numeric: tabular-nums;
-}
-
 /* ==========================================================================
-   4. Minimalist Viewport Footer Status Ribbon (.hln-v38-viewport-footer)
+   6. Bottom Astronomical Status Horizon (.hln-v38-statusbar)
    ========================================================================== */
-.hln-v38-viewport-footer {
-  position: relative;
-  z-index: 2;
+.hln-v38-statusbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -767,7 +606,7 @@
   letter-spacing: 0.04em;
 }
 
-.hln-v38-footer-item {
+.hln-v38-status-item {
   display: inline-flex;
   align-items: center;
   gap: 5px;
@@ -781,7 +620,7 @@
   background: var(--hln-ui-accent);
 }
 
-.hln-v38-footer-item strong {
+.hln-v38-status-item strong {
   color: var(--hln-ui-accent);
   font-weight: 600;
 }
