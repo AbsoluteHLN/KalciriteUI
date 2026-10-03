@@ -1324,9 +1324,131 @@
         <!-- ==================================================================
              V3.8 COSMIC VIEWPORT LENS & ASTROPHYSICS OBSERVATORY STUDIO
              ================================================================== -->
-        <div class="hln-v38-workbench" id="demo-layout-v38" data-showcase-view="v38">
-          <!-- Top Observatory Viewport Telemetry HUD Ribbon -->
-          <div class="hln-v38-hud" data-hln-ui-surface data-hln-motion="item">
+        <div class="hln-v38-workbench hln-v38-viewport-frame" id="demo-layout-v38" data-showcase-view="v38">
+          <!-- Outer Cosmic Viewport Lens Mechanical Bezel & Graticules -->
+          <div class="hln-v38-frame-bezel" aria-hidden="true">
+            <!-- Top Horizontal Azimuth Graticule Beam -->
+            <div class="hln-v38-bezel-bar hln-v38-bezel-top">
+              <div class="hln-v38-bezel-tag">PORT-01 // AZIMUTH</div>
+              <div class="hln-v38-azimuth-ticks">
+                <span>000°</span><i>·</i><span>030°</span><i>·</i><span>060°</span><i>·</i>
+                <strong class="hln-v38-zenith-marker" id="v38-zenith-readout">▼ ZENITH 090.00°</strong>
+                <i>·</i><span>120°</span><i>·</i><span>150°</span><i>·</i><span>180°</span><i>·</i>
+                <span>210°</span><i>·</i><span>240°</span><i>·</i><span>270°</span><i>·</i>
+                <span>300°</span><i>·</i><span>330°</span><i>·</i><span>360°</span>
+              </div>
+              <div class="hln-v38-bezel-meta">FOV: 84° × 52° // FUSED SILICA COATED</div>
+            </div>
+
+            <!-- 4 Corner Machined Flange Clamps with Bolts & Optical Fiducials -->
+            <div class="hln-v38-corner-clamp hln-v38-corner-tl">
+              <span class="hln-v38-bolt"></span>
+              <span class="hln-v38-fiducial">⌜ TL-01</span>
+              <span class="hln-v38-clamp-status">SEAL OK</span>
+            </div>
+            <div class="hln-v38-corner-clamp hln-v38-corner-tr">
+              <span class="hln-v38-clamp-status">101.3 kPa</span>
+              <span class="hln-v38-fiducial">TR-02 ⌝</span>
+              <span class="hln-v38-bolt"></span>
+            </div>
+            <div class="hln-v38-corner-clamp hln-v38-corner-bl">
+              <span class="hln-v38-bolt"></span>
+              <span class="hln-v38-fiducial">⌞ BL-03</span>
+              <span class="hln-v38-clamp-status">RAD-SHIELD</span>
+            </div>
+            <div class="hln-v38-corner-clamp hln-v38-corner-br">
+              <span class="hln-v38-clamp-status">SERVO LCK</span>
+              <span class="hln-v38-fiducial">BR-04 ⌟</span>
+              <span class="hln-v38-bolt"></span>
+            </div>
+
+            <!-- Left Elevation Caliper Rail -->
+            <div class="hln-v38-bezel-bar hln-v38-bezel-left">
+              <span class="hln-v38-rail-label">ELEVATION</span>
+              <div class="hln-v38-elevation-scale">
+                <span>+90°</span><i>|</i><span>+60°</span><i>|</i><span>+30°</span><i>|</i>
+                <strong id="v38-frame-el-cursor">▶ 00° HORIZON</strong>
+                <i>|</i><span>-30°</span><i>|</i><span>-60°</span><i>|</i><span>-90°</span>
+              </div>
+            </div>
+
+            <!-- Right Optical Aperture Rail -->
+            <div class="hln-v38-bezel-bar hln-v38-bezel-right">
+              <span class="hln-v38-rail-label">IRIS APERTURE</span>
+              <div class="hln-v38-iris-scale">
+                <span>f/1.4</span><i>|</i>
+                <span>f/2.0</span><i>|</i>
+                <strong id="v38-frame-iris-active">f/2.8 [LCK]</strong><i>|</i>
+                <span>f/4.0</span><i>|</i>
+                <span>f/5.6</span><i>|</i>
+                <span>f/8.0</span>
+              </div>
+            </div>
+
+            <!-- Bottom Telemetry & Status Bar -->
+            <div class="hln-v38-bezel-bar hln-v38-bezel-bottom">
+              <div class="hln-v38-bezel-indicators">
+                <span class="hln-v38-bezel-indicator is-online">● PORT SEAL: NOMINAL</span>
+                <span class="hln-v38-bezel-indicator">VACUUM: 1.2e-11 Pa</span>
+                <span class="hln-v38-bezel-indicator">CMB: 2.73 K</span>
+              </div>
+              <div class="hln-v38-bezel-vernier">
+                <svg viewBox="0 0 280 12" aria-hidden="true">
+                  <line x1="0" y1="6" x2="280" y2="6" stroke="var(--hln-ui-line-strong)" stroke-width="0.8"/>
+                  <line x1="0" y1="0" x2="0" y2="12" stroke="var(--hln-ui-accent)" stroke-width="1.2"/>
+                  <line x1="35" y1="3" x2="35" y2="9" stroke="var(--hln-ui-line-strong)" stroke-width="0.8"/>
+                  <line x1="70" y1="2" x2="70" y2="10" stroke="var(--hln-ui-line-strong)" stroke-width="0.8"/>
+                  <line x1="105" y1="3" x2="105" y2="9" stroke="var(--hln-ui-line-strong)" stroke-width="0.8"/>
+                  <line x1="140" y1="0" x2="140" y2="12" stroke="var(--hln-ui-accent)" stroke-width="1.2"/>
+                  <line x1="175" y1="3" x2="175" y2="9" stroke="var(--hln-ui-line-strong)" stroke-width="0.8"/>
+                  <line x1="210" y1="2" x2="210" y2="10" stroke="var(--hln-ui-line-strong)" stroke-width="0.8"/>
+                  <line x1="245" y1="3" x2="245" y2="9" stroke="var(--hln-ui-line-strong)" stroke-width="0.8"/>
+                  <line x1="280" y1="0" x2="280" y2="12" stroke="var(--hln-ui-accent)" stroke-width="1.2"/>
+                </svg>
+              </div>
+              <div class="hln-v38-frame-actions">
+                <button type="button" class="hln-v38-frame-btn" id="v38-btn-gaze" title="Toggle Clear Viewport Gaze Mode">
+                  <span>🔭 视窗直窥 · Gaze</span>
+                </button>
+                <button type="button" class="hln-v38-frame-btn" id="v38-btn-reticle-toggle" data-active="true" title="Toggle Glass Optical Graticule">
+                  <span>🎯 准星标线 · Graticule</span>
+                </button>
+                <button type="button" class="hln-v38-frame-btn" id="v38-btn-fov" title="Cycle Field of View">
+                  <span id="v38-fov-label">FOV 84° (NORM)</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Full-Viewport Optical Glass Reticle Graticule (视窗镜面光学准星与同心测角圈) -->
+            <div class="hln-v38-glass-graticule" id="v38-glass-graticule">
+              <svg viewBox="0 0 1200 700" preserveAspectRatio="none" aria-label="Cosmic Viewport Lens Optical Graticule">
+                <circle cx="600" cy="350" r="140" fill="none" stroke="var(--hln-ui-line-strong)" stroke-width="0.75" stroke-dasharray="2 4"/>
+                <circle cx="600" cy="350" r="280" fill="none" stroke="var(--hln-ui-line)" stroke-width="0.7" stroke-dasharray="4 6"/>
+                <circle cx="600" cy="350" r="460" fill="none" stroke="var(--hln-ui-line)" stroke-width="0.6" stroke-dasharray="3 7"/>
+                <line x1="40" y1="350" x2="1160" y2="350" stroke="var(--hln-ui-line-strong)" stroke-width="0.8" stroke-dasharray="2 4"/>
+                <line x1="600" y1="30" x2="600" y2="670" stroke="var(--hln-ui-line-strong)" stroke-width="0.8" stroke-dasharray="2 4"/>
+                <line x1="300" y1="170" x2="900" y2="530" stroke="var(--hln-ui-line)" stroke-width="0.5" stroke-dasharray="2 6"/>
+                <line x1="300" y1="530" x2="900" y2="170" stroke="var(--hln-ui-line)" stroke-width="0.5" stroke-dasharray="2 6"/>
+                <rect x="585" y="335" width="30" height="30" fill="none" stroke="var(--hln-ui-accent)" stroke-width="1.2"/>
+                <line x1="590" y1="350" x2="610" y2="350" stroke="var(--hln-ui-accent)" stroke-width="1.2"/>
+                <line x1="600" y1="340" x2="600" y2="360" stroke="var(--hln-ui-accent)" stroke-width="1.2"/>
+                <circle cx="600" cy="350" r="2.5" fill="var(--hln-ui-accent)"/>
+                <text x="600" y="200" text-anchor="middle" fill="var(--hln-ui-text-muted)" font-size="8" font-family="monospace">00° N</text>
+                <text x="890" y="354" text-anchor="start" fill="var(--hln-ui-text-muted)" font-size="8" font-family="monospace">90° E</text>
+                <text x="600" y="500" text-anchor="middle" fill="var(--hln-ui-text-muted)" font-size="8" font-family="monospace">180° S</text>
+                <text x="310" y="354" text-anchor="end" fill="var(--hln-ui-text-muted)" font-size="8" font-family="monospace">270° W</text>
+                <path d="M 80,80 L 120,80 M 80,80 L 80,120" stroke="var(--hln-ui-accent)" stroke-width="1.4" fill="none"/>
+                <path d="M 1120,80 L 1080,80 M 1120,80 L 1120,120" stroke="var(--hln-ui-accent)" stroke-width="1.4" fill="none"/>
+                <path d="M 80,620 L 120,620 M 80,620 L 80,580" stroke="var(--hln-ui-accent)" stroke-width="1.4" fill="none"/>
+                <path d="M 1120,620 L 1080,620 M 1120,620 L 1120,580" stroke="var(--hln-ui-accent)" stroke-width="1.4" fill="none"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Viewport Chamber Inner Content -->
+          <div class="hln-v38-viewport-inner" id="v38-viewport-inner">
+            <!-- Top Observatory Viewport Telemetry HUD Ribbon -->
+            <div class="hln-v38-hud" data-hln-ui-surface data-hln-motion="item">
             <span class="hln-v38-hud-stream" aria-hidden="true"></span>
             <div class="hln-v38-hud__lead">
               <div class="hln-v38-collimator" aria-hidden="true" title="Collimator Optical Reticle">
@@ -1677,6 +1799,7 @@
             </section>
           </div>
         </div>
+      </div>
 
         <!-- Status Bar -->
         <footer class="paralos-statusbar">

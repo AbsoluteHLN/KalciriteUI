@@ -755,17 +755,398 @@
 /* ==========================================================================
    1. Observatory Viewport Workbench & HUD Ribbon (.hln-v38-workbench)
    ========================================================================== */
-.hln-v38-workbench {
-  display: grid;
-  grid-template-rows: auto minmax(0, 1fr);
-  gap: 12px;
+/* ==========================================================================
+   1. Cosmic Viewport Lens Outer Frame (.hln-v38-viewport-frame / .hln-v38-workbench)
+   ========================================================================== */
+.hln-v38-workbench,
+.hln-v38-viewport-frame {
+  position: relative;
+  display: block;
   height: 100%;
   min-height: 0;
-  padding: 12px 16px;
+  padding: 0;
   overflow: hidden;
+  background: var(--hln-ui-bg-0);
+  border: 2px solid var(--hln-ui-line-strong);
+  box-sizing: border-box;
   --v38-cosmic-stream: 3.2s;
+  --v38-frame-bezel-size: 26px;
+  clip-path: polygon(
+    16px 0%,
+    calc(100% - 16px) 0%,
+    100% 16px,
+    100% calc(100% - 16px),
+    calc(100% - 16px) 100%,
+    16px 100%,
+    0% calc(100% - 16px),
+    0% 16px
+  );
 }
 
+/* Outer Machined Chamfer & Retaining Ring Rim */
+.hln-v38-frame-bezel {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Top Horizontal Azimuth Graticule Beam */
+.hln-v38-bezel-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--v38-frame-bezel-size, 26px);
+  background: color-mix(in srgb, var(--hln-ui-bg-1) 94%, transparent);
+  border-bottom: 1px solid var(--hln-ui-line-strong);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 110px 110px;
+  font-family: var(--hln-ui-font-technical, monospace);
+  font-size: 9.5px;
+  letter-spacing: 0.04em;
+  color: var(--hln-ui-text-muted);
+  pointer-events: auto;
+  user-select: none;
+}
+
+.hln-v38-bezel-tag {
+  color: var(--hln-ui-accent);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.hln-v38-azimuth-ticks {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.hln-v38-azimuth-ticks i {
+  font-style: normal;
+  color: var(--hln-ui-line);
+}
+
+.hln-v38-zenith-marker {
+  color: var(--hln-ui-accent);
+  font-weight: 700;
+  background: color-mix(in srgb, var(--hln-ui-accent) 12%, transparent);
+  padding: 1px 6px;
+  border: 1px solid var(--hln-ui-accent);
+}
+
+.hln-v38-bezel-meta {
+  color: var(--hln-ui-text-muted);
+  white-space: nowrap;
+}
+
+/* 4 Corner Machined Flange Clamps with Bolts */
+.hln-v38-corner-clamp {
+  position: absolute;
+  width: 96px;
+  height: var(--v38-frame-bezel-size, 26px);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-inline: 8px;
+  background: var(--hln-ui-bg-1);
+  border: 1px solid var(--hln-ui-line-strong);
+  font-family: var(--hln-ui-font-technical, monospace);
+  font-size: 8.5px;
+  letter-spacing: 0.05em;
+  color: var(--hln-ui-text-muted);
+  z-index: 4;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+.hln-v38-corner-tl {
+  top: 0;
+  left: 0;
+  border-top: none;
+  border-left: none;
+  border-bottom-right-radius: 4px;
+}
+
+.hln-v38-corner-tr {
+  top: 0;
+  right: 0;
+  justify-content: flex-end;
+  border-top: none;
+  border-right: none;
+  border-bottom-left-radius: 4px;
+}
+
+.hln-v38-corner-bl {
+  bottom: 0;
+  left: 0;
+  border-bottom: none;
+  border-left: none;
+  border-top-right-radius: 4px;
+}
+
+.hln-v38-corner-br {
+  bottom: 0;
+  right: 0;
+  justify-content: flex-end;
+  border-bottom: none;
+  border-right: none;
+  border-top-left-radius: 4px;
+}
+
+.hln-v38-bolt {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background: var(--hln-ui-bg-0);
+  border: 1px solid var(--hln-ui-accent);
+  border-radius: 50%;
+  position: relative;
+}
+
+.hln-v38-bolt::after {
+  content: "";
+  position: absolute;
+  inset: 1.5px;
+  background: var(--hln-ui-accent);
+}
+
+.hln-v38-fiducial {
+  color: var(--hln-ui-accent);
+  font-weight: 700;
+}
+
+.hln-v38-clamp-status {
+  padding: 1px 4px;
+  background: color-mix(in srgb, var(--hln-ui-accent) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--hln-ui-accent) 30%, transparent);
+  color: var(--hln-ui-text);
+  font-size: 8px;
+}
+
+/* Left Elevation Caliper Rail */
+.hln-v38-bezel-left {
+  position: absolute;
+  top: var(--v38-frame-bezel-size, 26px);
+  bottom: var(--v38-frame-bezel-size, 26px);
+  left: 0;
+  width: 22px;
+  background: color-mix(in srgb, var(--hln-ui-bg-1) 94%, transparent);
+  border-right: 1px solid var(--hln-ui-line-strong);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 8px;
+  font-family: var(--hln-ui-font-technical, monospace);
+  font-size: 8px;
+  color: var(--hln-ui-text-muted);
+  user-select: none;
+}
+
+.hln-v38-bezel-left .hln-v38-rail-label {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  letter-spacing: 0.1em;
+  color: var(--hln-ui-accent);
+  font-weight: 700;
+  font-size: 7.5px;
+}
+
+.hln-v38-elevation-scale {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-size: 7.5px;
+}
+
+.hln-v38-elevation-scale strong {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  color: var(--hln-ui-accent);
+  background: color-mix(in srgb, var(--hln-ui-accent) 14%, transparent);
+  border: 1px solid var(--hln-ui-accent);
+  padding-block: 4px;
+  white-space: nowrap;
+}
+
+/* Right Optical Aperture Rail */
+.hln-v38-bezel-right {
+  position: absolute;
+  top: var(--v38-frame-bezel-size, 26px);
+  bottom: var(--v38-frame-bezel-size, 26px);
+  right: 0;
+  width: 22px;
+  background: color-mix(in srgb, var(--hln-ui-bg-1) 94%, transparent);
+  border-left: 1px solid var(--hln-ui-line-strong);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 8px;
+  font-family: var(--hln-ui-font-technical, monospace);
+  font-size: 8px;
+  color: var(--hln-ui-text-muted);
+  user-select: none;
+}
+
+.hln-v38-bezel-right .hln-v38-rail-label {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  letter-spacing: 0.1em;
+  color: var(--hln-ui-accent);
+  font-weight: 700;
+  font-size: 7.5px;
+}
+
+.hln-v38-iris-scale {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-size: 7.5px;
+}
+
+.hln-v38-iris-scale strong {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  color: var(--hln-ui-accent);
+  background: color-mix(in srgb, var(--hln-ui-accent) 14%, transparent);
+  border: 1px solid var(--hln-ui-accent);
+  padding-block: 4px;
+  white-space: nowrap;
+}
+
+/* Bottom Telemetry & Status Bar */
+.hln-v38-bezel-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--v38-frame-bezel-size, 26px);
+  background: color-mix(in srgb, var(--hln-ui-bg-1) 94%, transparent);
+  border-top: 1px solid var(--hln-ui-line-strong);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 110px 110px;
+  font-family: var(--hln-ui-font-technical, monospace);
+  font-size: 9.5px;
+  letter-spacing: 0.04em;
+  color: var(--hln-ui-text-muted);
+  pointer-events: auto;
+  user-select: none;
+}
+
+.hln-v38-bezel-indicators {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hln-v38-bezel-indicator.is-online {
+  color: var(--hln-ui-accent);
+}
+
+.hln-v38-bezel-vernier {
+  width: 280px;
+  height: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.hln-v38-bezel-vernier svg {
+  width: 100%;
+  height: 100%;
+}
+
+.hln-v38-frame-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hln-v38-frame-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 7px;
+  background: var(--hln-ui-bg-0);
+  border: 1px solid var(--hln-ui-line-strong);
+  color: var(--hln-ui-text);
+  font-family: var(--hln-ui-font-technical, monospace);
+  font-size: 9px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.hln-v38-frame-btn:hover {
+  border-color: var(--hln-ui-accent);
+  color: var(--hln-ui-accent);
+}
+
+.hln-v38-frame-btn[data-active="true"] {
+  background: color-mix(in srgb, var(--hln-ui-accent) 15%, transparent);
+  border-color: var(--hln-ui-accent);
+  color: var(--hln-ui-accent);
+}
+
+/* Full-Viewport Optical Glass Reticle Graticule */
+.hln-v38-glass-graticule {
+  position: absolute;
+  inset: var(--v38-frame-bezel-size, 26px) 22px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.72;
+  transition: opacity 0.25s ease;
+}
+
+.hln-v38-glass-graticule.is-hidden {
+  opacity: 0 !important;
+}
+
+.hln-v38-glass-graticule svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Inner Viewport Chamber Content */
+.hln-v38-viewport-inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 8px;
+  height: 100%;
+  min-height: 0;
+  padding: 30px 26px 30px 26px;
+  box-sizing: border-box;
+  overflow: hidden;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Clear Viewport Gaze Mode:
+   Dim / collapse the inner 3-column analysis console so the user directly looks through the cosmic viewport lens! */
+.hln-v38-viewport-frame.is-gaze-mode .hln-v38-viewport-inner {
+  opacity: 0.18;
+  transform: scale(0.985);
+  pointer-events: none;
+}
+
+.hln-v38-viewport-frame.is-gaze-mode .hln-v38-glass-graticule {
+  opacity: 1 !important;
+  z-index: 5;
+}
+
+/* Telemetry Ribbon (.hln-v38-hud) inside inner viewport */
 .hln-v38-hud {
   display: flex;
   align-items: center;

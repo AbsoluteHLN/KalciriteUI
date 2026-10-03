@@ -98,6 +98,15 @@ test("v3.8 cosmic observatory layer includes HUD ribbon, lens aperture, geodesic
   const cos = read("src/cosmic.css")
   for (const cls of [
     "hln-v38-workbench",
+    "hln-v38-viewport-frame",
+    "hln-v38-frame-bezel",
+    "hln-v38-bezel-top",
+    "hln-v38-corner-clamp",
+    "hln-v38-bezel-left",
+    "hln-v38-bezel-right",
+    "hln-v38-bezel-bottom",
+    "hln-v38-glass-graticule",
+    "hln-v38-viewport-inner",
     "hln-v38-hud",
     "hln-v38-hud-stream",
     "hln-v38-collimator",
