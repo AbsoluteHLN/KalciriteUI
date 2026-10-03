@@ -1490,72 +1490,46 @@ function bindControls() {
       sliderImpact.value = "58"
       updateV38Lensing()
     }
+    document.querySelectorAll("[data-v38-tab]").forEach((t) => {
+      t.dataset.active = String(t.dataset.v38Tab === "dual")
+    })
+    const v38Stage = document.querySelector("#v38-viewport-stage")
+    if (v38Stage) v38Stage.dataset.stageMode = "dual"
     const layout = document.querySelector("#demo-layout-v38")
     if (layout) playMotion(layout, "panel", "enter", "reticle-lock")
   })
 
-  // Cosmic Viewport Lens Outer Frame Controls (Gaze Mode, Graticule Toggle, FOV, Frame Tracking)
-  const v38Frame = document.querySelector("#demo-layout-v38")
-  const btnGaze = document.querySelector("#v38-btn-gaze")
-  const btnReticle = document.querySelector("#v38-btn-reticle-toggle")
-  const btnFov = document.querySelector("#v38-btn-fov")
-  const fovLabel = document.querySelector("#v38-fov-label")
-  const glassGraticule = document.querySelector("#v38-glass-graticule")
-  const zenithReadout = document.querySelector("#v38-zenith-readout")
-  const elCursor = document.querySelector("#v38-frame-el-cursor")
-
-  let v38GazeMode = false
-  btnGaze?.addEventListener("click", () => {
-    v38GazeMode = !v38GazeMode
-    v38Frame?.classList.toggle("is-gaze-mode", v38GazeMode)
-    btnGaze.dataset.active = String(v38GazeMode)
-    const span = btnGaze.querySelector("span")
-    if (span) {
-      span.textContent = v38GazeMode ? "📊 数据仪表面板 · Telemetry" : "🔭 视窗直窥 · Gaze"
-    }
-    if (v38GazeMode && glassGraticule) {
-      glassGraticule.classList.remove("is-hidden")
-      if (btnReticle) btnReticle.dataset.active = "true"
-    }
+  // Minimalist Floating Cosmic Viewport Lens Tab Switching & Stage Mode
+  const v38Stage = document.querySelector("#v38-viewport-stage")
+  document.querySelectorAll("[data-v38-tab]").forEach((tabBtn) => {
+    tabBtn.addEventListener("click", () => {
+      const mode = tabBtn.dataset.v38Tab || "dual"
+      document.querySelectorAll("[data-v38-tab]").forEach((t) => {
+        t.dataset.active = String(t === tabBtn)
+        t.setAttribute("aria-selected", String(t === tabBtn))
+      })
+      if (v38Stage) {
+        v38Stage.dataset.stageMode = mode
+      }
+    })
   })
 
-  let v38ReticleVisible = true
-  btnReticle?.addEventListener("click", () => {
-    v38ReticleVisible = !v38ReticleVisible
-    btnReticle.dataset.active = String(v38ReticleVisible)
-    glassGraticule?.classList.toggle("is-hidden", !v38ReticleVisible)
-  })
-
-  const fovModes = [
-    { label: "FOV 84° (NORM)", scale: 1 },
-    { label: "FOV 120° (WIDE)", scale: 0.72 },
-    { label: "FOV 30° (TELE)", scale: 1.45 },
-  ]
-  let fovIndex = 0
-  btnFov?.addEventListener("click", () => {
-    fovIndex = (fovIndex + 1) % fovModes.length
-    const mode = fovModes[fovIndex]
-    if (fovLabel) fovLabel.textContent = mode.label
-    const svg = glassGraticule?.querySelector("svg")
-    if (svg) svg.style.transform = `scale(${mode.scale})`
-  })
-
-  // Dynamic Azimuth & Elevation cursor tracking on outer lens bezel
-  v38Frame?.addEventListener("pointermove", (e) => {
-    const rect = v38Frame.getBoundingClientRect()
+  // Dynamic Polar Coordinate Tracking on Glass Viewport Surface
+  const v38GlassViewport = document.querySelector("#demo-layout-v38")
+  const cursorPolar = document.querySelector("#v38-cursor-polar")
+  v38GlassViewport?.addEventListener("pointermove", (e) => {
+    const rect = v38GlassViewport.getBoundingClientRect()
     if (!rect.width || !rect.height) return
-    const relX = (e.clientX - rect.left) / rect.width
-    const relY = (e.clientY - rect.top) / rect.height
+    const cx = rect.left + rect.width / 2
+    const cy = rect.top + rect.height / 2
+    const dx = e.clientX - cx
+    const dy = e.clientY - cy
+    const theta = Math.round((Math.atan2(dy, dx) * 180 / Math.PI + 360) % 360)
+    const normDist = Math.hypot(dx, dy) / (Math.min(rect.width, rect.height) / 2)
+    const r = Math.min(1.0, normDist).toFixed(3)
 
-    const azDeg = Math.round(relX * 360)
-    const elDeg = Math.round((0.5 - relY) * 180)
-
-    if (zenithReadout) {
-      zenithReadout.textContent = `▼ AZ ${String(azDeg).padStart(3, "0")}°`
-    }
-    if (elCursor) {
-      const sign = elDeg >= 0 ? "+" : ""
-      elCursor.textContent = `▶ ${sign}${elDeg}°`
+    if (cursorPolar) {
+      cursorPolar.textContent = `θ = ${String(theta).padStart(3, "0")}° · r = ${r}`
     }
   }, { passive: true })
 

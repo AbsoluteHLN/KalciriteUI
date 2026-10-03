@@ -1322,237 +1322,91 @@
         </div>
 
         <!-- ==================================================================
-             V3.8 COSMIC VIEWPORT LENS & ASTROPHYSICS OBSERVATORY STUDIO
+             V3.8 MINIMALIST FLOATING COSMIC VIEWPORT LENS STUDIO
              ================================================================== -->
-        <div class="hln-v38-workbench hln-v38-viewport-frame" id="demo-layout-v38" data-showcase-view="v38">
-          <!-- Outer Cosmic Viewport Lens Mechanical Bezel & Graticules -->
-          <div class="hln-v38-frame-bezel" aria-hidden="true">
-            <!-- Top Horizontal Azimuth Graticule Beam -->
-            <div class="hln-v38-bezel-bar hln-v38-bezel-top">
-              <div class="hln-v38-bezel-tag">PORT-01 // AZIMUTH</div>
-              <div class="hln-v38-azimuth-ticks">
-                <span>000°</span><i>·</i><span>030°</span><i>·</i><span>060°</span><i>·</i>
-                <strong class="hln-v38-zenith-marker" id="v38-zenith-readout">▼ ZENITH 090.00°</strong>
-                <i>·</i><span>120°</span><i>·</i><span>150°</span><i>·</i><span>180°</span><i>·</i>
-                <span>210°</span><i>·</i><span>240°</span><i>·</i><span>270°</span><i>·</i>
-                <span>300°</span><i>·</i><span>330°</span><i>·</i><span>360°</span>
-              </div>
-              <div class="hln-v38-bezel-meta">FOV: 84° × 52° // FUSED SILICA COATED</div>
+        <div class="hln-v38-workbench hln-v38-glass-viewport" id="demo-layout-v38" data-showcase-view="v38">
+          <!-- 1. Minimalist Optical Registration & Corner Fiducials -->
+          <div class="hln-v38-optics-registration" aria-hidden="true">
+            <!-- 4 Ultra-refined 1px Vector Corner Optical Brackets -->
+            <div class="hln-v38-corner-fiducial is-tl">
+              <svg viewBox="0 0 16 16"><path d="M 0,16 L 0,0 L 16,0" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+              <span class="hln-v38-coord-chip">RA 18ʰ 36ᵐ · DEC +38° 47'</span>
+            </div>
+            <div class="hln-v38-corner-fiducial is-tr">
+              <span class="hln-v38-coord-chip">OPTICS f/2.8 · FL 13.4m</span>
+              <svg viewBox="0 0 16 16"><path d="M 0,0 L 16,0 L 16,16" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+            </div>
+            <div class="hln-v38-corner-fiducial is-bl">
+              <svg viewBox="0 0 16 16"><path d="M 0,0 L 0,16 L 16,16" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+              <span class="hln-v38-coord-chip">FOV 84° × 52° · R=45,000</span>
+            </div>
+            <div class="hln-v38-corner-fiducial is-br">
+              <span class="hln-v38-coord-chip" id="v38-cursor-polar">θ = 000° · r = 1.000</span>
+              <svg viewBox="0 0 16 16"><path d="M 16,0 L 16,16 L 0,16" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
             </div>
 
-            <!-- 4 Corner Machined Flange Clamps with Bolts & Optical Fiducials -->
-            <div class="hln-v38-corner-clamp hln-v38-corner-tl">
-              <span class="hln-v38-bolt"></span>
-              <span class="hln-v38-fiducial">⌜ TL-01</span>
-              <span class="hln-v38-clamp-status">SEAL OK</span>
-            </div>
-            <div class="hln-v38-corner-clamp hln-v38-corner-tr">
-              <span class="hln-v38-clamp-status">101.3 kPa</span>
-              <span class="hln-v38-fiducial">TR-02 ⌝</span>
-              <span class="hln-v38-bolt"></span>
-            </div>
-            <div class="hln-v38-corner-clamp hln-v38-corner-bl">
-              <span class="hln-v38-bolt"></span>
-              <span class="hln-v38-fiducial">⌞ BL-03</span>
-              <span class="hln-v38-clamp-status">RAD-SHIELD</span>
-            </div>
-            <div class="hln-v38-corner-clamp hln-v38-corner-br">
-              <span class="hln-v38-clamp-status">SERVO LCK</span>
-              <span class="hln-v38-fiducial">BR-04 ⌟</span>
-              <span class="hln-v38-bolt"></span>
-            </div>
+            <!-- 4 Cardinal Axis Micro-Markers -->
+            <span class="hln-v38-axis-marker is-n" title="North Zenith"><i>|</i><small>N · 000°</small></span>
+            <span class="hln-v38-axis-marker is-s" title="South Nadir"><i>|</i><small>S · 180°</small></span>
+            <span class="hln-v38-axis-marker is-w" title="West Azimuth"><small>270° · W</small><i>—</i></span>
+            <span class="hln-v38-axis-marker is-e" title="East Azimuth"><i>—</i><small>E · 090°</small></span>
 
-            <!-- Left Elevation Caliper Rail -->
-            <div class="hln-v38-bezel-bar hln-v38-bezel-left">
-              <span class="hln-v38-rail-label">ELEVATION</span>
-              <div class="hln-v38-elevation-scale">
-                <span>+90°</span><i>|</i><span>+60°</span><i>|</i><span>+30°</span><i>|</i>
-                <strong id="v38-frame-el-cursor">▶ 00° HORIZON</strong>
-                <i>|</i><span>-30°</span><i>|</i><span>-60°</span><i>|</i><span>-90°</span>
-              </div>
-            </div>
-
-            <!-- Right Optical Aperture Rail -->
-            <div class="hln-v38-bezel-bar hln-v38-bezel-right">
-              <span class="hln-v38-rail-label">IRIS APERTURE</span>
-              <div class="hln-v38-iris-scale">
-                <span>f/1.4</span><i>|</i>
-                <span>f/2.0</span><i>|</i>
-                <strong id="v38-frame-iris-active">f/2.8 [LCK]</strong><i>|</i>
-                <span>f/4.0</span><i>|</i>
-                <span>f/5.6</span><i>|</i>
-                <span>f/8.0</span>
-              </div>
-            </div>
-
-            <!-- Bottom Telemetry & Status Bar -->
-            <div class="hln-v38-bezel-bar hln-v38-bezel-bottom">
-              <div class="hln-v38-bezel-indicators">
-                <span class="hln-v38-bezel-indicator is-online">● PORT SEAL: NOMINAL</span>
-                <span class="hln-v38-bezel-indicator">VACUUM: 1.2e-11 Pa</span>
-                <span class="hln-v38-bezel-indicator">CMB: 2.73 K</span>
-              </div>
-              <div class="hln-v38-bezel-vernier">
-                <svg viewBox="0 0 280 12" aria-hidden="true">
-                  <line x1="0" y1="6" x2="280" y2="6" stroke="var(--hln-ui-line-strong)" stroke-width="0.8"/>
-                  <line x1="0" y1="0" x2="0" y2="12" stroke="var(--hln-ui-accent)" stroke-width="1.2"/>
-                  <line x1="35" y1="3" x2="35" y2="9" stroke="var(--hln-ui-line-strong)" stroke-width="0.8"/>
-                  <line x1="70" y1="2" x2="70" y2="10" stroke="var(--hln-ui-line-strong)" stroke-width="0.8"/>
-                  <line x1="105" y1="3" x2="105" y2="9" stroke="var(--hln-ui-line-strong)" stroke-width="0.8"/>
-                  <line x1="140" y1="0" x2="140" y2="12" stroke="var(--hln-ui-accent)" stroke-width="1.2"/>
-                  <line x1="175" y1="3" x2="175" y2="9" stroke="var(--hln-ui-line-strong)" stroke-width="0.8"/>
-                  <line x1="210" y1="2" x2="210" y2="10" stroke="var(--hln-ui-line-strong)" stroke-width="0.8"/>
-                  <line x1="245" y1="3" x2="245" y2="9" stroke="var(--hln-ui-line-strong)" stroke-width="0.8"/>
-                  <line x1="280" y1="0" x2="280" y2="12" stroke="var(--hln-ui-accent)" stroke-width="1.2"/>
-                </svg>
-              </div>
-              <div class="hln-v38-frame-actions">
-                <button type="button" class="hln-v38-frame-btn" id="v38-btn-gaze" title="Toggle Clear Viewport Gaze Mode">
-                  <span>🔭 视窗直窥 · Gaze</span>
-                </button>
-                <button type="button" class="hln-v38-frame-btn" id="v38-btn-reticle-toggle" data-active="true" title="Toggle Glass Optical Graticule">
-                  <span>🎯 准星标线 · Graticule</span>
-                </button>
-                <button type="button" class="hln-v38-frame-btn" id="v38-btn-fov" title="Cycle Field of View">
-                  <span id="v38-fov-label">FOV 84° (NORM)</span>
-                </button>
-              </div>
-            </div>
-
-            <!-- Full-Viewport Optical Glass Reticle Graticule (视窗镜面光学准星与同心测角圈) -->
-            <div class="hln-v38-glass-graticule" id="v38-glass-graticule">
-              <svg viewBox="0 0 1200 700" preserveAspectRatio="none" aria-label="Cosmic Viewport Lens Optical Graticule">
-                <circle cx="600" cy="350" r="140" fill="none" stroke="var(--hln-ui-line-strong)" stroke-width="0.75" stroke-dasharray="2 4"/>
-                <circle cx="600" cy="350" r="280" fill="none" stroke="var(--hln-ui-line)" stroke-width="0.7" stroke-dasharray="4 6"/>
-                <circle cx="600" cy="350" r="460" fill="none" stroke="var(--hln-ui-line)" stroke-width="0.6" stroke-dasharray="3 7"/>
-                <line x1="40" y1="350" x2="1160" y2="350" stroke="var(--hln-ui-line-strong)" stroke-width="0.8" stroke-dasharray="2 4"/>
-                <line x1="600" y1="30" x2="600" y2="670" stroke="var(--hln-ui-line-strong)" stroke-width="0.8" stroke-dasharray="2 4"/>
-                <line x1="300" y1="170" x2="900" y2="530" stroke="var(--hln-ui-line)" stroke-width="0.5" stroke-dasharray="2 6"/>
-                <line x1="300" y1="530" x2="900" y2="170" stroke="var(--hln-ui-line)" stroke-width="0.5" stroke-dasharray="2 6"/>
-                <rect x="585" y="335" width="30" height="30" fill="none" stroke="var(--hln-ui-accent)" stroke-width="1.2"/>
-                <line x1="590" y1="350" x2="610" y2="350" stroke="var(--hln-ui-accent)" stroke-width="1.2"/>
-                <line x1="600" y1="340" x2="600" y2="360" stroke="var(--hln-ui-accent)" stroke-width="1.2"/>
-                <circle cx="600" cy="350" r="2.5" fill="var(--hln-ui-accent)"/>
-                <text x="600" y="200" text-anchor="middle" fill="var(--hln-ui-text-muted)" font-size="8" font-family="monospace">00° N</text>
-                <text x="890" y="354" text-anchor="start" fill="var(--hln-ui-text-muted)" font-size="8" font-family="monospace">90° E</text>
-                <text x="600" y="500" text-anchor="middle" fill="var(--hln-ui-text-muted)" font-size="8" font-family="monospace">180° S</text>
-                <text x="310" y="354" text-anchor="end" fill="var(--hln-ui-text-muted)" font-size="8" font-family="monospace">270° W</text>
-                <path d="M 80,80 L 120,80 M 80,80 L 80,120" stroke="var(--hln-ui-accent)" stroke-width="1.4" fill="none"/>
-                <path d="M 1120,80 L 1080,80 M 1120,80 L 1120,120" stroke="var(--hln-ui-accent)" stroke-width="1.4" fill="none"/>
-                <path d="M 80,620 L 120,620 M 80,620 L 80,580" stroke="var(--hln-ui-accent)" stroke-width="1.4" fill="none"/>
-                <path d="M 1120,620 L 1080,620 M 1120,620 L 1120,580" stroke="var(--hln-ui-accent)" stroke-width="1.4" fill="none"/>
-              </svg>
-            </div>
+            <!-- Pure Optical Lens Reticle on the Glass Surface -->
+            <svg class="hln-v38-glass-reticle" viewBox="0 0 1200 700" preserveAspectRatio="none">
+              <circle cx="600" cy="350" r="140" fill="none" stroke="var(--hln-ui-line)" stroke-width="0.75" stroke-dasharray="2 4"/>
+              <circle cx="600" cy="350" r="280" fill="none" stroke="var(--hln-ui-line)" stroke-width="0.75" stroke-dasharray="4 6"/>
+              <line x1="80" y1="350" x2="1120" y2="350" stroke="var(--hln-ui-line)" stroke-width="0.75" stroke-dasharray="2 6"/>
+              <line x1="600" y1="50" x2="600" y2="650" stroke="var(--hln-ui-line)" stroke-width="0.75" stroke-dasharray="2 6"/>
+              <circle cx="600" cy="350" r="16" fill="none" stroke="var(--hln-ui-accent)" stroke-width="1"/>
+              <line x1="592" y1="350" x2="608" y2="350" stroke="var(--hln-ui-accent)" stroke-width="1.2"/>
+              <line x1="600" y1="342" x2="600" y2="358" stroke="var(--hln-ui-accent)" stroke-width="1.2"/>
+            </svg>
           </div>
 
-          <!-- Viewport Chamber Inner Content -->
-          <div class="hln-v38-viewport-inner" id="v38-viewport-inner">
-            <!-- Top Observatory Viewport Telemetry HUD Ribbon -->
-            <div class="hln-v38-hud" data-hln-ui-surface data-hln-motion="item">
-            <span class="hln-v38-hud-stream" aria-hidden="true"></span>
-            <div class="hln-v38-hud__lead">
-              <div class="hln-v38-collimator" aria-hidden="true" title="Collimator Optical Reticle">
-                <span class="hln-v38-collimator-ring"></span>
-                <span class="hln-v38-collimator-core"></span>
-              </div>
-              <span class="hln-v38-hud__tag">V3.8 // COSMIC VIEWPORT</span>
-              <strong class="hln-v38-hud__title">深空天体视窗镜 · 引力透镜测地线与恒星光谱中枢 (Cosmic Viewport Lens Studio)</strong>
+          <!-- 2. Minimalist Software Viewport Header -->
+          <header class="hln-v38-viewport-header">
+            <div class="hln-v38-header-lead">
+              <span class="hln-v38-status-pulse" aria-hidden="true"></span>
+              <span class="hln-v38-header-tag">V3.8</span>
+              <h3 class="hln-v38-header-title">深空悬浮视窗 · Cosmic Viewport Lens</h3>
             </div>
-            <div class="hln-v38-hud__metrics">
-              <div class="hln-v38-hud-chip" title="Equatorial Coordinates">
-                <small>赤经/赤纬 RA·DEC</small>
-                <strong id="v38-chip-coords">18ʰ 36ᵐ 56ˢ // +38° 47' 01"</strong>
-              </div>
-              <div class="hln-v38-hud-chip" title="Optical Aperture & Focal Length">
-                <small>视窗光圈 OPTICS</small>
-                <strong id="v38-chip-optics">f/2.8 · FL 13.4m</strong>
-              </div>
-              <div class="hln-v38-hud-chip" title="Spectral Resolution R = λ/Δλ">
-                <small>光谱分辨率 RESOLUTION</small>
-                <strong id="v38-chip-resolution">R = 45,000</strong>
-              </div>
-              <div class="hln-v38-hud-chip" title="Photon Flux Integration">
-                <small>积分曝光 INT</small>
-                <strong id="v38-chip-exposure">120.0s [J2026.5]</strong>
-              </div>
-              <button type="button" class="hln-v38-lock-btn" id="v38-btn-lock">
-                <span>准直锁相 · LOCK</span>
-                <small id="v38-lock-status">TRACKING</small>
+
+            <!-- View Mode Switcher -->
+            <div class="hln-v38-tab-group" role="tablist">
+              <button type="button" class="hln-v38-tab" data-v38-tab="dual" data-active="true" role="tab">
+                <span>双重视界 · Dual Focus</span>
+              </button>
+              <button type="button" class="hln-v38-tab" data-v38-tab="lens" data-active="false" role="tab">
+                <span>全视窗镜 · Clear Lens</span>
+              </button>
+              <button type="button" class="hln-v38-tab" data-v38-tab="data" data-active="false" role="tab">
+                <span>数据分析 · Analytics</span>
               </button>
             </div>
-          </div>
 
-          <div class="hln-v38-console">
-            <!-- Column 01: Optical Viewport Lens & Gravitational Lensing Stage -->
-            <section class="hln-v38-panel" data-hln-ui-surface data-hln-motion="panel">
-              <header class="hln-v38-panel__head">
-                <div class="hln-v38-panel__title">
-                  <span class="hln-v38-panel__index">01</span>
-                  <h3>视窗透镜与时空测地线 · Gravitational Lens</h3>
-                </div>
-                <span class="hln-v38-panel__badge">GEODESIC // 4GM/c²b</span>
-              </header>
+            <div class="hln-v38-header-actions">
+              <button type="button" class="hln-v38-action-btn" id="v38-btn-lock" data-active="true">
+                <span class="hln-v38-lock-dot"></span>
+                <span id="v38-lock-status">准直锁定 · LOCKED</span>
+              </button>
+              <button type="button" class="hln-v38-action-btn" id="v38-btn-pulse" title="Inject photon pulse">
+                <span>⚡ 脉冲</span>
+              </button>
+              <button type="button" class="hln-v38-action-btn" id="v38-btn-realign" title="Realign viewport optics">
+                <span>↻ 复位</span>
+              </button>
+            </div>
+          </header>
 
-              <div class="hln-v38-panel__body" data-hln-ui-scroll>
-                <!-- Viewport Lens Aperture Simulation Box -->
-                <div class="hln-v38-block" data-hln-motion="item">
-                  <div class="hln-v38-block-head">
-                    <span>望远镜光学视窗镜 · Telescope Aperture Viewport</span>
-                    <strong id="v38-einstein-readout">θ_E = 1.618″ (爱因斯坦环)</strong>
-                  </div>
-                  <div class="hln-v38-aperture-box" id="v38-aperture-box">
-                    <svg viewBox="0 0 320 200" aria-label="Gravitational Lensing Geodesics & Einstein Ring">
-                      <!-- Viewport Bezel Sight Crosshairs & Polar Angle Graticules -->
-                      <circle cx="160" cy="100" r="92" fill="none" stroke="var(--hln-ui-line)" stroke-width="0.8"/>
-                      <circle cx="160" cy="100" r="68" fill="none" stroke="var(--hln-ui-line-strong)" stroke-width="0.75" stroke-dasharray="2 4"/>
-                      <line x1="20" y1="100" x2="300" y2="100" stroke="var(--hln-ui-line)" stroke-width="0.75" stroke-dasharray="2 6"/>
-                      <line x1="160" y1="10" x2="160" y2="190" stroke="var(--hln-ui-line)" stroke-width="0.75" stroke-dasharray="2 6"/>
-
-                      <!-- Rotating Azimuth Graticule Ring -->
-                      <g class="hln-v38-reticle-azimuth">
-                        <circle cx="160" cy="100" r="82" fill="none" stroke="var(--hln-ui-line)" stroke-width="0.7" stroke-dasharray="3 7"/>
-                        <polygon points="160,18 164,26 156,26" fill="var(--hln-ui-accent)"/>
-                      </g>
-
-                      <!-- Einstein Ring Radius Circle (Dynamic r = 54 * mass factor) -->
-                      <circle id="v38-svg-einstein-ring" cx="160" cy="100" r="54" fill="none" stroke="var(--hln-ui-accent)" stroke-width="1.3" stroke-dasharray="4 4"/>
-
-                      <!-- Deflected Curved Light Geodesics (Null Geodesics bending around Singularity) -->
-                      <path id="v38-svg-geodesic-top" class="hln-v38-geodesic-base" d="M 24,52 C 100,52 128,84 160,84 C 192,84 220,52 296,52"/>
-                      <path id="v38-svg-geodesic-bot" class="hln-v38-geodesic-base" d="M 24,148 C 100,148 128,116 160,116 C 192,116 220,148 296,148"/>
-                      <path class="hln-v38-geodesic-base" d="M 24,76 C 96,76 130,92 160,92 C 190,92 224,76 296,76"/>
-                      <path class="hln-v38-geodesic-base" d="M 24,124 C 96,124 130,108 160,108 C 190,108 224,124 296,124"/>
-
-                      <!-- Flowing Ray Wave Overlays -->
-                      <path class="hln-v38-geodesic-ray" d="M 24,52 C 100,52 128,84 160,84 C 192,84 220,52 296,52"/>
-                      <path class="hln-v38-geodesic-ray is-cool" d="M 24,148 C 100,148 128,116 160,116 C 192,116 220,148 296,148"/>
-
-                      <!-- Traveling Photons via animateMotion -->
-                      <circle r="2.8" class="hln-v38-photon-dot">
-                        <animateMotion dur="2.4s" repeatCount="indefinite" path="M 24,52 C 100,52 128,84 160,84 C 192,84 220,52 296,52"/>
-                      </circle>
-                      <circle r="2.6" class="hln-v38-photon-dot is-cool">
-                        <animateMotion dur="2.8s" repeatCount="indefinite" path="M 24,148 C 100,148 128,116 160,116 C 192,116 220,148 296,148"/>
-                      </circle>
-
-                      <!-- Central Singularity / Compact Mass (Schwarzschild Horizon) -->
-                      <circle cx="160" cy="100" r="14" fill="var(--hln-ui-bg-0)" stroke="var(--hln-ui-accent)" stroke-width="1.8"/>
-                      <circle cx="160" cy="100" r="7" fill="var(--hln-ui-accent)"/>
-                      <text x="160" y="103" text-anchor="middle" fill="var(--hln-ui-bg-0)" font-size="7" font-family="monospace" font-weight="700">M⊙</text>
-                    </svg>
-
-                    <div class="hln-v38-lens-readout">
-                      <span>偏折角 DEFLECTION α̂</span>
-                      <strong id="v38-deflection-readout">α̂ = 4GM / c²b = +2.48″</strong>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Viewport Mode Presets -->
-                <div class="hln-v38-block" data-hln-motion="item">
-                  <div class="hln-v38-block-head">
-                    <span>视窗透镜模态 · Lens Projection Mode</span>
-                    <strong id="v38-lens-mode-label">EINSTEIN RING</strong>
+          <!-- 3. Spacious Viewport Body: Modern 2-Zone Software Layout (呼吸感、大留白) -->
+          <div class="hln-v38-viewport-stage" id="v38-viewport-stage">
+            <!-- Zone A: Central Optical Viewport Canvas (通透深空光学取景视窗) -->
+            <section class="hln-v38-stage-canvas" data-v38-zone="canvas">
+              <div class="hln-v38-lens-view">
+                <div class="hln-v38-lens-head">
+                  <div class="hln-v38-lens-title">
+                    <span>引力透镜时空测地线 · Gravitational Geodesics</span>
+                    <strong id="v38-deflection-readout">α̂ = 4GM / c²b = +2.48″</strong>
                   </div>
                   <div class="hln-v38-lens-modes" id="v38-lens-mode-grid">
                     <button type="button" class="hln-v38-mode-pill" data-v38-lens-mode="einstein" data-active="true">爱因斯坦环</button>
@@ -1561,83 +1415,103 @@
                   </div>
                 </div>
 
-                <!-- Interactive Lens Mass & Impact Parameter Scrubbers -->
-                <div class="hln-v38-block" data-hln-motion="item">
-                  <div class="hln-v38-block-head">
-                    <span>中心透镜质量 · Compact Mass (M / M⊙)</span>
-                    <strong id="v38-mass-readout">4.20 M⊙ (φ³ M⊙)</strong>
-                  </div>
-                  <input type="range" class="tactical-range" id="v38-slider-mass" min="10" max="90" value="42" aria-label="Lens Mass">
+                <div class="hln-v38-lens-svg-container" id="v38-aperture-box">
+                  <svg viewBox="0 0 540 240" aria-label="Gravitational Lensing Geodesics & Einstein Ring">
+                    <circle cx="270" cy="120" r="100" fill="none" stroke="var(--hln-ui-line)" stroke-width="0.8"/>
+                    <circle cx="270" cy="120" r="68" fill="none" stroke="var(--hln-ui-line)" stroke-width="0.75" stroke-dasharray="2 4"/>
+                    <line x1="20" y1="120" x2="520" y2="120" stroke="var(--hln-ui-line)" stroke-width="0.75" stroke-dasharray="2 6"/>
+                    <line x1="270" y1="15" x2="270" y2="225" stroke="var(--hln-ui-line)" stroke-width="0.75" stroke-dasharray="2 6"/>
+
+                    <g class="hln-v38-reticle-azimuth">
+                      <circle cx="270" cy="120" r="86" fill="none" stroke="var(--hln-ui-line)" stroke-width="0.7" stroke-dasharray="3 7"/>
+                      <polygon points="270,30 274,38 266,38" fill="var(--hln-ui-accent)"/>
+                    </g>
+
+                    <circle id="v38-svg-einstein-ring" cx="270" cy="120" r="54" fill="none" stroke="var(--hln-ui-accent)" stroke-width="1.3" stroke-dasharray="4 4"/>
+
+                    <path id="v38-svg-geodesic-top" class="hln-v38-geodesic-base" d="M 30,64 C 150,64 210,102 270,102 C 330,102 390,64 510,64"/>
+                    <path id="v38-svg-geodesic-bot" class="hln-v38-geodesic-base" d="M 30,176 C 150,176 210,138 270,138 C 330,138 390,176 510,176"/>
+                    <path class="hln-v38-geodesic-base" d="M 30,92 C 150,92 210,110 270,110 C 330,110 390,92 510,92"/>
+                    <path class="hln-v38-geodesic-base" d="M 30,148 C 150,148 210,130 270,130 C 330,130 390,148 510,148"/>
+
+                    <path class="hln-v38-geodesic-ray" d="M 30,64 C 150,64 210,102 270,102 C 330,102 390,64 510,64"/>
+                    <path class="hln-v38-geodesic-ray is-cool" d="M 30,176 C 150,176 210,138 270,138 C 330,138 390,176 510,176"/>
+
+                    <circle r="2.8" class="hln-v38-photon-dot">
+                      <animateMotion dur="2.4s" repeatCount="indefinite" path="M 30,64 C 150,64 210,102 270,102 C 330,102 390,64 510,64"/>
+                    </circle>
+                    <circle r="2.6" class="hln-v38-photon-dot is-cool">
+                      <animateMotion dur="2.8s" repeatCount="indefinite" path="M 30,176 C 150,176 210,138 270,138 C 330,138 390,176 510,176"/>
+                    </circle>
+
+                    <circle cx="270" cy="120" r="14" fill="var(--hln-ui-bg-0)" stroke="var(--hln-ui-accent)" stroke-width="1.8"/>
+                    <circle cx="270" cy="120" r="7" fill="var(--hln-ui-accent)"/>
+                    <text x="270" y="123" text-anchor="middle" fill="var(--hln-ui-bg-0)" font-size="7" font-family="monospace" font-weight="700">M⊙</text>
+                  </svg>
                 </div>
 
-                <div class="hln-v38-block" data-hln-motion="item">
-                  <div class="hln-v38-block-head">
-                    <span>碰撞参数 · Impact Parameter (b)</span>
-                    <strong id="v38-impact-readout">5.80 kpc (4GM/c²α)</strong>
+                <div class="hln-v38-lens-controls">
+                  <div class="hln-v38-scrubber-item">
+                    <div class="hln-v38-scrubber-head">
+                      <span>透镜质量 · Mass (M / M⊙)</span>
+                      <strong id="v38-mass-readout">4.20 M⊙</strong>
+                    </div>
+                    <input type="range" class="tactical-range" id="v38-slider-mass" min="10" max="90" value="42" aria-label="Lens Mass">
                   </div>
-                  <input type="range" class="tactical-range" id="v38-slider-impact" min="20" max="100" value="58" aria-label="Impact Parameter">
-                </div>
-
-                <div class="hln-v38-block" data-hln-motion="item">
-                  <div class="hln-v38-lens-modes">
-                    <button type="button" data-hln-ui-control data-variant="accent" id="v38-btn-pulse">
-                      <span>注入引力光子流 · Pulse</span><small>⚡</small>
-                    </button>
-                    <button type="button" data-hln-ui-control id="v38-btn-realign">
-                      <span>重新校准视窗 · Realign</span><small>↻</small>
-                    </button>
+                  <div class="hln-v38-scrubber-item">
+                    <div class="hln-v38-scrubber-head">
+                      <span>碰撞参数 · Impact (b / kpc)</span>
+                      <strong id="v38-impact-readout">5.80 kpc</strong>
+                    </div>
+                    <input type="range" class="tactical-range" id="v38-slider-impact" min="20" max="100" value="58" aria-label="Impact Parameter">
+                  </div>
+                  <div class="hln-v38-scrubber-readout">
+                    <small>爱因斯坦环</small>
+                    <strong id="v38-einstein-readout">θ_E = 1.618″</strong>
                   </div>
                 </div>
               </div>
             </section>
 
-            <!-- Column 02: Stellar Spectrum & Absorption Spectrograph -->
-            <section class="hln-v38-panel" data-hln-ui-surface data-hln-motion="panel">
-              <header class="hln-v38-panel__head">
-                <div class="hln-v38-panel__title">
-                  <span class="hln-v38-panel__index">02</span>
-                  <h3>恒星吸收光谱仪 · Stellar Spectrograph</h3>
-                </div>
-                <span class="hln-v38-panel__badge" id="v38-spectro-badge">VISIBLE // 380-750nm</span>
-              </header>
-
-              <div class="hln-v38-panel__body" data-hln-ui-scroll>
-                <!-- Live Visible Spectrum & Balmer Absorption Lines -->
-                <div class="hln-v38-block" data-hln-motion="item">
-                  <div class="hln-v38-block-head">
-                    <span>巴尔末吸收暗线 · Balmer Absorption Bands</span>
-                    <strong id="v38-doppler-readout">Δv = +42.8 km/s (z = 0.00014)</strong>
+            <!-- Zone B: Side Analysis Dock (专业侧边分析面板: 光谱仪 + 开普勒历表) -->
+            <aside class="hln-v38-stage-dock" data-v38-zone="dock">
+              <!-- Section 1: Stellar Spectrograph -->
+              <div class="hln-v38-dock-card">
+                <div class="hln-v38-dock-card__head">
+                  <div class="hln-v38-dock-card__title">
+                    <span class="hln-v38-card-dot"></span>
+                    <h4>恒星吸收光谱仪 · Spectrograph</h4>
                   </div>
-                  <div class="hln-v38-spectrograph">
-                    <div class="hln-v38-spectrum-rainbow" id="v38-rainbow-bar">
-                      <span class="hln-v38-abs-line" style="left: 14.6%" data-line-label="Hδ 410"></span>
-                      <span class="hln-v38-abs-line" style="left: 21.0%" data-line-label="Hγ 434"></span>
-                      <span class="hln-v38-abs-line" style="left: 35.1%" data-line-label="Hβ 486"></span>
-                      <span class="hln-v38-abs-line" style="left: 63.0%" data-line-label="Na-D 589"></span>
-                      <span class="hln-v38-abs-line" style="left: 81.2%" data-line-label="Hα 656"></span>
-                    </div>
-
-                    <svg class="hln-v38-spectrum-svg" viewBox="0 0 320 54" aria-label="Planck Blackbody Radiation Intensity Curve">
-                      <path id="v38-planck-curve" class="hln-v38-planck-curve" d="M 0,50 Q 80,4 140,16 T 320,46"/>
-                      <line x1="0" y1="52" x2="320" y2="52" stroke="var(--hln-ui-line)" stroke-width="1"/>
-                      <line id="v38-scrub-line" x1="160" y1="2" x2="160" y2="52" stroke="var(--hln-ui-accent)" stroke-width="1.2" stroke-dasharray="2 2"/>
-                    </svg>
-                  </div>
+                  <strong id="v38-doppler-readout">Δv = +42.8 km/s</strong>
                 </div>
 
-                <!-- Wavelength Scrubber Slider -->
-                <div class="hln-v38-block" data-hln-motion="item">
-                  <div class="hln-v38-block-head">
-                    <span>观测波长微调 · Observation Wavelength (λ)</span>
+                <div class="hln-v38-spectrograph-wrap">
+                  <div class="hln-v38-spectrum-rainbow" id="v38-rainbow-bar">
+                    <span class="hln-v38-abs-line" style="left: 14.6%" data-line-label="Hδ 410"></span>
+                    <span class="hln-v38-abs-line" style="left: 21.0%" data-line-label="Hγ 434"></span>
+                    <span class="hln-v38-abs-line" style="left: 35.1%" data-line-label="Hβ 486"></span>
+                    <span class="hln-v38-abs-line" style="left: 63.0%" data-line-label="Na-D 589"></span>
+                    <span class="hln-v38-abs-line" style="left: 81.2%" data-line-label="Hα 656"></span>
+                  </div>
+
+                  <svg class="hln-v38-spectrum-svg" viewBox="0 0 320 44" aria-label="Planck Radiation Curve">
+                    <path id="v38-planck-curve" class="hln-v38-planck-curve" d="M 0,42 Q 80,4 140,16 T 320,40"/>
+                    <line x1="0" y1="42" x2="320" y2="42" stroke="var(--hln-ui-line)" stroke-width="1"/>
+                    <line id="v38-scrub-line" x1="160" y1="2" x2="160" y2="42" stroke="var(--hln-ui-accent)" stroke-width="1.2" stroke-dasharray="2 2"/>
+                  </svg>
+                </div>
+
+                <div class="hln-v38-dock-row">
+                  <div class="hln-v38-scrubber-head">
+                    <span>观测波长 · λ</span>
                     <strong id="v38-lambda-readout">λ = 545.0 nm (V波段)</strong>
                   </div>
                   <input type="range" class="tactical-range" id="v38-slider-lambda" min="380" max="750" value="545" aria-label="Wavelength">
                 </div>
 
-                <!-- Morgan-Keenan Stellar Class Grid (O B A F G K M) -->
-                <div class="hln-v38-block" data-hln-motion="item">
-                  <div class="hln-v38-block-head">
-                    <span>MK 恒星光谱型 · Stellar Spectral Classification</span>
+                <div class="hln-v38-dock-row">
+                  <div class="hln-v38-scrubber-head">
+                    <span>MK 恒星光谱型</span>
                     <strong id="v38-class-label">G2V (SOL-TYPE)</strong>
                   </div>
                   <div class="hln-v38-class-grid" id="v38-class-grid">
@@ -1651,155 +1525,113 @@
                   </div>
                 </div>
 
-                <!-- Photometric Filter Wheel Strip -->
-                <div class="hln-v38-block" data-hln-motion="item">
-                  <div class="hln-v38-block-head">
-                    <span>测光滤镜轮 · Narrowband Filter Wheel</span>
-                    <strong id="v38-filter-label">Hα 656nm</strong>
+                <div class="hln-v38-filter-strip" id="v38-filter-strip">
+                  <button type="button" class="hln-v38-filter-pill" data-v38-filter="ha" data-active="true">Hα 656nm</button>
+                  <button type="button" class="hln-v38-filter-pill" data-v38-filter="o3">[O-III] 501</button>
+                  <button type="button" class="hln-v38-filter-pill" data-v38-filter="s2">[S-II] 672</button>
+                  <button type="button" class="hln-v38-filter-pill" data-v38-filter="nir">NIR 850nm</button>
+                </div>
+              </div>
+
+              <!-- Section 2: Keplerian State Matrix & Metric Tensor -->
+              <div class="hln-v38-dock-card">
+                <div class="hln-v38-dock-card__head">
+                  <div class="hln-v38-dock-card__title">
+                    <span class="hln-v38-card-dot"></span>
+                    <h4>开普勒历表与度规 · Ephemeris</h4>
                   </div>
-                  <div class="hln-v38-filter-strip" id="v38-filter-strip">
-                    <button type="button" class="hln-v38-filter-pill" data-v38-filter="ha" data-active="true">Hα 656nm</button>
-                    <button type="button" class="hln-v38-filter-pill" data-v38-filter="o3">[O-III] 501</button>
-                    <button type="button" class="hln-v38-filter-pill" data-v38-filter="s2">[S-II] 672</button>
-                    <button type="button" class="hln-v38-filter-pill" data-v38-filter="nir">NIR 850nm</button>
+                  <span class="hln-v38-badge-mini" id="v38-bus-clock">TDB 11:15:32</span>
+                </div>
+
+                <div class="hln-v38-orbital-grid">
+                  <div class="hln-v38-orbital-cell">
+                    <span>半长轴 (a)</span>
+                    <strong id="v38-orb-a">1.618 AU</strong>
+                  </div>
+                  <div class="hln-v38-orbital-cell">
+                    <span>偏心率 (e)</span>
+                    <strong id="v38-orb-e">0.0167</strong>
+                  </div>
+                  <div class="hln-v38-orbital-cell">
+                    <span>倾角 (i)</span>
+                    <strong id="v38-orb-i">7.155°</strong>
+                  </div>
+                  <div class="hln-v38-orbital-cell">
+                    <span>升交点 (Ω)</span>
+                    <strong id="v38-orb-omega-big">48.33°</strong>
+                  </div>
+                  <div class="hln-v38-orbital-cell">
+                    <span>近心点 (ω)</span>
+                    <strong id="v38-orb-omega-small">77.46°</strong>
+                  </div>
+                  <div class="hln-v38-orbital-cell">
+                    <span>真近点 (ν)</span>
+                    <strong id="v38-orb-nu">128.4°</strong>
                   </div>
                 </div>
 
-                <!-- 4 Astronomical KPI Cards -->
-                <div class="hln-v38-kpi-grid" data-hln-motion="item">
+                <div class="hln-v38-metric-calipers" id="v38-metric-calipers">
+                  <div class="hln-v38-caliper-row">
+                    <span>g₀₀</span>
+                    <div class="hln-v38-caliper-meter"><i style="--meter-w: 86%"></i></div>
+                    <strong>−0.998</strong>
+                  </div>
+                  <div class="hln-v38-caliper-row">
+                    <span>g_rr</span>
+                    <div class="hln-v38-caliper-meter"><i style="--meter-w: 78%"></i></div>
+                    <strong>+1.002</strong>
+                  </div>
+                  <div class="hln-v38-caliper-row">
+                    <span>g_θθ</span>
+                    <div class="hln-v38-caliper-meter"><i style="--meter-w: 62%"></i></div>
+                    <strong>+r²</strong>
+                  </div>
+                  <div class="hln-v38-caliper-row">
+                    <span>g_φφ</span>
+                    <div class="hln-v38-caliper-meter"><i style="--meter-w: 54%"></i></div>
+                    <strong>+r²sin²θ</strong>
+                  </div>
+                </div>
+
+                <div class="hln-v38-kpi-grid">
                   <div class="hln-v38-kpi-card">
                     <small>有效表面温度 T_eff</small>
                     <strong id="v38-kpi-temp">5,778 K</strong>
-                    <span>黑体峰值 λ_max</span>
                   </div>
                   <div class="hln-v38-kpi-card">
-                    <small>光度光通量 FLUX</small>
+                    <small>光通量 FLUX</small>
                     <strong id="v38-kpi-flux">3.828×10²⁶</strong>
-                    <span>Watts // L⊙</span>
                   </div>
                   <div class="hln-v38-kpi-card">
-                    <small>引力红移 REDSHIFT</small>
+                    <small>红移 REDSHIFT</small>
                     <strong id="v38-kpi-z">+0.0016</strong>
-                    <span>z = Δλ / λ₀</span>
                   </div>
                   <div class="hln-v38-kpi-card">
-                    <small>视星等 MAGNITUDE</small>
+                    <small>视星等 MAG</small>
                     <strong id="v38-kpi-mag">−26.74</strong>
-                    <span>m_V // Johnson</span>
                   </div>
                 </div>
               </div>
-            </section>
-
-            <!-- Column 03: Keplerian Ephemeris & Cosmic Telemetry Bus -->
-            <section class="hln-v38-panel" data-hln-ui-surface data-hln-motion="panel">
-              <header class="hln-v38-panel__head">
-                <div class="hln-v38-panel__title">
-                  <span class="hln-v38-panel__index">03</span>
-                  <h3>开普勒历表与时空度规 · Ephemeris &amp; Bus</h3>
-                </div>
-                <span class="hln-v38-panel__badge">KEPLER // TDB</span>
-              </header>
-
-              <div class="hln-v38-panel__body" data-hln-ui-scroll>
-                <!-- Keplerian Orbital State Matrix -->
-                <div class="hln-v38-block" data-hln-motion="item">
-                  <div class="hln-v38-block-head">
-                    <span>开普勒六根数轨道状态 · Orbital State Matrix</span>
-                    <strong>EPOCH J2026.5</strong>
-                  </div>
-                  <div class="hln-v38-orbital-grid">
-                    <div class="hln-v38-orbital-cell">
-                      <span>半长轴 SEMI-MAJOR (a)</span>
-                      <strong id="v38-orb-a">1.6180 AU</strong>
-                    </div>
-                    <div class="hln-v38-orbital-cell">
-                      <span>偏心率 ECCENTRICITY (e)</span>
-                      <strong id="v38-orb-e">0.0167</strong>
-                    </div>
-                    <div class="hln-v38-orbital-cell">
-                      <span>轨道倾角 INCLINATION (i)</span>
-                      <strong id="v38-orb-i">7.155°</strong>
-                    </div>
-                    <div class="hln-v38-orbital-cell">
-                      <span>升交点黄经 RAAN (Ω)</span>
-                      <strong id="v38-orb-omega-big">48.331°</strong>
-                    </div>
-                    <div class="hln-v38-orbital-cell">
-                      <span>近心点幅角 ARG (ω)</span>
-                      <strong id="v38-orb-omega-small">77.457°</strong>
-                    </div>
-                    <div class="hln-v38-orbital-cell">
-                      <span>真近点角 ANOMALY (ν)</span>
-                      <strong id="v38-orb-nu">128.402°</strong>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Spacetime Metric Tensor Caliper Bars -->
-                <div class="hln-v38-block" data-hln-motion="item">
-                  <div class="hln-v38-block-head">
-                    <span>施瓦西时空度规张量 · Metric Tensor g_μν</span>
-                    <strong id="v38-metric-det">det(g) = −1.000</strong>
-                  </div>
-                  <div class="hln-v38-metric-calipers" id="v38-metric-calipers">
-                    <div class="hln-v38-caliper-row">
-                      <span>g₀₀ (时间)</span>
-                      <div class="hln-v38-caliper-meter"><i style="--meter-w: 86%"></i></div>
-                      <strong>−0.998</strong>
-                    </div>
-                    <div class="hln-v38-caliper-row">
-                      <span>g_rr (径向)</span>
-                      <div class="hln-v38-caliper-meter"><i style="--meter-w: 78%"></i></div>
-                      <strong>+1.002</strong>
-                    </div>
-                    <div class="hln-v38-caliper-row">
-                      <span>g_θθ (角向)</span>
-                      <div class="hln-v38-caliper-meter"><i style="--meter-w: 62%"></i></div>
-                      <strong>+r²</strong>
-                    </div>
-                    <div class="hln-v38-caliper-row">
-                      <span>g_φφ (方位)</span>
-                      <div class="hln-v38-caliper-meter"><i style="--meter-w: 54%"></i></div>
-                      <strong>+r²sin²θ</strong>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Deep Space Telemetry Packet Bus -->
-                <div class="hln-v38-block" data-hln-motion="item">
-                  <div class="hln-v38-block-head">
-                    <span>深空遥测数据帧总线 · Cosmic Telemetry Bus</span>
-                    <strong id="v38-bus-clock">TDB 11:15:32</strong>
-                  </div>
-                  <div class="hln-v38-telemetry-bus" id="v38-telemetry-bus">
-                    <div class="hln-v38-bus-row">
-                      <span class="hln-v38-bus-tag">SYNC</span>
-                      <span class="hln-v38-bus-msg">太阳系质心坐标时钟锁相 · TDB Clock Locked</span>
-                      <span class="hln-v38-bus-val">0.01ms</span>
-                    </div>
-                    <div class="hln-v38-bus-row">
-                      <span class="hln-v38-bus-tag">LENS</span>
-                      <span class="hln-v38-bus-msg">引力透镜焦平面光子通量采样 · Flux Validated</span>
-                      <span class="hln-v38-bus-val">0.04ms</span>
-                    </div>
-                    <div class="hln-v38-bus-row">
-                      <span class="hln-v38-bus-tag">SPEC</span>
-                      <span class="hln-v38-bus-msg">Hα 656.3nm 巴尔末谱线多普勒对准 · Shift Calibrated</span>
-                      <span class="hln-v38-bus-val">0.03ms</span>
-                    </div>
-                    <div class="hln-v38-bus-row">
-                      <span class="hln-v38-bus-tag">EMIT</span>
-                      <span class="hln-v38-bus-msg">开普勒天体测量状态矢量广播 · State Vector Broadcast</span>
-                      <span class="hln-v38-bus-val">0.02ms</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
+            </aside>
           </div>
+
+          <!-- 4. Sleek Minimal Status Ribbon -->
+          <footer class="hln-v38-viewport-footer">
+            <div class="hln-v38-footer-item">
+              <span class="hln-v38-status-dot is-live"></span>
+              <span>OPTICAL APERTURE // NOMINAL</span>
+            </div>
+            <div class="hln-v38-footer-item">
+              <span>积分曝光: <strong id="v38-chip-exposure">120.0s [J2026.5]</strong></span>
+            </div>
+            <div class="hln-v38-footer-item">
+              <span>光谱分辨率: <strong id="v38-chip-resolution">R = 45,000</strong></span>
+            </div>
+            <div class="hln-v38-footer-item">
+              <span id="v38-telemetry-status">COSMIC GEODESIC STREAM ACTIVE</span>
+            </div>
+          </footer>
         </div>
-      </div>
 
         <!-- Status Bar -->
         <footer class="paralos-statusbar">

@@ -94,33 +94,33 @@ test("v3.8 dist mirrors source and bundle is current", () => {
   assert.equal(read("dist/hln-ui-system-v3.8.css"), expected)
 })
 
-test("v3.8 cosmic observatory layer includes HUD ribbon, lens aperture, geodesic rays, spectrograph, absorption lines, and orbital state matrix", () => {
+test("v3.8 cosmic observatory layer includes minimalist optical glass viewport, fiducials, reticle, lens aperture, geodesics, spectrograph, and orbital grid", () => {
   const cos = read("src/cosmic.css")
   for (const cls of [
     "hln-v38-workbench",
-    "hln-v38-viewport-frame",
-    "hln-v38-frame-bezel",
-    "hln-v38-bezel-top",
-    "hln-v38-corner-clamp",
-    "hln-v38-bezel-left",
-    "hln-v38-bezel-right",
-    "hln-v38-bezel-bottom",
-    "hln-v38-glass-graticule",
-    "hln-v38-viewport-inner",
-    "hln-v38-hud",
-    "hln-v38-hud-stream",
-    "hln-v38-collimator",
-    "hln-v38-console",
-    "hln-v38-panel",
+    "hln-v38-glass-viewport",
+    "hln-v38-optics-registration",
+    "hln-v38-corner-fiducial",
+    "hln-v38-coord-chip",
+    "hln-v38-axis-marker",
+    "hln-v38-glass-reticle",
+    "hln-v38-viewport-header",
+    "hln-v38-tab-group",
+    "hln-v38-tab",
+    "hln-v38-action-btn",
+    "hln-v38-viewport-stage",
+    "hln-v38-stage-canvas",
+    "hln-v38-lens-view",
     "hln-v38-aperture-box",
     "hln-v38-geodesic-ray",
     "hln-v38-photon-dot",
-    "hln-v38-spectrograph",
+    "hln-v38-stage-dock",
+    "hln-v38-dock-card",
     "hln-v38-spectrum-rainbow",
     "hln-v38-abs-line",
     "hln-v38-orbital-grid",
     "hln-v38-metric-calipers",
-    "hln-v38-telemetry-bus",
+    "hln-v38-viewport-footer",
   ]) {
     assert.ok(cos.includes(cls), "src/cosmic.css missing class " + cls)
   }
