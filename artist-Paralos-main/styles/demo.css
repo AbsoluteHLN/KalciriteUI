@@ -2408,7 +2408,11 @@ body:not([data-hln-ui-version="v3.5"]) [data-showcase-view="v35"] {
   display: none !important;
 }
 
-body:is([data-hln-ui-version="v3"], [data-hln-ui-version="v3.2"], [data-hln-ui-version="v3.5"]) [data-showcase-view="legacy"] {
+body:not([data-hln-ui-version="v3.8"]) [data-showcase-view="v38"] {
+  display: none !important;
+}
+
+body:is([data-hln-ui-version="v3"], [data-hln-ui-version="v3.2"], [data-hln-ui-version="v3.5"], [data-hln-ui-version="v3.8"]) [data-showcase-view="legacy"] {
   display: none !important;
 }
 
@@ -2466,5 +2470,47 @@ body.sidebar-collapsed .paralos-sidebar {
     linear-gradient(135deg, color-mix(in srgb, var(--hln-ui-accent-cool, var(--hln-ui-accent)) 28%, transparent), transparent 70%),
     var(--hln-ui-bg-0);
 }
+
+/* v3.8 Cosmic Background Preset Swatches */
+.background-preset[data-bg-motion="cosmic-geodesic"] .background-preset-swatch {
+  border-radius: 0;
+  background:
+    radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--hln-ui-accent) 45%, transparent) 0%, transparent 60%),
+    linear-gradient(90deg, color-mix(in srgb, var(--hln-ui-line) 60%, transparent) 1px, transparent 1px) 0 0 / 6px 6px,
+    linear-gradient(180deg, color-mix(in srgb, var(--hln-ui-line) 60%, transparent) 1px, transparent 1px) 0 0 / 6px 6px,
+    var(--hln-ui-bg-0);
+}
+
+.background-preset[data-bg-motion="stellar-spectrum"] .background-preset-swatch {
+  border-radius: 0;
+  background:
+    linear-gradient(90deg, #7e22ce, #3b82f6, #06b6d4, #10b981, #eab308, #ef4444),
+    var(--hln-ui-bg-0);
+}
+
+.background-preset[data-bg-motion="pulsar-array"] .background-preset-swatch {
+  border-radius: 0;
+  background:
+    radial-gradient(circle at 35% 45%, var(--hln-ui-accent) 1.5px, transparent 2.5px),
+    radial-gradient(circle at 75% 65%, var(--hln-ui-accent-cool) 1.5px, transparent 2.5px),
+    var(--hln-ui-bg-0);
+}
+
+.background-preset[data-bg-motion="celestial-sphere"] .background-preset-swatch,
+.background-preset[data-bg-motion="einstein-ring"] .background-preset-swatch {
+  border-radius: 0;
+  background:
+    radial-gradient(circle at 50% 50%, transparent 22%, var(--hln-ui-accent) 23%, transparent 26%),
+    radial-gradient(circle at 50% 50%, transparent 50%, var(--hln-ui-accent-cool) 51%, transparent 54%),
+    var(--hln-ui-bg-0);
+}
+
+.background-preset[data-bg-motion="deep-space-lattice"] .background-preset-swatch {
+  border-radius: 0;
+  background:
+    radial-gradient(circle at 3px 3px, var(--hln-ui-accent) 1px, transparent 1.5px) 0 0 / 6px 6px,
+    var(--hln-ui-bg-0);
+}
+
 
 

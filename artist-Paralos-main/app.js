@@ -162,6 +162,15 @@ const themesV35 = [
   { id: "bauhaus-compiler", label: "Bauhaus Compiler", swatch: "#fcfaf5", accent: "#dc2626" },
 ]
 
+const themesV38 = [
+  { id: "cosmic-euclid", label: "Cosmic Euclid", swatch: "#080c14", accent: "#00f0ff" },
+  { id: "pulsar-gold", label: "Pulsar Gold", swatch: "#0e0c08", accent: "#ffb703" },
+  { id: "graviton-emerald", label: "Graviton Emerald", swatch: "#071310", accent: "#00f59b" },
+  { id: "supernova-crimson", label: "Supernova Crimson", swatch: "#130909", accent: "#ff3366" },
+  { id: "event-horizon", label: "Event Horizon", swatch: "#050608", accent: "#a855f7" },
+  { id: "orbital-station", label: "Orbital Station", swatch: "#f8fafc", accent: "#0284c7" },
+]
+
 const bgPresetsV1 = [
   { id: "aurora", label: "Aurora Drift", note: "soft layered glow" },
   { id: "grid-drift", label: "Grid Drift", note: "point-line cadence" },
@@ -232,6 +241,16 @@ const bgPresetsV35 = [
   { id: "clock-bus", label: "Synchronous Bus", note: "parallel program clock traces" },
   { id: "swiss-vector", label: "Swiss Vector Plane", note: "minimalist 32px crosshair grid" },
   { id: "quiet", label: "Studio Quiet", note: "zero background motion" },
+]
+
+const bgPresetsV38 = [
+  { id: "cosmic-geodesic", label: "Cosmic Geodesic", note: "curved spacetime coordinate mesh" },
+  { id: "stellar-spectrum", label: "Stellar Spectrogram", note: "Balmer dark absorption lines" },
+  { id: "pulsar-array", label: "Pulsar Beam Array", note: "rotating collimated magnetic axis" },
+  { id: "celestial-sphere", label: "Celestial Unit Sphere", note: "equatorial and ecliptic circles" },
+  { id: "einstein-ring", label: "Einstein Lensing Ring", note: "gravitational deflection envelope" },
+  { id: "deep-space-lattice", label: "Deep Space Lattice", note: "parsec coordinate fiducial crosshairs" },
+  { id: "quiet", label: "Quiet Void", note: "zero background ornament" },
 ]
 
 const motionActionsV1 = [
@@ -315,6 +334,18 @@ const motionActionsV35 = [
   { id: "items", label: "Stagger Stream", type: "items", variant: "" },
 ]
 
+const motionActionsV38 = [
+  { id: "reticle-lock", label: "Reticle Lock", type: "panel", variant: "reticle-lock" },
+  { id: "lensing-warp", label: "Lensing Warp", type: "panel", variant: "lensing-warp" },
+  { id: "spectrum-scan", label: "Spectrum Scan", type: "panel", variant: "spectrum-scan" },
+  { id: "orbit-sweep", label: "Orbit Sweep", type: "panel", variant: "orbit-sweep" },
+  { id: "photon-pulse", label: "Photon Pulse", type: "panel", variant: "photon-pulse" },
+  { id: "caliper-draw", label: "Caliper Draw", type: "panel", variant: "caliper-draw" },
+  { id: "type-in", label: "Type In", type: "panel", variant: "type-in" },
+  { id: "page-shift", label: "Page Shift", type: "panel", variant: "page-shift" },
+  { id: "items", label: "Stagger Ephemeris", type: "items", variant: "" },
+]
+
 const fontModes = {
   geometric: "var(--hln-ui-font-geometric, var(--hln-ui-font-display))",
   display: "var(--hln-ui-font-display)",
@@ -338,6 +369,7 @@ const versionDescriptions = {
   v3: "v3.0 Euclidean Vector Flat & Mathematical Geometry",
   "v3.2": "v3.2 Subtractive Linear Architecture — Pure 1px Horizon Discipline",
   "v3.5": "v3.5 Algorithmic Vector, AI-Native, Procedural & Data-Stream Studio",
+  "v3.8": "v3.8 Cosmic Viewport Lens — Relativistic Gravitational & Spectroscopic Observatory",
 }
 
 const skinTokenMap = {
@@ -353,6 +385,7 @@ const root = document.body
 const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)")
 
 function getFontsForVersion(version) {
+  if (version === "v3.8") return fontsV3
   if (version === "v3.5") return fontsV3
   if (version === "v3.2") return fontsV32
   if (version === "v3") return fontsV3
@@ -363,6 +396,7 @@ function getFontsForVersion(version) {
 }
 
 function getThemesForVersion(version) {
+  if (version === "v3.8") return themesV38
   if (version === "v3.5") return themesV35
   if (version === "v3.2") return themesV32
   if (version === "v3") return themesV3
@@ -373,6 +407,7 @@ function getThemesForVersion(version) {
 }
 
 function getBgPresetsForVersion(version) {
+  if (version === "v3.8") return bgPresetsV38
   if (version === "v3.5") return bgPresetsV35
   if (version === "v3.2") return bgPresetsV32
   if (version === "v3") return bgPresetsV3
@@ -383,6 +418,7 @@ function getBgPresetsForVersion(version) {
 }
 
 function getMotionActionsForVersion(version) {
+  if (version === "v3.8") return motionActionsV38
   if (version === "v3.5") return motionActionsV35
   if (version === "v3.2") return motionActionsV32
   if (version === "v3") return motionActionsV3
@@ -392,7 +428,7 @@ function getMotionActionsForVersion(version) {
   return motionActionsV1
 }
 
-const VECTOR_VERSIONS = ["v2", "v2.3", "v2.5", "v3", "v3.2", "v3.5"]
+const VECTOR_VERSIONS = ["v2", "v2.3", "v2.5", "v3", "v3.2", "v3.5", "v3.8"]
 
 const stylesheetForVersion = {
   v1: "styles/hln-ui-system.css",
@@ -402,9 +438,11 @@ const stylesheetForVersion = {
   v3: "styles/hln-ui-system-v3.css",
   "v3.2": "styles/hln-ui-system-v3.2.css",
   "v3.5": "styles/hln-ui-system-v3.5.css",
+  "v3.8": "styles/hln-ui-system-v3.8.css",
 }
 
 function getActiveShowcaseLayout() {
+  if (currentUiVersion === "v3.8") return document.querySelector("#demo-layout-v38")
   if (currentUiVersion === "v3.5") return document.querySelector("#demo-layout-v35")
   if (currentUiVersion === "v3.2") return document.querySelector("#demo-layout-v32")
   if (currentUiVersion === "v3") return document.querySelector("#demo-layout-v3")
@@ -412,6 +450,7 @@ function getActiveShowcaseLayout() {
 }
 
 function defaultThemeForVersion(version) {
+  if (version === "v3.8") return "cosmic-euclid"
   if (version === "v3.5") return "singularity-cyan"
   if (version === "v3.2") return "linear-obsidian"
   if (version === "v3") return "euclidean-cyan"
@@ -419,6 +458,7 @@ function defaultThemeForVersion(version) {
 }
 
 function defaultBgForVersion(version) {
+  if (version === "v3.8") return "cosmic-geodesic"
   if (version === "v3.5") return "tensor-stream"
   if (version === "v3.2") return "horizon-rule"
   if (version === "v3") return "euclidean-grid"
@@ -427,10 +467,11 @@ function defaultBgForVersion(version) {
 }
 
 function defaultFontForVersion(version) {
-  return version === "v3" || version === "v3.2" || version === "v3.5" ? "geometric" : "display"
+  return version === "v3" || version === "v3.2" || version === "v3.5" || version === "v3.8" ? "geometric" : "display"
 }
 
 function entryVariantForVersion(version) {
+  if (version === "v3.8") return "reticle-lock"
   if (version === "v3.5") return "stream-cascade"
   if (version === "v3.2") return "line-extend"
   if (version === "v3") return "vector-construct"
@@ -476,7 +517,7 @@ function buildCjkTypographyMatrix() {
 }
 
 function setUiVersion(version) {
-  const allowed = ["v1", "v2", "v2.3", "v2.5", "v3", "v3.2", "v3.5"]
+  const allowed = ["v1", "v2", "v2.3", "v2.5", "v3", "v3.2", "v3.5", "v3.8"]
   if (allowed.indexOf(version) === -1) return
   currentUiVersion = version
 
@@ -1223,6 +1264,234 @@ function bindControls() {
       if (status) status.textContent = "OPTIMIZED"
       if (latency) latency.textContent = "0.14 ms"
     }, 260)
+  })
+
+  // v3.8 Cosmic Viewport Lens & Astrophysics Telemetry interactivity
+  let v38CollimatorLocked = true
+  const btnLock = document.querySelector("#v38-btn-lock")
+  const collimator = document.querySelector(".hln-v38-collimator")
+  const lockStatus = document.querySelector("#v38-lock-status")
+
+  btnLock?.addEventListener("click", () => {
+    v38CollimatorLocked = !v38CollimatorLocked
+    btnLock.dataset.active = String(v38CollimatorLocked)
+    btnLock.setAttribute("aria-pressed", String(v38CollimatorLocked))
+    if (lockStatus) {
+      lockStatus.textContent = v38CollimatorLocked ? "LOCKED" : "SEARCHING..."
+    }
+    collimator?.classList.toggle("is-locked", v38CollimatorLocked)
+    const hud = document.querySelector(".hln-v38-hud")
+    if (hud && v38CollimatorLocked) {
+      playMotion(hud, "panel", "enter", "reticle-lock")
+    }
+  })
+
+  // Gravitational Lensing Parameter Scrubbers
+  const sliderMass = document.querySelector("#v38-slider-mass")
+  const sliderImpact = document.querySelector("#v38-slider-impact")
+  const einsteinRing = document.querySelector("#v38-svg-einstein-ring")
+  const geoTop = document.querySelector("#v38-svg-geodesic-top")
+  const geoBot = document.querySelector("#v38-svg-geodesic-bot")
+
+  const updateV38Lensing = () => {
+    const mVal = Number(sliderMass?.value || 42)
+    const bVal = Number(sliderImpact?.value || 58)
+    const mass = (mVal / 10).toFixed(2)
+    const impact = (bVal / 10).toFixed(2)
+
+    // Deflection angle \hat{\alpha} = 4GM / c^2b
+    const alpha = ((mass * 3.42) / impact).toFixed(2)
+    const thetaE = (Math.sqrt(mass) * 0.789).toFixed(3)
+    const rE = Math.round(28 + Math.sqrt(mass) * 12.5)
+
+    const massReadout = document.querySelector("#v38-mass-readout")
+    const impactReadout = document.querySelector("#v38-impact-readout")
+    const einsteinReadout = document.querySelector("#v38-einstein-readout")
+    const deflReadout = document.querySelector("#v38-deflection-readout")
+
+    if (massReadout) massReadout.textContent = `${mass} M⊙ (φ³ M⊙)`
+    if (impactReadout) impactReadout.textContent = `${impact} kpc (4GM/c²α)`
+    if (einsteinReadout) einsteinReadout.textContent = `θ_E = ${thetaE}″ (爱因斯坦环)`
+    if (deflReadout) deflReadout.textContent = `α̂ = 4GM / c²b = +${alpha}″`
+
+    if (einsteinRing) einsteinRing.setAttribute("r", String(rE))
+
+    // Bend geodesics closer to singularity as mass increases / impact decreases
+    const bendShift = Math.round((mass / impact) * 16)
+    const topY = Math.min(94, 84 + bendShift)
+    const botY = Math.max(106, 116 - bendShift)
+    if (geoTop) geoTop.setAttribute("d", `M 24,52 C 100,52 128,${topY} 160,${topY} C 192,${topY} 220,52 296,52`)
+    if (geoBot) geoBot.setAttribute("d", `M 24,148 C 100,148 128,${botY} 160,${botY} C 192,${botY} 220,148 296,148`)
+  }
+
+  sliderMass?.addEventListener("input", updateV38Lensing)
+  sliderImpact?.addEventListener("input", updateV38Lensing)
+
+  // Lens Projection Mode switching
+  document.querySelectorAll("[data-v38-lens-mode]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const mode = btn.dataset.v38LensMode || "einstein"
+      document.querySelectorAll("[data-v38-lens-mode]").forEach((b) => {
+        b.dataset.active = String(b === btn)
+      })
+      const label = document.querySelector("#v38-lens-mode-label")
+      if (label) {
+        label.textContent =
+          mode === "geodesic"
+            ? "GEODESIC DEFLECTION"
+            : mode === "microlens"
+              ? "MICROLENSING CUSP"
+              : "EINSTEIN RING"
+      }
+      if (einsteinRing) {
+        if (mode === "einstein") {
+          einsteinRing.style.strokeDasharray = "4 4"
+          einsteinRing.style.opacity = "1"
+        } else if (mode === "geodesic") {
+          einsteinRing.style.strokeDasharray = "1 5"
+          einsteinRing.style.opacity = "0.45"
+        } else if (mode === "microlens") {
+          einsteinRing.style.strokeDasharray = "12 6"
+          einsteinRing.style.opacity = "0.85"
+        }
+      }
+    })
+  })
+
+  // Wavelength Scrubber & Doppler Shift
+  const sliderLambda = document.querySelector("#v38-slider-lambda")
+  const scrubLine = document.querySelector("#v38-scrub-line")
+  const lambdaReadout = document.querySelector("#v38-lambda-readout")
+  const dopplerReadout = document.querySelector("#v38-doppler-readout")
+  const kpiZ = document.querySelector("#v38-kpi-z")
+
+  sliderLambda?.addEventListener("input", () => {
+    const lambda = Number(sliderLambda.value)
+    const normX = Math.round(((lambda - 380) / (750 - 380)) * 320)
+    if (scrubLine) {
+      scrubLine.setAttribute("x1", String(normX))
+      scrubLine.setAttribute("x2", String(normX))
+    }
+    const deltaV = (((lambda - 545) / 545) * 29979.2).toFixed(1)
+    const z = (((lambda - 545) / 545) * 0.0016).toFixed(5)
+    const band = lambda < 440 ? "B波段" : lambda < 590 ? "V波段" : lambda < 690 ? "R波段" : "NIR近红外"
+    if (lambdaReadout) lambdaReadout.textContent = `λ = ${lambda}.0 nm (${band})`
+    if (dopplerReadout) {
+      const sign = Number(deltaV) >= 0 ? "+" : ""
+      dopplerReadout.textContent = `Δv = ${sign}${deltaV} km/s (z = ${z})`
+    }
+    if (kpiZ) {
+      const sign = Number(z) >= 0 ? "+" : ""
+      kpiZ.textContent = `${sign}${z}`
+    }
+  })
+
+  // Morgan-Keenan Spectral Classification
+  const stellarClasses = {
+    O: { temp: "38,000 K", label: "O5V (HOT BLUE GIANT)", flux: "1.280×10³¹", mag: "−32.40", curveY: 6, curveX: 45 },
+    B: { temp: "18,500 K", label: "B2V (BLUE-WHITE DWARF)", flux: "8.420×10²⁸", mag: "−29.80", curveY: 10, curveX: 75 },
+    A: { temp: "9,800 K", label: "A0V (VEGA STANDARD)", flux: "2.140×10²⁷", mag: "−28.10", curveY: 14, curveX: 110 },
+    F: { temp: "7,200 K", label: "F5V (YELLOW-WHITE)", flux: "9.540×10²⁶", mag: "−27.20", curveY: 18, curveX: 140 },
+    G: { temp: "5,778 K", label: "G2V (SOL-TYPE DWARF)", flux: "3.828×10²⁶", mag: "−26.74", curveY: 20, curveX: 165 },
+    K: { temp: "4,400 K", label: "K2V (ORANGE DWARF)", flux: "1.120×10²⁶", mag: "−25.10", curveY: 26, curveX: 215 },
+    M: { temp: "3,200 K", label: "M4V (COOL RED DWARF)", flux: "2.400×10²⁴", mag: "−22.80", curveY: 34, curveX: 275 },
+  }
+
+  document.querySelectorAll("[data-v38-class]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const cls = btn.dataset.v38Class || "G"
+      document.querySelectorAll("[data-v38-class]").forEach((b) => {
+        b.dataset.active = String(b === btn)
+      })
+      const spec = stellarClasses[cls] || stellarClasses.G
+      const classLabel = document.querySelector("#v38-class-label")
+      const kpiTemp = document.querySelector("#v38-kpi-temp")
+      const kpiFlux = document.querySelector("#v38-kpi-flux")
+      const kpiMag = document.querySelector("#v38-kpi-mag")
+      const planck = document.querySelector("#v38-planck-curve")
+
+      if (classLabel) classLabel.textContent = spec.label
+      if (kpiTemp) kpiTemp.textContent = spec.temp
+      if (kpiFlux) kpiFlux.textContent = spec.flux
+      if (kpiMag) kpiMag.textContent = spec.mag
+      if (planck) {
+        planck.setAttribute("d", `M 0,50 Q ${spec.curveX * 0.5},${spec.curveY} ${spec.curveX},${spec.curveY} T 320,48`)
+      }
+    })
+  })
+
+  // Narrowband Filter Wheel Strip
+  document.querySelectorAll("[data-v38-filter]").forEach((pill) => {
+    pill.addEventListener("click", () => {
+      const filterId = pill.dataset.v38Filter || "ha"
+      document.querySelectorAll("[data-v38-filter]").forEach((p) => {
+        p.dataset.active = String(p === pill)
+      })
+      const label = document.querySelector("#v38-filter-label")
+      if (label) label.textContent = pill.textContent.trim()
+      const rainbow = document.querySelector("#v38-rainbow-bar")
+      if (rainbow) {
+        rainbow.querySelectorAll(".hln-v38-abs-line").forEach((line) => {
+          const text = line.dataset.lineLabel || ""
+          const match =
+            (filterId === "ha" && text.includes("Hα")) ||
+            (filterId === "o3" && text.includes("Hβ")) ||
+            (filterId === "s2" && text.includes("Na-D")) ||
+            (filterId === "nir" && text.includes("Hδ"))
+          line.style.boxShadow = match ? "0 0 6px var(--hln-ui-accent)" : "none"
+          line.style.opacity = match ? "1" : "0.7"
+        })
+      }
+    })
+  })
+
+  // Viewport Pulse & Realign Actions
+  let v38PulseCounter = 2026
+  document.querySelector("#v38-btn-pulse")?.addEventListener("click", () => {
+    v38PulseCounter += 7
+    const busClock = document.querySelector("#v38-bus-clock")
+    if (busClock) {
+      const sec = String((v38PulseCounter % 60)).padStart(2, "0")
+      busClock.textContent = `TDB 11:15:${sec}`
+    }
+
+    // Perturb metric tensor calipers
+    document.querySelectorAll("#v38-metric-calipers .hln-v38-caliper-row").forEach((row, idx) => {
+      const baseW = [86, 78, 62, 54][idx] || 60
+      const delta = ((v38PulseCounter * (idx + 3)) % 15) - 7
+      const newW = Math.max(20, Math.min(96, baseW + delta))
+      row.querySelector("i")?.style.setProperty("--meter-w", `${newW}%`)
+    })
+
+    // Prepend to telemetry bus
+    const bus = document.querySelector("#v38-telemetry-bus")
+    if (bus) {
+      const row = document.createElement("div")
+      row.className = "hln-v38-bus-row"
+      row.innerHTML = `
+        <span class="hln-v38-bus-tag">PULSE</span>
+        <span class="hln-v38-bus-msg">引力透镜焦平面光子通量注入 · Photon Flux Burst</span>
+        <span class="hln-v38-bus-val">0.01ms</span>
+      `
+      bus.prepend(row)
+      while (bus.children.length > 4) bus.lastElementChild?.remove()
+    }
+
+    const aperture = document.querySelector("#v38-aperture-box")
+    if (aperture) {
+      aperture.classList.add("is-pulsing")
+      setTimeout(() => aperture.classList.remove("is-pulsing"), 420)
+    }
+  })
+
+  document.querySelector("#v38-btn-realign")?.addEventListener("click", () => {
+    if (sliderMass) {
+      sliderMass.value = "42"
+      sliderImpact.value = "58"
+      updateV38Lensing()
+    }
+    const layout = document.querySelector("#demo-layout-v38")
+    if (layout) playMotion(layout, "panel", "enter", "reticle-lock")
   })
 
   // Interactive split-pane resize divider (v3)

@@ -1,0 +1,159 @@
+/* ProjectHLN UI System v3.8 - Cosmic Viewport Lens Themes (themes.css)
+   6 Curated Deep-Space Astrophysics & Celestial Observatory Themes.
+   Zero game terminology. Strict 0px blur & 0px shadow vector discipline. */
+
+/* ==========================================================================
+   Theme 01: Cosmic Euclid · 深空欧几里得 (Default)
+   Deep interstellar void obsidian with stellar ultraviolet and ice cyan optics.
+   ========================================================================== */
+[data-hln-theme="cosmic-euclid"],
+[data-hln-ui-root][data-hln-theme="cosmic-euclid"] {
+  color-scheme: dark;
+  --hln-ui-bg-0: #04070d;
+  --hln-ui-bg-1: #0a0f1c;
+  --hln-ui-bg-2: #10182c;
+  --hln-ui-panel-bg: rgba(10, 15, 28, 0.85);
+  --hln-ui-text: #f0f6fc;
+  --hln-ui-text-muted: #8ba2c4;
+  --hln-ui-text-faint: #526888;
+  --hln-ui-line: #1c2a42;
+  --hln-ui-line-strong: #2c4266;
+  --hln-ui-accent: #38bdf8;
+  --hln-ui-accent-cool: #818cf8;
+  --hln-ui-focus: #38bdf8;
+  --hln-ui-success: #34d399;
+  --hln-ui-warning: #fbbf24;
+  --hln-ui-danger: #f43f5e;
+  --hln-ui-blur: 0px;
+  --hln-ui-shadow: none;
+}
+
+/* ==========================================================================
+   Theme 02: Pulsar Gold · 脉冲中子星
+   Dense relativistic pulsar void with high-energy synchrotron amber radiation.
+   ========================================================================== */
+[data-hln-theme="pulsar-gold"],
+[data-hln-ui-root][data-hln-theme="pulsar-gold"] {
+  color-scheme: dark;
+  --hln-ui-bg-0: #080705;
+  --hln-ui-bg-1: #13110b;
+  --hln-ui-bg-2: #1e1b12;
+  --hln-ui-panel-bg: rgba(19, 17, 11, 0.86);
+  --hln-ui-text: #faf5ea;
+  --hln-ui-text-muted: #bdae93;
+  --hln-ui-text-faint: #786d58;
+  --hln-ui-line: #302a1b;
+  --hln-ui-line-strong: #4a4029;
+  --hln-ui-accent: #fbbf24;
+  --hln-ui-accent-cool: #f97316;
+  --hln-ui-focus: #fbbf24;
+  --hln-ui-success: #10b981;
+  --hln-ui-warning: #f59e0b;
+  --hln-ui-danger: #ef4444;
+  --hln-ui-blur: 0px;
+  --hln-ui-shadow: none;
+}
+
+/* ==========================================================================
+   Theme 03: Graviton Emerald · 引力流形
+   Curved spacetime nebular dark with ionized oxygen emission emerald.
+   ========================================================================== */
+[data-hln-theme="graviton-emerald"],
+[data-hln-ui-root][data-hln-theme="graviton-emerald"] {
+  color-scheme: dark;
+  --hln-ui-bg-0: #030806;
+  --hln-ui-bg-1: #08140f;
+  --hln-ui-bg-2: #0e2019;
+  --hln-ui-panel-bg: rgba(8, 20, 15, 0.86);
+  --hln-ui-text: #ecfdf5;
+  --hln-ui-text-muted: #86b99e;
+  --hln-ui-text-faint: #4e7d66;
+  --hln-ui-line: #183327;
+  --hln-ui-line-strong: #244f3c;
+  --hln-ui-accent: #34d399;
+  --hln-ui-accent-cool: #2dd4bf;
+  --hln-ui-focus: #34d399;
+  --hln-ui-success: #10b981;
+  --hln-ui-warning: #fbbf24;
+  --hln-ui-danger: #f87171;
+  --hln-ui-blur: 0px;
+  --hln-ui-shadow: none;
+}
+
+/* ==========================================================================
+   Theme 04: Supernova Crimson · 超新星爆发
+   Deep stellar core furnace with energetic hydrogen-alpha crimson emission.
+   ========================================================================== */
+[data-hln-theme="supernova-crimson"],
+[data-hln-ui-root][data-hln-theme="supernova-crimson"] {
+  color-scheme: dark;
+  --hln-ui-bg-0: #0a0406;
+  --hln-ui-bg-1: #16080f;
+  --hln-ui-bg-2: #240e19;
+  --hln-ui-panel-bg: rgba(22, 8, 15, 0.86);
+  --hln-ui-text: #fff1f2;
+  --hln-ui-text-muted: #c993a4;
+  --hln-ui-text-faint: #855364;
+  --hln-ui-line: #381525;
+  --hln-ui-line-strong: #542038;
+  --hln-ui-accent: #f43f5e;
+  --hln-ui-accent-cool: #fb7185;
+  --hln-ui-focus: #f43f5e;
+  --hln-ui-success: #34d399;
+  --hln-ui-warning: #fbbf24;
+  --hln-ui-danger: #e11d48;
+  --hln-ui-blur: 0px;
+  --hln-ui-shadow: none;
+}
+
+/* ==========================================================================
+   Theme 05: Event Horizon · 视界奇点
+   Pure monochromatic photon sphere with absolute contrast white collimation.
+   ========================================================================== */
+[data-hln-theme="event-horizon"],
+[data-hln-ui-root][data-hln-theme="event-horizon"] {
+  color-scheme: dark;
+  --hln-ui-bg-0: #000000;
+  --hln-ui-bg-1: #0d0f14;
+  --hln-ui-bg-2: #171b22;
+  --hln-ui-panel-bg: rgba(13, 15, 20, 0.90);
+  --hln-ui-text: #f8fafc;
+  --hln-ui-text-muted: #94a3b8;
+  --hln-ui-text-faint: #475569;
+  --hln-ui-line: #242a35;
+  --hln-ui-line-strong: #3b4455;
+  --hln-ui-accent: #f8fafc;
+  --hln-ui-accent-cool: #94a3b8;
+  --hln-ui-focus: #f8fafc;
+  --hln-ui-success: #4ade80;
+  --hln-ui-warning: #facc15;
+  --hln-ui-danger: #f87171;
+  --hln-ui-blur: 0px;
+  --hln-ui-shadow: none;
+}
+
+/* ==========================================================================
+   Theme 06: Orbital Station · 轨道观测站 (Light Theme)
+   Pressurized orbital module high-albedo white with deep navigation cobalt.
+   ========================================================================== */
+[data-hln-theme="orbital-station"],
+[data-hln-ui-root][data-hln-theme="orbital-station"] {
+  color-scheme: light;
+  --hln-ui-bg-0: #f1f5f9;
+  --hln-ui-bg-1: #ffffff;
+  --hln-ui-bg-2: #e2e8f0;
+  --hln-ui-panel-bg: rgba(255, 255, 255, 0.92);
+  --hln-ui-text: #0f172a;
+  --hln-ui-text-muted: #475569;
+  --hln-ui-text-faint: #94a3b8;
+  --hln-ui-line: #cbd5e1;
+  --hln-ui-line-strong: #94a3b8;
+  --hln-ui-accent: #2563eb;
+  --hln-ui-accent-cool: #0284c7;
+  --hln-ui-focus: #2563eb;
+  --hln-ui-success: #059669;
+  --hln-ui-warning: #d97706;
+  --hln-ui-danger: #dc2626;
+  --hln-ui-blur: 0px;
+  --hln-ui-shadow: none;
+}

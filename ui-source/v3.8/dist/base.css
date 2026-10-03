@@ -1,0 +1,474 @@
+/* ProjectHLN UI System v3.8 - Cosmic Viewport Lens Base Layer (base.css)
+   Precision observatory viewport optics, reticle fiducials, astrophysics controls,
+   and dynamic cosmic canvas backgrounds. Zero game terminology. */
+
+[data-hln-ui-root][data-hln-ui-version="v3.8"] {
+  min-height: 100%;
+  color: var(--hln-ui-text);
+  background-color: var(--hln-ui-bg-0);
+  font-family: var(--hln-ui-font-body);
+  font-size: 13px;
+  line-height: 1.5;
+  letter-spacing: var(--hln-ui-cjk-tracking, 0.015em);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+[data-hln-ui-root][data-hln-ui-version="v3.8"] *,
+[data-hln-ui-root][data-hln-ui-version="v3.8"] *::before,
+[data-hln-ui-root][data-hln-ui-version="v3.8"] *::after {
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   1. Typography & CJK Font Modes
+   ========================================================================== */
+[data-hln-ui-root][data-hln-ui-version="v3.8"] :where(h1, h2, h3, h4, h5, h6) {
+  margin: 0;
+  font-family: var(--hln-ui-font-title, var(--hln-ui-font-display));
+  font-weight: var(--hln-ui-cjk-heading-weight, 600);
+  letter-spacing: var(--hln-ui-cjk-heading-tracking, 0.025em);
+  color: var(--hln-ui-text);
+  line-height: 1.2;
+}
+
+/* Font Mode Selectors */
+[data-hln-font="geometric"] { --hln-ui-font-current: var(--hln-ui-font-geometric); }
+[data-hln-font="display"] { --hln-ui-font-current: var(--hln-ui-font-display); }
+[data-hln-font="technical"] { --hln-ui-font-current: var(--hln-ui-font-technical); }
+[data-hln-font="grotesque"] { --hln-ui-font-current: var(--hln-ui-font-neo-grotesque); }
+[data-hln-font="cyber"] { --hln-ui-font-current: var(--hln-ui-font-cyber-mono); }
+[data-hln-font="berlin"] { --hln-ui-font-current: var(--hln-ui-font-berlin); }
+[data-hln-font="editorial"] { --hln-ui-font-current: var(--hln-ui-font-editorial); }
+[data-hln-font="label"] { --hln-ui-font-current: var(--hln-ui-font-label); }
+
+/* CJK Font Overrides */
+[data-hln-cjk-font="hei"] { --hln-ui-font-cjk-override: var(--hln-ui-font-cjk-hei); font-size-adjust: from-font; }
+[data-hln-cjk-font="display"] { --hln-ui-font-cjk-override: var(--hln-ui-font-cjk-display); font-size-adjust: from-font; }
+[data-hln-cjk-font="song"] { --hln-ui-font-cjk-override: var(--hln-ui-font-cjk-song); font-size-adjust: from-font; }
+[data-hln-cjk-font="kai"] { --hln-ui-font-cjk-override: var(--hln-ui-font-cjk-kai); font-size-adjust: from-font; }
+[data-hln-cjk-font="mono"] { --hln-ui-font-cjk-override: var(--hln-ui-font-cjk-mono); font-size-adjust: from-font; }
+[data-hln-cjk-font="fangsong"] { --hln-ui-font-cjk-override: var(--hln-ui-font-cjk-fangsong); font-size-adjust: from-font; }
+[data-hln-cjk-font="auto"] { --hln-ui-font-cjk-override: initial; font-size-adjust: from-font; }
+
+/* ==========================================================================
+   2. Precision Observatory Viewport Surfaces ([data-hln-ui-surface])
+   ========================================================================== */
+[data-hln-ui-surface] {
+  background: var(--hln-ui-panel-bg, var(--hln-ui-bg-1));
+  border: 1px solid var(--hln-ui-line);
+  border-radius: var(--hln-ui-radius-sm, 2px);
+  position: relative;
+  transition:
+    border-color var(--hln-ui-duration-fast) var(--hln-ui-ease),
+    background-color var(--hln-ui-duration-fast) var(--hln-ui-ease);
+}
+
+/* Precision optical sight fiducials on cosmic surfaces */
+[data-hln-ui-surface]::before,
+[data-hln-ui-surface]::after {
+  content: "";
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  pointer-events: none;
+  transition:
+    border-color var(--hln-ui-duration-fast) var(--hln-ui-ease),
+    width var(--hln-ui-duration-fast) var(--hln-ui-ease),
+    height var(--hln-ui-duration-fast) var(--hln-ui-ease);
+}
+
+[data-hln-ui-surface]::before {
+  top: -1px;
+  left: -1px;
+  border-top: 1.5px solid var(--hln-ui-accent);
+  border-left: 1.5px solid var(--hln-ui-accent);
+}
+
+[data-hln-ui-surface]::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 1.5px solid var(--hln-ui-accent-cool);
+  border-right: 1.5px solid var(--hln-ui-accent-cool);
+}
+
+[data-hln-ui-surface]:hover {
+  border-color: color-mix(in srgb, var(--hln-ui-accent) 46%, var(--hln-ui-line));
+}
+
+[data-hln-ui-surface]:hover::before,
+[data-hln-ui-surface]:hover::after {
+  width: 11px;
+  height: 11px;
+}
+
+/* ==========================================================================
+   3. Cosmic Vector Controls ([data-hln-ui-control])
+   ========================================================================== */
+[data-hln-ui-control] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 34px;
+  padding: 0 12px;
+  border: 1px solid var(--hln-ui-line);
+  border-radius: var(--hln-ui-radius-sm, 2px);
+  color: var(--hln-ui-text);
+  background: color-mix(in srgb, var(--hln-ui-bg-2) 74%, transparent);
+  font-family: inherit;
+  font-size: 11.5px;
+  font-weight: 500;
+  line-height: 1.1;
+  text-align: center;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  touch-action: manipulation;
+  user-select: none;
+  transition:
+    border-color var(--hln-ui-duration-fast) var(--hln-ui-ease),
+    background-color var(--hln-ui-duration-fast) var(--hln-ui-ease),
+    color var(--hln-ui-duration-fast) var(--hln-ui-ease);
+}
+
+/* Subtle corner sight notch on controls */
+[data-hln-ui-control]::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 5px 5px;
+  border-color: transparent transparent var(--hln-ui-line) transparent;
+  transition: border-color var(--hln-ui-duration-fast) var(--hln-ui-ease);
+}
+
+[data-hln-ui-control]:hover {
+  border-color: var(--hln-ui-accent);
+  background: color-mix(in srgb, var(--hln-ui-accent) 12%, var(--hln-ui-bg-1));
+  color: var(--hln-ui-text);
+}
+
+[data-hln-ui-control]:hover::after {
+  border-color: transparent transparent var(--hln-ui-accent) transparent;
+}
+
+[data-hln-ui-control][data-active="true"] {
+  border-color: var(--hln-ui-accent);
+  background: color-mix(in srgb, var(--hln-ui-accent) 18%, var(--hln-ui-bg-1));
+  color: var(--hln-ui-accent);
+  font-weight: 600;
+}
+
+[data-hln-ui-control][data-variant="accent"] {
+  border-color: var(--hln-ui-accent);
+  background: var(--hln-ui-accent);
+  color: var(--hln-ui-bg-0);
+  font-weight: 600;
+}
+
+[data-hln-ui-control][data-variant="accent"]:hover {
+  background: color-mix(in srgb, var(--hln-ui-accent) 88%, #ffffff);
+  color: var(--hln-ui-bg-0);
+}
+
+/* Form Fields */
+[data-hln-ui-field] {
+  width: 100%;
+  min-height: 34px;
+  padding: 0 10px;
+  border: 1px solid var(--hln-ui-line);
+  border-radius: var(--hln-ui-radius-sm, 2px);
+  color: var(--hln-ui-text);
+  background: color-mix(in srgb, var(--hln-ui-bg-0) 80%, transparent);
+  font-family: var(--hln-ui-font-technical);
+  font-size: 11px;
+  outline: none;
+  transition: border-color var(--hln-ui-duration-fast) var(--hln-ui-ease);
+}
+
+[data-hln-ui-field]:focus {
+  border-color: var(--hln-ui-accent);
+}
+
+/* Tactical Scrubber Range Inputs */
+.tactical-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  background: var(--hln-ui-line);
+  outline: none;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.tactical-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(--hln-ui-accent);
+  background: var(--hln-ui-bg-0);
+  cursor: pointer;
+  transition: transform 120ms var(--hln-ui-ease), background-color 120ms var(--hln-ui-ease);
+}
+
+.tactical-range::-webkit-slider-thumb:hover {
+  background: var(--hln-ui-accent);
+  transform: scale(1.2);
+}
+
+/* Custom Scrollbars */
+[data-hln-ui-scroll]::-webkit-scrollbar,
+.hln-v38-panel__body::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+[data-hln-ui-scroll]::-webkit-scrollbar-track,
+.hln-v38-panel__body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+[data-hln-ui-scroll]::-webkit-scrollbar-thumb,
+.hln-v38-panel__body::-webkit-scrollbar-thumb {
+  background: var(--hln-ui-line);
+  border-radius: 2px;
+}
+
+[data-hln-ui-scroll]::-webkit-scrollbar-thumb:hover,
+.hln-v38-panel__body::-webkit-scrollbar-thumb:hover {
+  background: var(--hln-ui-accent);
+}
+
+/* ==========================================================================
+   4. Cosmic Motion Presets & Telemetry Transitions
+   ========================================================================== */
+[data-hln-motion] {
+  will-change: transform, opacity;
+}
+
+[data-hln-motion="panel"] {
+  --hln-ui-motion-duration: var(--hln-ui-duration-standard, 300ms);
+  --hln-ui-motion-ease: var(--hln-ui-ease);
+}
+
+[data-hln-motion="item"] {
+  --hln-ui-motion-duration: var(--hln-ui-duration-fast, 160ms);
+  --hln-ui-motion-ease: var(--hln-ui-ease);
+}
+
+[data-hln-motion][data-hln-motion-state="enter"][data-hln-motion-variant="reticle-lock"] {
+  animation: hln-v38-reticle-lock 360ms var(--hln-ui-ease) both;
+  animation-delay: calc(var(--hln-ui-motion-index, 0) * var(--hln-ui-motion-stagger, 28ms));
+}
+
+[data-hln-motion][data-hln-motion-state="enter"][data-hln-motion-variant="lensing-warp"] {
+  animation: hln-v38-lensing-warp 400ms var(--hln-ui-ease) both;
+  animation-delay: calc(var(--hln-ui-motion-index, 0) * var(--hln-ui-motion-stagger, 28ms));
+}
+
+[data-hln-motion][data-hln-motion-state="enter"][data-hln-motion-variant="spectrum-scan"] {
+  animation: hln-v38-spectrum-scan 380ms var(--hln-ui-ease) both;
+  animation-delay: calc(var(--hln-ui-motion-index, 0) * var(--hln-ui-motion-stagger, 28ms));
+}
+
+[data-hln-motion][data-hln-motion-state="enter"][data-hln-motion-variant="orbit-sweep"] {
+  animation: hln-v38-orbit-sweep 420ms var(--hln-ui-ease) both;
+  animation-delay: calc(var(--hln-ui-motion-index, 0) * var(--hln-ui-motion-stagger, 28ms));
+}
+
+[data-hln-motion][data-hln-motion-state="enter"][data-hln-motion-variant="photon-pulse"] {
+  animation: hln-v38-photon-pulse 320ms var(--hln-ui-ease) both;
+  animation-delay: calc(var(--hln-ui-motion-index, 0) * var(--hln-ui-motion-stagger, 28ms));
+}
+
+[data-hln-motion][data-hln-motion-state="enter"][data-hln-motion-variant="caliper-draw"] {
+  animation: hln-v38-caliper-draw 340ms var(--hln-ui-ease) both;
+  animation-delay: calc(var(--hln-ui-motion-index, 0) * var(--hln-ui-motion-stagger, 28ms));
+}
+
+[data-hln-motion][data-hln-motion-state="enter"][data-hln-motion-variant="type-in"] {
+  animation: hln-v38-type-in 360ms steps(14, end) both;
+  animation-delay: calc(var(--hln-ui-motion-index, 0) * var(--hln-ui-motion-stagger, 28ms));
+}
+
+[data-hln-motion][data-hln-motion-state="enter"][data-hln-motion-variant="page-shift"] {
+  animation: hln-v38-page-shift 400ms var(--hln-ui-ease) both;
+  animation-delay: calc(var(--hln-ui-motion-index, 0) * var(--hln-ui-motion-stagger, 28ms));
+}
+
+@keyframes hln-v38-reticle-lock {
+  0%   { opacity: 0; transform: scale(0.96) rotate(-2deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
+@keyframes hln-v38-lensing-warp {
+  0%   { opacity: 0; transform: scale(0.94); clip-path: circle(0% at 50% 50%); }
+  100% { opacity: 1; transform: scale(1); clip-path: circle(100% at 50% 50%); }
+}
+
+@keyframes hln-v38-spectrum-scan {
+  0%   { opacity: 0; clip-path: inset(0 100% 0 0); }
+  100% { opacity: 1; clip-path: inset(0 0 0 0); }
+}
+
+@keyframes hln-v38-orbit-sweep {
+  0%   { opacity: 0; transform: translate3d(-16px, 0, 0); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@keyframes hln-v38-photon-pulse {
+  0%   { opacity: 0; transform: scale(0.98); }
+  50%  { opacity: 1; transform: scale(1.01); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes hln-v38-caliper-draw {
+  0%   { opacity: 0; clip-path: inset(0 0 100% 0); }
+  100% { opacity: 1; clip-path: inset(0 0 0 0); }
+}
+
+@keyframes hln-v38-type-in {
+  0%   { opacity: 0; clip-path: inset(0 100% 0 0); }
+  100% { opacity: 1; clip-path: inset(0 0 0 0); }
+}
+
+@keyframes hln-v38-page-shift {
+  0%   { opacity: 0; transform: translate3d(18px, 0, 0); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+/* ==========================================================================
+   5. Cosmic Viewport Ambient Backgrounds (6 Presets)
+   ========================================================================== */
+[data-hln-ui-root][data-hln-bg-motion] {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+[data-hln-ui-root][data-hln-bg-motion]::before,
+[data-hln-ui-root][data-hln-bg-motion]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  will-change: transform, opacity, background-position;
+}
+
+[data-hln-ui-root][data-hln-bg-motion] > :not(.hln-stochastic-canvas) {
+  position: relative;
+  z-index: 1;
+}
+
+[data-hln-ui-root] > .hln-stochastic-canvas {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+/* 1. cosmic-geodesic: Spacetime curvature lens grid with gravitational warp */
+[data-hln-ui-root][data-hln-bg-motion="cosmic-geodesic"]::before {
+  background-image:
+    linear-gradient(90deg, color-mix(in srgb, var(--hln-ui-line) 46%, transparent) 1px, transparent 1px),
+    linear-gradient(180deg, color-mix(in srgb, var(--hln-ui-line) 46%, transparent) 1px, transparent 1px),
+    radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--hln-ui-accent) 14%, transparent) 0%, transparent 60%);
+  background-size: 48px 48px, 48px 48px, 100% 100%;
+  opacity: 0.65;
+  animation: hln-v38-bg-drift 24s linear infinite;
+}
+
+/* 2. stellar-spectrum: Absorption lines & photon flux */
+[data-hln-ui-root][data-hln-bg-motion="stellar-spectrum"]::before {
+  background-image:
+    repeating-linear-gradient(90deg, transparent 0 47px, color-mix(in srgb, var(--hln-ui-line) 42%, transparent) 47px 48px),
+    linear-gradient(180deg, transparent 0%, color-mix(in srgb, var(--hln-ui-accent) 12%, transparent) 50%, transparent 100%);
+  background-size: 100% 100%, 100% 280px;
+  opacity: 0.60;
+  animation: hln-v38-bg-pulse 8s ease-in-out infinite alternate;
+}
+
+/* 3. pulsar-array: Relativistic beam pulse sweep */
+[data-hln-ui-root][data-hln-bg-motion="pulsar-array"]::before {
+  background-image:
+    radial-gradient(circle at 25% 40%, color-mix(in srgb, var(--hln-ui-accent) 16%, transparent) 0%, transparent 35%),
+    radial-gradient(circle at 75% 65%, color-mix(in srgb, var(--hln-ui-accent-cool) 14%, transparent) 0%, transparent 40%),
+    linear-gradient(90deg, color-mix(in srgb, var(--hln-ui-line) 38%, transparent) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 64px 64px;
+  opacity: 0.62;
+  animation: hln-v38-bg-pulse 6s ease-in-out infinite alternate;
+}
+
+/* 4. celestial-sphere: RA/Dec equatorial coordinate grid */
+[data-hln-ui-root][data-hln-bg-motion="celestial-sphere"]::before {
+  background-image:
+    repeating-radial-gradient(circle at 50% 50%, transparent 0 38px, color-mix(in srgb, var(--hln-ui-line) 48%, transparent) 38px 39px),
+    linear-gradient(90deg, color-mix(in srgb, var(--hln-ui-accent) 14%, transparent) 1px, transparent 1px);
+  background-size: 100% 100%, 96px 100%;
+  opacity: 0.58;
+}
+
+/* 5. einstein-ring: Concentric optical caustic arcs */
+[data-hln-ui-root][data-hln-bg-motion="einstein-ring"]::before {
+  background-image:
+    radial-gradient(circle at 50% 50%, transparent 28%, color-mix(in srgb, var(--hln-ui-accent) 18%, transparent) 28.3%, transparent 28.7%),
+    radial-gradient(circle at 50% 50%, transparent 56%, color-mix(in srgb, var(--hln-ui-accent-cool) 15%, transparent) 56.3%, transparent 56.7%);
+  background-size: 100% 100%, 100% 100%;
+  opacity: 0.64;
+  animation: hln-v38-bg-pulse 9s ease-in-out infinite alternate;
+}
+
+/* 6. deep-space-lattice: Astronomical astrometry survey grid */
+[data-hln-ui-root][data-hln-bg-motion="deep-space-lattice"]::before {
+  background-image:
+    radial-gradient(circle at 2px 2px, var(--hln-ui-accent) 1px, transparent 1.5px),
+    linear-gradient(90deg, color-mix(in srgb, var(--hln-ui-line) 36%, transparent) 1px, transparent 1px),
+    linear-gradient(180deg, color-mix(in srgb, var(--hln-ui-line) 36%, transparent) 1px, transparent 1px);
+  background-size: 24px 24px, 24px 24px, 24px 24px;
+  opacity: 0.52;
+}
+
+/* 7. quiet: Zero background motion */
+[data-hln-ui-root][data-hln-bg-motion="quiet"]::before,
+[data-hln-ui-root][data-hln-bg-motion="quiet"]::after {
+  opacity: 0;
+  animation: none;
+}
+
+@keyframes hln-v38-bg-drift {
+  0%   { background-position: 0 0, 0 0, 0 0; }
+  100% { background-position: 48px 48px, -48px 48px, 0 0; }
+}
+
+@keyframes hln-v38-bg-pulse {
+  0%   { opacity: 0.38; transform: scale(0.995); }
+  100% { opacity: 0.72; transform: scale(1.005); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-hln-ui-root] *,
+  [data-hln-ui-root] *::before,
+  [data-hln-ui-root] *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
