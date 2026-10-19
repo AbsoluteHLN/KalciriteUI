@@ -24,10 +24,13 @@ should receive the compact academic presentation. With the attribute absent,
 this overlay has no visible effect on existing pages. Keep the existing
 `data-hln-ui-version="v3.2"` and theme selection intact.
 
-All six v3.2 themes remain compatible. The overlay aliases semantic v3.2 color
-tokens and derives surface variations with `color-mix()`, so theme lightness and
-accent changes continue to flow through without new theme definitions.
+All six v3.2 themes remain compatible. Four dedicated research accents remain
+distinct even in the monochrome theme: teal analysis, blue reading/writing,
+amber review and orchid media. Tinted surfaces mix with the inherited background;
+labels keep the base foreground contrast. No theme definitions are replaced.
 
 The academic role vocabulary adds analysis, writing, review and media accents.
-Skill and starter rows consume these roles, while disclosure and actual busy
-states receive motion. Reduced-motion preferences disable both animations.
+Skill and starter controls, source labels and navigation consume these roles.
+Content enters with bounded staggering; tab indicators slide, panels disclose,
+dialogs fade and newly arriving messages enter once. Busy indicators animate
+only while an operation is active. Reduced-motion disables all overlay motion.

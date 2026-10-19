@@ -15,9 +15,10 @@ scoped to this attribute. Without it, pages retain v3.2 presentation.
 
 ## Tokens
 
-Tokens are declared only on the opt-in subtree. Color tokens alias the v3.2
-semantic palette; mixed surfaces use `color-mix()` against inherited semantic
-colors to support both light and dark themes.
+Tokens are declared only on the opt-in subtree. Structural tokens alias v3.2;
+four dedicated research accents remain distinct in monochrome themes. Mixed
+surfaces use `color-mix()` against inherited backgrounds for light/dark support,
+while text keeps the inherited high-contrast foreground.
 
 | Token | Meaning |
 | --- | --- |
@@ -53,16 +54,21 @@ palette, or decorative orbs are introduced.
   fabricated measurements or decorative charts.
 
 Existing `[data-hln-ui-control]` and `[data-hln-ui-field]` controls receive
-compact dimensions only inside the opt-in subtree. `.hln-v33-enter` is the one
-purposeful 160ms entrance accent. Reduced-motion preferences remove that
-animation and minimize control transitions.
+compact dimensions only inside the opt-in subtree. Starter actions have stable
+52px minimum height. `.hln-v33-enter` provides a 360ms entrance. Source rows and
+starter actions stagger only the first six entries, capped at 175ms delay.
+Panels disclose in 320ms and the tab selection indicator slides in 300ms.
+Dialogs/backdrops fade on opening; all overlay animations and transitions are
+removed by `prefers-reduced-motion: reduce`.
 
 ## Build and provenance
 
 `data-academic-role` selects `analysis`, `writing`, `review`, or `media` semantic
-accents derived from the inherited success, cool-accent and danger palette.
-The `--hln-v33-state-duration` token governs disclosure motion; busy status motion
-is only applied to a truly `aria-busy` chat. Both obey reduced-motion preferences.
+accents in teal, blue, amber and orchid. They are research categories, not success
+or error claims. `data-motion-enter` is added only to newly arriving messages
+in the active conversation, never replayed for unchanged history or a loaded
+conversation. Busy spinner motion requires actual `aria-busy=true` on the chat
+or digest refresh button. All motion obeys reduced-motion preferences.
 No decorative data or measurements are introduced by these treatments.
 
 `build.mjs` uses only Node built-ins. It reads the original v3.2 CSS artifact
