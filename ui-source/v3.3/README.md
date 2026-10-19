@@ -23,7 +23,12 @@ v3.3.4 restores readable workspace type through `--hln-v33-type-*`: page title
 26px, navigation/body 16px, auxiliary text 13-14px. It keeps the neutral palette,
 font preferences, icons and document typography; it does not zoom the page.
 
-v3.3.5 adds font roles sourced only from v3.2: `--hln-v33-font-ui` uses the
-display sans stack; `--hln-v33-font-heading` uses the CJK song stack for page
-headings. No font downloads or new families. The host retains document font
-boundaries and owns responsive layout and drawer behavior.
+Filled controls use the existing strong accent and base-background foreground;
+all six palettes meet 4.5:1 without modifying v3.2 tokens or adding colors.
+
+v3.3.6 uses the current v3.2 font profile for both workspace and headings, with
+the neo-grotesque stack as fallback. Explicit stored font preferences remain
+effective. Inputs are 17px, controls 15px, table bodies 16px with 48px rows and
+transparent headings. Motion is limited to real disclosures, tabs, new messages
+and busy feedback. No font downloads or new families. The host retains document
+font boundaries and owns responsive layout and drawer behavior.
