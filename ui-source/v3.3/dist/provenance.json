@@ -1,7 +1,7 @@
 {
   "baseSHA": "5c55b8418e0122c7edcab49043fc2b06b2b56b31921f50764a47cf53647ccb60",
-  "sourceSHA": "9abe05a58670cca3342b169179db455ca4116cdb092991928d45668654d66c99",
-  "artifactSHA": "9b5ff86b1be10e18c3d636c598a3a07849458a3e2efb0282ff75e8f314a037e0",
+  "sourceSHA": "43e540b46a519136aabb21539bef36a3b34a214c8bd7a31006de78e96a937d1a",
+  "artifactSHA": "6497562cb65c85aa7d8605b67468ed248fdadc2eade413054caef350343cbba3",
   "variant": "overleafplus-v33",
   "schema": "kalcirite-ui-overlay-provenance/v1",
   "version": "3.3.0"

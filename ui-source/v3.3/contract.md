@@ -59,6 +59,12 @@ animation and minimize control transitions.
 
 ## Build and provenance
 
+`data-academic-role` selects `analysis`, `writing`, `review`, or `media` semantic
+accents derived from the inherited success, cool-accent and danger palette.
+The `--hln-v33-state-duration` token governs disclosure motion; busy status motion
+is only applied to a truly `aria-busy` chat. Both obey reduced-motion preferences.
+No decorative data or measurements are introduced by these treatments.
+
 `build.mjs` uses only Node built-ins. It reads the original v3.2 CSS artifact
 for its base hash and emits only additive CSS, not a combined v3.2+v3.3 bundle.
 It writes `dist/hln-ui-system-v3.3.css` and `dist/provenance.json` with stable

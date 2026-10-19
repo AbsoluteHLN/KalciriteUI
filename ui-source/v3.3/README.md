@@ -27,3 +27,7 @@ this overlay has no visible effect on existing pages. Keep the existing
 All six v3.2 themes remain compatible. The overlay aliases semantic v3.2 color
 tokens and derives surface variations with `color-mix()`, so theme lightness and
 accent changes continue to flow through without new theme definitions.
+
+The academic role vocabulary adds analysis, writing, review and media accents.
+Skill and starter rows consume these roles, while disclosure and actual busy
+states receive motion. Reduced-motion preferences disable both animations.
