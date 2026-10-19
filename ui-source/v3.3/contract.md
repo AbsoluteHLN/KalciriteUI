@@ -15,10 +15,10 @@ scoped to this attribute. Without it, pages retain v3.2 presentation.
 
 ## Tokens
 
-Tokens are declared only on the opt-in subtree. Structural tokens alias v3.2;
-four dedicated research accents remain distinct in monochrome themes. Mixed
-surfaces use `color-mix()` against inherited backgrounds for light/dark support,
-while text keeps the inherited high-contrast foreground.
+Tokens are declared only on the opt-in subtree. Structural tokens alias v3.2.
+Muted research accents are limited to small source labels with an 8% tint;
+navigation, icons, starter actions and skill rows inherit v3.2 theme colors.
+Text keeps the inherited high-contrast foreground.
 
 | Token | Meaning |
 | --- | --- |
@@ -29,13 +29,12 @@ while text keeps the inherited high-contrast foreground.
 | `--hln-v33-rule` | Fine structural rule using the active theme line |
 | `--hln-v33-axis-rule-color`, `--hln-v33-grid-rule-color`, `--hln-v33-vector-rule-color` | Theme-derived vector and data marks |
 | `--hln-v33-density-*` | Compact row, cell, and section spacing |
-| `--hln-v33-control-*` | Compact existing control dimensions and radius |
 | `--hln-v33-tabular-numbers` | Tabular and lining numeral features |
 
 Letter spacing is zero in the opted-in subtree. Numeric data uses tabular
 figures. The compact academic type scale favors legible tables, captions,
 citations, and analytical prose over oversized display typography. Corner
-radii are at most 4px; no gradients, blur, offset shadows, beige-specific
+radii inherit the v3.2 tokens; no gradients, blur, offset shadows, beige-specific
 palette, or decorative orbs are introduced.
 
 ## Components and data marks
@@ -53,9 +52,11 @@ palette, or decorative orbs are introduced.
   only for marks backed by actual data; do not use these primitives to imply
   fabricated measurements or decorative charts.
 
-Existing `[data-hln-ui-control]` and `[data-hln-ui-field]` controls receive
-compact dimensions only inside the opt-in subtree. Starter actions have stable
-52px minimum height. `.hln-v33-enter` provides a 360ms entrance. Source rows and
+Existing `[data-hln-ui-control]` and `[data-hln-ui-field]` controls retain their
+v3.2 dimensions, spacing, straight edges, primary/quiet/disabled states and icon
+geometry. Starter actions keep the original neutral open rows and 52px minimum
+height, without colored side rails or decorative squares. The workbench send
+target remains at least 44px. `.hln-v33-enter` provides a 360ms entrance. Source rows and
 starter actions stagger only the first six entries, capped at 175ms delay.
 Panels disclose in 320ms and the tab selection indicator slides in 300ms.
 Dialogs/backdrops fade on opening; all overlay animations and transitions are
@@ -64,7 +65,7 @@ removed by `prefers-reduced-motion: reduce`.
 ## Build and provenance
 
 `data-academic-role` selects `analysis`, `writing`, `review`, or `media` semantic
-accents in teal, blue, amber and orchid. They are research categories, not success
+accents in muted teal, blue, amber and orchid for source labels only. They are research categories, not success
 or error claims. `data-motion-enter` is added only to newly arriving messages
 in the active conversation, never replayed for unchanged history or a loaded
 conversation. Busy spinner motion requires actual `aria-busy=true` on the chat
