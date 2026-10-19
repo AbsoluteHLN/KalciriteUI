@@ -16,10 +16,10 @@ body[data-hln-ui-variant='overleafplus-v33'] {
   --hln-v33-enter-duration: 300ms;
   --hln-v33-state-duration: 180ms;
   --hln-v33-ease: cubic-bezier(.16, 1, .3, 1);
-  --hln-v33-structure-surface: color-mix(in srgb, var(--hln-v33-writing) 7%, var(--hln-ui-bg-1));
+  --hln-v33-structure-surface: var(--hln-ui-bg-1);
   --hln-v33-selection-surface: color-mix(in srgb, var(--hln-ui-accent) 12%, var(--hln-ui-bg-1));
-  --hln-v33-table-heading-surface: var(--hln-v33-structure-surface);
-  --hln-v33-ai-reading-surface: color-mix(in srgb, var(--hln-v33-analysis) 7%, var(--hln-ui-bg-1));
+  --hln-v33-table-heading-surface: var(--hln-ui-bg-2);
+  --hln-v33-ai-reading-surface: var(--hln-ui-bg-1);
   --hln-v33-text-secondary: var(--hln-ui-text-muted);
   --hln-v33-rule: 1px solid var(--hln-ui-line);
   --hln-v33-axis-rule-color: color-mix(in srgb, var(--hln-ui-text-muted) 60%, var(--hln-ui-line));
@@ -58,8 +58,8 @@ body[data-hln-ui-variant='overleafplus-v33'] {
 /* Recompute derived tokens at each role boundary instead of inheriting root-resolved values. */
 [data-hln-ui-variant='overleafplus-v33'],
 [data-hln-ui-variant='overleafplus-v33'] [data-academic-role] {
-  --hln-v33-role-surface: color-mix(in srgb, var(--hln-v33-role-color) 14%, var(--hln-ui-bg-1));
-  --hln-v33-role-ink: color-mix(in srgb, var(--hln-v33-role-color) 72%, var(--hln-ui-text));
+  --hln-v33-role-surface: var(--hln-ui-bg-2);
+  --hln-v33-role-ink: var(--hln-ui-text);
 }
 [data-hln-ui-variant='overleafplus-v33'] .hln-v33-role-surface {
   background: var(--hln-v33-role-surface);

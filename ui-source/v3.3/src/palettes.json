@@ -1,8 +1,8 @@
 {
-  "linear-obsidian": { "writing": "#83A7D4", "analysis": "#6DB8A7", "review": "#D1AC72", "media": "#B397C1" },
-  "linear-platinum": { "writing": "#35659B", "analysis": "#0F766E", "review": "#91652D", "media": "#805984" },
-  "linear-amber": { "writing": "#83A7D4", "analysis": "#75B5A7", "review": "#D3AF75", "media": "#BA9EC3" },
-  "linear-paper": { "writing": "#4477AA", "analysis": "#0F766E", "review": "#956B30", "media": "#805984" },
-  "linear-emerald": { "writing": "#8CACE0", "analysis": "#76C0B0", "review": "#D2B27B", "media": "#BC9FC7" },
-  "linear-mono": { "writing": "#88ABD6", "analysis": "#79BAAB", "review": "#CFB27A", "media": "#B69BC2" }
+  "linear-obsidian": { "writing": "#38BDF8", "analysis": "#38BDF8", "review": "#38BDF8", "media": "#38BDF8" },
+  "linear-platinum": { "writing": "#2563EB", "analysis": "#2563EB", "review": "#2563EB", "media": "#2563EB" },
+  "linear-amber": { "writing": "#F59E0B", "analysis": "#F59E0B", "review": "#F59E0B", "media": "#F59E0B" },
+  "linear-paper": { "writing": "#0D9488", "analysis": "#0D9488", "review": "#0D9488", "media": "#0D9488" },
+  "linear-emerald": { "writing": "#10B981", "analysis": "#10B981", "review": "#10B981", "media": "#10B981" },
+  "linear-mono": { "writing": "#F4F4F5", "analysis": "#F4F4F5", "review": "#F4F4F5", "media": "#F4F4F5" }
 }

@@ -12,19 +12,22 @@ Component geometry and icons inherit v3.2. The host owns page layouts and behavi
 
 `src/palettes.json` is the only authority for research extensions. The builder
 accepts exactly the six existing theme IDs in canonical order, each with exactly
-writing, analysis, review and media hex colors. It emits only `--hln-v33-*`
+writing, analysis, review and media hex colors, all equal to that theme's base
+accent in v3.3.3. It emits only `--hln-v33-*`
 declarations under theme AND variant selectors. Handwritten CSS cannot select
 theme IDs or redefine `--hln-ui-*` tokens. Base themes remain byte-identical.
 
 `data-academic-role="writing|analysis|review|media"` chooses `--hln-v33-role-color`.
-At each role boundary, `--hln-v33-role-surface` mixes 14% category color with bg-1;
-`--hln-v33-role-ink` mixes 72% category color with the base foreground. Text uses
-role-ink, not the raw category color. Test these combinations at >=4.5:1.
+At each role boundary, `--hln-v33-role-surface` uses neutral bg-2 and
+`--hln-v33-role-ink` uses the base foreground. Text uses role-ink, not the raw
+accent. Test foreground/background combinations at >=4.5:1. Shell and AI reading
+surfaces use bg-1; table headings use bg-2. Category labels retain their meaning
+without introducing additional hues. Theme previews show neutral base + accent.
 Errors, warnings and success keep their independent base semantic tokens.
 
 | Token | Purpose |
 | --- | --- |
-| `--hln-v33-writing/analysis/review/media` | Four theme-specific research colors |
+| `--hln-v33-writing/analysis/review/media` | Compatible aliases of the base theme accent |
 | `--hln-v33-role-color/surface/ink` | Local role tokens, recomputed at role boundary |
 | `--hln-v33-structure-surface` | Quiet navigation/toolbar surface |
 | `--hln-v33-selection-surface` | Selection and hover background |
@@ -57,7 +60,7 @@ caret, selection and scrollbar colors follow the theme.
 
 ## Deterministic Build
 
-Provenance schema `kalcirite-ui-overlay-provenance/v1`, version 3.3.1:
+Provenance schema `kalcirite-ui-overlay-provenance/v1`, version 3.3.3:
 `baseSHA` hashes exact base bytes; `sourceSHA` hashes LF-normalized CSS;
 `paletteSHA` hashes the parsed palette serialized with two-space JSON + LF;
 `artifactSHA` hashes emitted overlay bytes. No timestamps or local paths.

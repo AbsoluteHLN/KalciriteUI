@@ -51,7 +51,7 @@ const provenance = {
   artifactSHA: sha256(artifact),
   variant,
   schema: "kalcirite-ui-overlay-provenance/v1",
-  version: "3.3.1",
+  version: "3.3.3",
 }
 
 mkdirSync(distPath, { recursive: true })
