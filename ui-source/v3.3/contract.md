@@ -1,96 +1,69 @@
-# KalciriteUI v3.3 OverleafPlus Additive Contract
+# OverleafPlus v3.3 Contract
 
-## Scope and compatibility
+## Scope
 
-v3.3 is an overlay-only edition. Its stylesheet must be loaded after the
-unaltered v3.2 artifact. It preserves the v3.2 runtime, theme bootstrap,
-`data-hln-ui-version="v3.2"`, and all six canonical themes:
-`linear-obsidian`, `linear-platinum`, `linear-amber`, `linear-paper`,
-`linear-emerald`, and `linear-mono`. It introduces no theme IDs, theme engine,
-or global selectors that restyle unmarked pages.
+Load after the exact canonical v3.2 artifact. Opt in only through
+`[data-hln-ui-variant='overleafplus-v33']`. No runtime, new theme IDs, preference
+migration or v3.2 token redefinition. The six base themes are unchanged:
+obsidian, platinum, amber, paper, emerald and mono (all retain `linear-` IDs).
+Component geometry and icons inherit v3.2. The host owns page layouts and behavior.
 
-The sole opt-in hook is
-`[data-hln-ui-variant='overleafplus-v33']`. Every component and state rule is
-scoped to this attribute. Without it, pages retain v3.2 presentation.
+## Palette And Semantics
 
-## Tokens
+`src/palettes.json` is the only authority for research extensions. The builder
+accepts exactly the six existing theme IDs in canonical order, each with exactly
+writing, analysis, review and media hex colors. It emits only `--hln-v33-*`
+declarations under theme AND variant selectors. Handwritten CSS cannot select
+theme IDs or redefine `--hln-ui-*` tokens. Base themes remain byte-identical.
 
-Tokens are declared only on the opt-in subtree. Structural tokens alias v3.2.
-Muted research accents are limited to small source labels, real feed-coverage
-marks, reader rules and task icons. Navigation and skill controls retain v3.2
-theme colors. Neutral toolbar/navigation surfaces have a 3% blue-gray tint;
-text keeps the inherited high-contrast foreground.
+`data-academic-role="writing|analysis|review|media"` chooses `--hln-v33-role-color`.
+At each role boundary, `--hln-v33-role-surface` mixes 14% category color with bg-1;
+`--hln-v33-role-ink` mixes 72% category color with the base foreground. Text uses
+role-ink, not the raw category color. Test these combinations at >=4.5:1.
+Errors, warnings and success keep their independent base semantic tokens.
 
-| Token | Meaning |
+| Token | Purpose |
 | --- | --- |
-| `--hln-v33-ai-reading-surface` | Quiet surface for AI-generated reading content |
-| `--hln-v33-table-heading-surface` | Subtle data-table header surface |
-| `--hln-v33-selection-surface` | Hover/selection surface |
-| `--hln-v33-text-secondary` | Alias for muted semantic text |
-| `--hln-v33-rule` | Fine structural rule using the active theme line |
-| `--hln-v33-axis-rule-color`, `--hln-v33-grid-rule-color`, `--hln-v33-vector-rule-color` | Theme-derived vector and data marks |
-| `--hln-v33-density-*` | Compact row, cell, and section spacing |
+| `--hln-v33-writing/analysis/review/media` | Four theme-specific research colors |
+| `--hln-v33-role-color/surface/ink` | Local role tokens, recomputed at role boundary |
+| `--hln-v33-structure-surface` | Quiet navigation/toolbar surface |
+| `--hln-v33-selection-surface` | Selection and hover background |
+| `--hln-v33-ai-reading-surface` | Generated reading content |
+| `--hln-v33-table-heading-surface` | Data header |
+| `--hln-v33-text-secondary`, `--hln-v33-rule` | Base muted text and structural rule |
+| `--hln-v33-axis-rule-color/grid-rule-color/vector-rule-color` | Actual-data vector marks |
+| `--hln-v33-density-*` | Row, cell and section spacing |
+| `--hln-v33-enter-duration/state-duration/ease` | 300ms entrance, 180ms state feedback |
 | `--hln-v33-tabular-numbers` | Tabular and lining numeral features |
 
-Letter spacing is zero in the opted-in subtree. Numeric data uses tabular
-figures. The compact academic type scale favors legible tables, captions,
-citations, and analytical prose over oversized display typography. Corner
-radii inherit the v3.2 tokens; no gradients, blur, offset shadows, beige-specific
-palette, or decorative orbs are introduced.
+Components: `.hln-v33-role-surface`, `.hln-v33-ai-reading-surface`,
+`.hln-v33-data-table` (numeric cells use `data-numeric=true`), `.hln-v33-figure`,
+`.hln-v33-caption`, `.hln-v33-stat-row`. Data vector hooks use `data-vector-*`.
+Use only source-grounded data. No decorative statistics. Letter spacing is zero.
+Existing radius tokens remain authoritative; no gradients, glows or nested cards.
 
-## Components and data marks
+## Views And Motion
 
-- `.hln-v33-ai-reading-surface` provides an open, theme-aware reading surface.
-- `.hln-v33-data-table` styles semantic table markup with tabular numerals,
-  fine rules, numeric alignment through `data-numeric="true"`, and a restrained
-  row hover state.
-- `.hln-v33-figure` and `.hln-v33-caption` frame real analytical content and its
-  explanatory caption without inventing chart content.
-- `.hln-v33-stat-row` lays out supplied summary measures with stable compact
-  tracks and structural separators.
-- `data-vector-axis`, `data-vector-gridline`, `data-vector-path`,
-  `data-vector-point`, and `data-vector-bar` style inline vector marks. Use them
-  only for marks backed by actual data; do not use these primitives to imply
-  fabricated measurements or decorative charts.
+Digest uses full-width list and deliberate centered reading view on all sizes;
+return restores filters, page, focus and scroll. Diagnostics are disclosures.
+AI distinguishes task entry, conversation, skill selection and output artifacts.
+Page layouts belong to plugin source, not canonical page-specific overrides.
 
-Existing `[data-hln-ui-control]` and `[data-hln-ui-field]` controls retain their
-v3.2 dimensions, spacing, straight edges, primary/quiet/disabled states and icon
-geometry. Starter actions keep neutral open rows, without colored fills, side
-rails or decorative squares. Their desktop height is 64px and phone height is
-52px; Lucide task glyphs use the v3.2 1.5px stroke. The workbench send target
-remains at least 44px. `.hln-v33-enter` provides a 360ms entrance. Starter
-actions stagger only the first six entries, capped at 175ms delay.
-Panels disclose in 320ms and the tab selection indicator slides in 300ms.
-Dialogs/backdrops fade on opening; all overlay animations and transitions are
-removed by `prefers-reduced-motion: reduce`.
+Entrance travels 6px in 300ms; disclosure unmasks in 220ms; tabs glide in 280ms.
+`data-motion-enter` marks only newly arriving messages, not reloaded history.
+Spinners require actual `aria-busy=true`. All motion stops under reduced-motion.
+No input-blocking delays or repeated page-wide stagger effects. Visible focus,
+caret, selection and scrollbar colors follow the theme.
 
-## Build and provenance
+## Deterministic Build
 
-`data-academic-role` selects `analysis`, `writing`, `review`, or `media` semantic
-accents in muted teal, blue, amber and orchid for small research marks. They are research categories, not success
-or error claims. `data-motion-enter` is added only to newly arriving messages
-in the active conversation, never replayed for unchanged history or a loaded
-conversation. Busy spinner motion requires actual `aria-busy=true` on the chat
-or digest refresh button. All motion obeys reduced-motion preferences.
-No decorative data or measurements are introduced by these treatments.
-
-The Research Digest index shows compact source/date/title/excerpt rows beside
-a sticky source-grounded reader. Full timestamps, identifiers and matching
-rules remain in native disclosure markup, never discarded. At 1100px and
-below, reading replaces the index; the return action restores its focus and
-scroll position. Feed-coverage bars represent fetched fixed subscriptions in
-the selected scope, not scientific impact, relevance or a fabricated trend.
-
-`build.mjs` uses only Node built-ins. It reads the original v3.2 CSS artifact
-for its base hash and emits only additive CSS, not a combined v3.2+v3.3 bundle.
-It writes `dist/hln-ui-system-v3.3.css` and `dist/provenance.json` with stable
-`baseSHA`, `sourceSHA`, `artifactSHA`, `variant`, `schema`, and `version`
-properties. Source text is normalized to LF before source hashing and emission;
-the base stylesheet is hashed byte-for-byte. Hashes are lowercase SHA-256 hex digests. The provenance JSON has
-no timestamps or absolute paths, keeping identical inputs byte-deterministic.
+Provenance schema `kalcirite-ui-overlay-provenance/v1`, version 3.3.1:
+`baseSHA` hashes exact base bytes; `sourceSHA` hashes LF-normalized CSS;
+`paletteSHA` hashes the parsed palette serialized with two-space JSON + LF;
+`artifactSHA` hashes emitted overlay bytes. No timestamps or local paths.
+The output is overlay-only, never a combined bundle. SHA-256 values are lowercase.
 
 ## Rollback
 
-Remove the overlay stylesheet load and the opt-in variant attribute. The
-canonical v3.2 stylesheet, six themes, bootstrap, and stored theme choices are
-unchanged; no migration or theme normalization is required.
+Remove the overlay load and variant attribute, or restore the two exact prior
+generated artifacts together. The v3.2 theme engine and preferences need no change.

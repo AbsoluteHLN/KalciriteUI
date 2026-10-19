@@ -1,0 +1,8 @@
+{
+  "linear-obsidian": { "writing": "#83A7D4", "analysis": "#6DB8A7", "review": "#D1AC72", "media": "#B397C1" },
+  "linear-platinum": { "writing": "#35659B", "analysis": "#0F766E", "review": "#91652D", "media": "#805984" },
+  "linear-amber": { "writing": "#83A7D4", "analysis": "#75B5A7", "review": "#D3AF75", "media": "#BA9EC3" },
+  "linear-paper": { "writing": "#4477AA", "analysis": "#0F766E", "review": "#956B30", "media": "#805984" },
+  "linear-emerald": { "writing": "#8CACE0", "analysis": "#76C0B0", "review": "#D2B27B", "media": "#BC9FC7" },
+  "linear-mono": { "writing": "#88ABD6", "analysis": "#79BAAB", "review": "#CFB27A", "media": "#B69BC2" }
+}

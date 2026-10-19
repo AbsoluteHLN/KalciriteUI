@@ -1,289 +1,157 @@
-/* KalciriteUI v3.3 OverleafPlus additive overlay. Load after the v3.2 bundle. */
+/* Academic workspace grammar. Theme extensions are generated from palettes.json. */
+body[data-hln-ui-variant='overleafplus-v33'] {
+  --hln-v33-writing: var(--hln-ui-accent);
+  --hln-v33-analysis: var(--hln-ui-accent);
+  --hln-v33-review: var(--hln-ui-accent);
+  --hln-v33-media: var(--hln-ui-accent);
+  --hln-v33-role-color: var(--hln-v33-writing);
+}
 
 [data-hln-ui-variant='overleafplus-v33'] {
-  --hln-v33-density-row-height: 34px;
-  --hln-v33-density-cell-padding-block: 6px;
-  --hln-v33-density-cell-padding-inline: 10px;
-  --hln-v33-density-section-gap: 16px;
-  --hln-v33-density-figure-gap: 12px;
-  --hln-v33-enter-duration: 360ms;
-
-  --hln-v33-ai-reading-surface: color-mix(in srgb, var(--hln-ui-accent) 5%, var(--hln-ui-bg-1));
-  --hln-v33-table-heading-surface: color-mix(in srgb, var(--hln-ui-accent) 7%, var(--hln-ui-bg-1));
-  --hln-v33-selection-surface: color-mix(in srgb, var(--hln-ui-accent) 11%, var(--hln-ui-bg-1));
+  --hln-v33-density-row-height: 38px;
+  --hln-v33-density-cell-padding-block: 8px;
+  --hln-v33-density-cell-padding-inline: 12px;
+  --hln-v33-density-section-gap: 24px;
+  --hln-v33-density-figure-gap: 16px;
+  --hln-v33-enter-duration: 300ms;
+  --hln-v33-state-duration: 180ms;
+  --hln-v33-ease: cubic-bezier(.16, 1, .3, 1);
+  --hln-v33-structure-surface: color-mix(in srgb, var(--hln-v33-writing) 7%, var(--hln-ui-bg-1));
+  --hln-v33-selection-surface: color-mix(in srgb, var(--hln-ui-accent) 12%, var(--hln-ui-bg-1));
+  --hln-v33-table-heading-surface: var(--hln-v33-structure-surface);
+  --hln-v33-ai-reading-surface: color-mix(in srgb, var(--hln-v33-analysis) 7%, var(--hln-ui-bg-1));
   --hln-v33-text-secondary: var(--hln-ui-text-muted);
   --hln-v33-rule: 1px solid var(--hln-ui-line);
-  --hln-v33-axis-rule-color: color-mix(in srgb, var(--hln-ui-line) 78%, var(--hln-ui-text-muted));
-  --hln-v33-grid-rule-color: color-mix(in srgb, var(--hln-ui-line) 72%, transparent);
-  --hln-v33-vector-rule-color: color-mix(in srgb, var(--hln-ui-accent) 78%, var(--hln-ui-line));
+  --hln-v33-axis-rule-color: color-mix(in srgb, var(--hln-ui-text-muted) 60%, var(--hln-ui-line));
+  --hln-v33-grid-rule-color: var(--hln-ui-line);
+  --hln-v33-vector-rule-color: var(--hln-v33-analysis);
   --hln-v33-tabular-numbers: tabular-nums lining-nums;
-  --hln-v33-analysis: #5f8a82;
-  --hln-v33-writing: #6f88ab;
-  --hln-v33-review: #a38d62;
-  --hln-v33-media: #95819c;
-  --hln-v33-state-duration: 220ms;
-  --hln-v33-structure-surface: color-mix(in srgb, var(--hln-v33-writing) 3%, var(--hln-ui-bg-1));
-
   min-width: 0;
   line-height: 1.5;
   letter-spacing: 0;
   font-variant-numeric: var(--hln-v33-tabular-numbers);
+  accent-color: var(--hln-ui-accent);
+  caret-color: var(--hln-ui-accent);
+  scrollbar-color: var(--hln-ui-line) var(--hln-ui-bg-0);
+  scrollbar-width: thin;
 }
 
-[data-hln-ui-variant='overleafplus-v33'] [data-academic-role='analysis'] { --hln-v33-role-color: var(--hln-v33-analysis); }
-[data-hln-ui-variant='overleafplus-v33'] [data-academic-role='writing'] { --hln-v33-role-color: var(--hln-v33-writing); }
-[data-hln-ui-variant='overleafplus-v33'] [data-academic-role='review'] { --hln-v33-role-color: var(--hln-v33-review); }
-[data-hln-ui-variant='overleafplus-v33'] [data-academic-role='media'] { --hln-v33-role-color: var(--hln-v33-media); }
-
-[data-hln-ui-variant='overleafplus-v33'] :where(.aw-skill-dialog[open], .lab-ai-reply__workflow[open]) {
-  animation: hln-v33-disclose var(--hln-v33-state-duration) var(--hln-ui-ease);
-}
-
-[data-hln-ui-variant='overleafplus-v33'] .lab-ai-chat[aria-busy='true'] .lab-ai-chat__status {
-  border-block-end: 1px solid var(--hln-ui-accent);
-}
-
-@keyframes hln-v33-disclose {
-  from { clip-path: inset(0 0 7% 0); transform: translateY(4px); }
-  to { clip-path: inset(0); transform: translateY(0); }
-}
-
-[data-hln-ui-variant='overleafplus-v33'] :where(*) {
-  letter-spacing: 0;
-}
-
-[data-hln-ui-variant='overleafplus-v33'] .hln-v33-ai-reading-surface {
-  min-width: 0;
-  margin-block: var(--hln-v33-density-section-gap);
-  padding: 12px 14px;
-  border-block: var(--hln-v33-rule);
-  border-radius: 0;
-  background: var(--hln-v33-ai-reading-surface);
-  color: var(--hln-ui-text);
-  overflow-wrap: anywhere;
-}
-
-[data-hln-ui-variant='overleafplus-v33'] .hln-v33-data-table {
-  width: 100%;
-  border-collapse: collapse;
-  border-spacing: 0;
-  color: var(--hln-ui-text);
-  font-size: 12px;
-  font-variant-numeric: var(--hln-v33-tabular-numbers);
-  line-height: 1.4;
-  text-align: start;
-}
-
-[data-hln-ui-variant='overleafplus-v33'] .hln-v33-data-table thead {
-  background: var(--hln-v33-table-heading-surface);
-}
-
-[data-hln-ui-variant='overleafplus-v33'] .hln-v33-data-table tbody tr {
-  height: var(--hln-v33-density-row-height);
-}
-
-[data-hln-ui-variant='overleafplus-v33'] .hln-v33-data-table th,
-[data-hln-ui-variant='overleafplus-v33'] .hln-v33-data-table td {
-  min-height: var(--hln-v33-density-row-height);
-  padding: var(--hln-v33-density-cell-padding-block) var(--hln-v33-density-cell-padding-inline);
-  border-block-end: var(--hln-v33-rule);
-  vertical-align: middle;
-  overflow-wrap: anywhere;
-}
-
-[data-hln-ui-variant='overleafplus-v33'] .hln-v33-data-table th {
-  color: var(--hln-v33-text-secondary);
-  font-family: var(--hln-ui-font-technical, ui-monospace, monospace);
-  font-size: 11px;
-  font-weight: 600;
-  text-align: start;
-}
-
-[data-hln-ui-variant='overleafplus-v33'] .hln-v33-data-table [data-numeric='true'] {
-  font-variant-numeric: var(--hln-v33-tabular-numbers);
-  text-align: end;
-  white-space: nowrap;
-}
-
-[data-hln-ui-variant='overleafplus-v33'] .hln-v33-data-table tbody tr:hover {
+[data-hln-ui-variant='overleafplus-v33'] :where(*) { letter-spacing: 0; }
+[data-hln-ui-variant='overleafplus-v33'] ::selection {
   background: var(--hln-v33-selection-surface);
+  color: var(--hln-ui-text);
+}
+[data-hln-ui-variant='overleafplus-v33'] :where(a) { text-underline-offset: 3px; }
+[data-hln-ui-variant='overleafplus-v33'] :where(button, a, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--hln-ui-accent);
+  outline-offset: 3px;
 }
 
-[data-hln-ui-variant='overleafplus-v33'] .hln-v33-figure {
-  min-width: 0;
-  margin-block: var(--hln-v33-density-figure-gap);
-  padding-block: var(--hln-v33-density-figure-gap);
-  border-block: var(--hln-v33-rule);
-  overflow: auto hidden;
+[data-hln-ui-variant='overleafplus-v33'][data-academic-role='writing'],
+[data-hln-ui-variant='overleafplus-v33'] [data-academic-role='writing'] { --hln-v33-role-color: var(--hln-v33-writing); }
+[data-hln-ui-variant='overleafplus-v33'][data-academic-role='analysis'],
+[data-hln-ui-variant='overleafplus-v33'] [data-academic-role='analysis'] { --hln-v33-role-color: var(--hln-v33-analysis); }
+[data-hln-ui-variant='overleafplus-v33'][data-academic-role='review'],
+[data-hln-ui-variant='overleafplus-v33'] [data-academic-role='review'] { --hln-v33-role-color: var(--hln-v33-review); }
+[data-hln-ui-variant='overleafplus-v33'][data-academic-role='media'],
+[data-hln-ui-variant='overleafplus-v33'] [data-academic-role='media'] { --hln-v33-role-color: var(--hln-v33-media); }
+/* Recompute derived tokens at each role boundary instead of inheriting root-resolved values. */
+[data-hln-ui-variant='overleafplus-v33'],
+[data-hln-ui-variant='overleafplus-v33'] [data-academic-role] {
+  --hln-v33-role-surface: color-mix(in srgb, var(--hln-v33-role-color) 14%, var(--hln-ui-bg-1));
+  --hln-v33-role-ink: color-mix(in srgb, var(--hln-v33-role-color) 72%, var(--hln-ui-text));
 }
-
-[data-hln-ui-variant='overleafplus-v33'] .hln-v33-figure :where(svg, canvas) {
-  display: block;
-  max-inline-size: 100%;
+[data-hln-ui-variant='overleafplus-v33'] .hln-v33-role-surface {
+  background: var(--hln-v33-role-surface);
+  color: var(--hln-v33-role-ink);
 }
-
-[data-hln-ui-variant='overleafplus-v33'] .hln-v33-caption {
-  margin-block-start: 8px;
-  color: var(--hln-v33-text-secondary);
-  font-size: 11px;
-  line-height: 1.45;
-  overflow-wrap: anywhere;
-}
-
-[data-hln-ui-variant='overleafplus-v33'] .hln-v33-stat-row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 8rem), 1fr));
-  min-width: 0;
-  border-block: var(--hln-v33-rule);
-  font-variant-numeric: var(--hln-v33-tabular-numbers);
-}
-
-[data-hln-ui-variant='overleafplus-v33'] .hln-v33-stat-row > * {
-  min-width: 0;
-  padding: 8px 12px;
-  overflow-wrap: anywhere;
-}
-
-[data-hln-ui-variant='overleafplus-v33'] .hln-v33-stat-row > * + * {
-  border-inline-start: var(--hln-v33-rule);
-}
-
-[data-hln-ui-variant='overleafplus-v33'] [data-vector-axis] {
-  stroke: var(--hln-v33-axis-rule-color);
-  stroke-width: 1;
-  vector-effect: non-scaling-stroke;
-}
-
-[data-hln-ui-variant='overleafplus-v33'] [data-vector-gridline] {
-  stroke: var(--hln-v33-grid-rule-color);
-  stroke-width: 1;
-  vector-effect: non-scaling-stroke;
-}
-
-[data-hln-ui-variant='overleafplus-v33'] [data-vector-path] {
-  fill: none;
-  stroke: var(--hln-v33-vector-rule-color);
-  stroke-width: 1.5;
-  vector-effect: non-scaling-stroke;
-}
-
-[data-hln-ui-variant='overleafplus-v33'] [data-vector-point] {
-  fill: var(--hln-ui-bg-1);
-  stroke: var(--hln-v33-vector-rule-color);
-  stroke-width: 1.25;
-  vector-effect: non-scaling-stroke;
-}
-
-[data-hln-ui-variant='overleafplus-v33'] [data-vector-bar] {
-  fill: var(--hln-v33-vector-rule-color);
-}
-
-[data-hln-ui-variant='overleafplus-v33'] .hln-v33-enter {
-  animation: hln-v33-enter var(--hln-v33-enter-duration) var(--hln-ui-ease, ease-out) both;
-}
-
-@keyframes hln-v33-enter {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* The v3.2 control grammar stays intact; research color lives in small data marks. */
-[data-hln-ui-variant='overleafplus-v33'] .app-side {
-  background: var(--hln-v33-structure-surface);
-}
-[data-hln-ui-variant='overleafplus-v33'] .app-brand__mark {
-  color: var(--hln-v33-analysis);
-}
-[data-hln-ui-variant='overleafplus-v33'] .app-nav__group {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-[data-hln-ui-variant='overleafplus-v33'] .app-nav__group::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--hln-ui-line);
-}
-[data-hln-ui-variant='overleafplus-v33'] .app-bar {
-  background: var(--hln-v33-structure-surface);
-}
-[data-hln-ui-variant='overleafplus-v33'] .app-nav__sup {
-  white-space: nowrap;
-}
+[data-hln-ui-variant='overleafplus-v33'] :where(.app-side, .app-bar) { background: var(--hln-v33-structure-surface); }
+[data-hln-ui-variant='overleafplus-v33'] .app-brand__mark { color: var(--hln-v33-analysis); }
+[data-hln-ui-variant='overleafplus-v33'] .app-nav__sup { white-space: nowrap; }
 [data-hln-ui-variant='overleafplus-v33'] .app-bar__title {
   display: inline-flex;
   align-items: baseline;
   flex-wrap: wrap;
   gap: 6px;
 }
-[data-hln-ui-variant='overleafplus-v33'] .app-bar__title .app-nav__sup {
-  margin-inline-start: 0;
-  font-size: 11px;
+[data-hln-ui-variant='overleafplus-v33'] .app-bar__title .app-nav__sup { margin-inline-start: 0; font-size: 12px; }
+
+[data-hln-ui-variant='overleafplus-v33'] .hln-v33-ai-reading-surface {
+  min-width: 0;
+  margin-block: 24px;
+  padding: 16px;
+  border-block: var(--hln-v33-rule);
+  background: var(--hln-v33-ai-reading-surface);
+  color: var(--hln-ui-text);
+  overflow-wrap: anywhere;
 }
-[data-hln-ui-variant='overleafplus-v33'] .app-body {
-  animation: hln-v33-enter var(--hln-v33-enter-duration) var(--hln-ui-ease) both;
+[data-hln-ui-variant='overleafplus-v33'] .hln-v33-data-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: var(--hln-ui-text);
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: start;
 }
-[data-hln-ui-variant='overleafplus-v33'] .aw-chat-host .lab-ai-chat__starter {
-  animation: hln-v33-enter 380ms var(--hln-ui-ease) both;
-  animation-delay: var(--hln-v33-stagger, 0ms);
+[data-hln-ui-variant='overleafplus-v33'] .hln-v33-data-table thead { background: var(--hln-v33-table-heading-surface); }
+[data-hln-ui-variant='overleafplus-v33'] .hln-v33-data-table :where(th, td) {
+  height: var(--hln-v33-density-row-height);
+  padding: var(--hln-v33-density-cell-padding-block) var(--hln-v33-density-cell-padding-inline);
+  border-block-end: var(--hln-v33-rule);
+  vertical-align: middle;
+  overflow-wrap: anywhere;
 }
-[data-hln-ui-variant='overleafplus-v33'] .aw-chat-host .lab-ai-chat__empty h2 {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding-block-end: 24px;
-  border-block-end: 1px solid var(--hln-ui-line);
-  font-size: 24px;
+[data-hln-ui-variant='overleafplus-v33'] .hln-v33-data-table th {
+  color: var(--hln-v33-text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+  text-align: start;
 }
-[data-hln-ui-variant='overleafplus-v33'] .aw-chat-host .lab-ai-chat__empty {
-  flex: 0 0 auto;
-  align-content: start;
+[data-hln-ui-variant='overleafplus-v33'] .hln-v33-data-table [data-numeric='true'] { text-align: end; white-space: nowrap; }
+[data-hln-ui-variant='overleafplus-v33'] .hln-v33-data-table tbody tr:hover { background: var(--hln-v33-selection-surface); }
+[data-hln-ui-variant='overleafplus-v33'] .hln-v33-figure {
+  min-width: 0;
+  margin-block: 16px;
+  padding-block: 16px;
+  border-block: var(--hln-v33-rule);
+  overflow: auto hidden;
 }
-[data-hln-ui-variant='overleafplus-v33'] .aw-research-mark {
-  flex: 0 0 40px;
-  width: 40px;
-  height: 40px;
-}
-[data-hln-ui-variant='overleafplus-v33'] .aw-chat-host .lab-ai-chat__starters {
-  column-gap: 32px;
-}
-[data-hln-ui-variant='overleafplus-v33'] .aw-chat-host .lab-ai-chat__starter {
-  gap: 14px;
-  min-height: 64px;
-  justify-content: flex-start;
-}
-[data-hln-ui-variant='overleafplus-v33'] .aw-starter-icon {
+[data-hln-ui-variant='overleafplus-v33'] .hln-v33-figure :where(svg, canvas) { display: block; max-inline-size: 100%; }
+[data-hln-ui-variant='overleafplus-v33'] .hln-v33-caption { margin-block-start: 8px; color: var(--hln-v33-text-secondary); font-size: 12px; overflow-wrap: anywhere; }
+[data-hln-ui-variant='overleafplus-v33'] .hln-v33-stat-row {
   display: grid;
-  place-items: center;
-  flex: 0 0 22px;
-  width: 22px;
-  height: 22px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 8rem), 1fr));
+  min-width: 0;
+  border-block: var(--hln-v33-rule);
 }
-[data-hln-ui-variant='overleafplus-v33'] .aw-starter-icon svg {
-  color: var(--hln-v33-role-color);
-  transition: transform 220ms var(--hln-ui-ease);
+[data-hln-ui-variant='overleafplus-v33'] .hln-v33-stat-row > * { min-width: 0; padding: 12px; overflow-wrap: anywhere; }
+[data-hln-ui-variant='overleafplus-v33'] .hln-v33-stat-row > * + * { border-inline-start: var(--hln-v33-rule); }
+[data-hln-ui-variant='overleafplus-v33'] :where([data-vector-axis], [data-vector-gridline], [data-vector-path], [data-vector-point]) { vector-effect: non-scaling-stroke; }
+[data-hln-ui-variant='overleafplus-v33'] [data-vector-axis] { stroke: var(--hln-v33-axis-rule-color); stroke-width: 1; }
+[data-hln-ui-variant='overleafplus-v33'] [data-vector-gridline] { stroke: var(--hln-v33-grid-rule-color); stroke-width: 1; }
+[data-hln-ui-variant='overleafplus-v33'] [data-vector-path] { fill: none; stroke: var(--hln-v33-vector-rule-color); stroke-width: 1.5; }
+[data-hln-ui-variant='overleafplus-v33'] [data-vector-point] { fill: var(--hln-ui-bg-1); stroke: var(--hln-v33-vector-rule-color); stroke-width: 1.25; }
+[data-hln-ui-variant='overleafplus-v33'] [data-vector-bar] { fill: var(--hln-v33-vector-rule-color); }
+
+/* One spatial language: entering views advance slightly, overlays disclose, tabs glide. */
+[data-hln-ui-variant='overleafplus-v33'] :where(.hln-v33-enter, .aw-side-panel:not([hidden]), .digest-reader:not([hidden])) {
+  animation: hln-v33-enter var(--hln-v33-enter-duration) var(--hln-v33-ease) both;
 }
-[data-hln-ui-variant='overleafplus-v33'] .lab-ai-chat__starter:not(:disabled):hover .aw-starter-icon svg {
-  transform: translateY(-2px);
+[data-hln-ui-variant='overleafplus-v33'] :where(.aw-skill-dialog[open], .lab-modal:not([hidden]), .lab-ai-reply__workflow[open]) {
+  animation: hln-v33-disclose 220ms var(--hln-v33-ease) both;
 }
-[data-hln-ui-variant='overleafplus-v33'] .aw-chat-host .lab-ai-chat__controls {
+[data-hln-ui-variant='overleafplus-v33'] .aw-skill-dialog[open]::backdrop { animation: hln-v33-fade 180ms ease-out both; }
+[data-hln-ui-variant='overleafplus-v33'] .lab-ai-chat__message[data-motion-enter] { animation: hln-v33-enter 280ms var(--hln-v33-ease) both; }
+[data-hln-ui-variant='overleafplus-v33'] :where(.lab-ai-chat__starter, .aw-skill, .digest-item, .app-nav__item) {
+  transition: background-color 180ms var(--hln-v33-ease), color 180ms var(--hln-v33-ease), border-color 180ms var(--hln-v33-ease);
+}
+[data-hln-ui-variant='overleafplus-v33'] .lab-ai-chat__composer {
+  transition: border-color 180ms ease-out, background-color 180ms ease-out;
+}
+[data-hln-ui-variant='overleafplus-v33'] .lab-ai-chat__composer:focus-within {
+  border-block-start-color: var(--hln-ui-accent);
   background: var(--hln-v33-structure-surface);
-}
-[data-hln-ui-variant='overleafplus-v33'] .aw-chat-host .lab-ai-chat__send { min-height: 44px; }
-[data-hln-ui-variant='overleafplus-v33'] :where(.lab-ai-chat__starter, .digest-item):nth-child(2) { --hln-v33-stagger: 35ms; }
-[data-hln-ui-variant='overleafplus-v33'] :where(.lab-ai-chat__starter, .digest-item):nth-child(3) { --hln-v33-stagger: 70ms; }
-[data-hln-ui-variant='overleafplus-v33'] :where(.lab-ai-chat__starter, .digest-item):nth-child(4) { --hln-v33-stagger: 105ms; }
-[data-hln-ui-variant='overleafplus-v33'] :where(.lab-ai-chat__starter, .digest-item):nth-child(5) { --hln-v33-stagger: 140ms; }
-[data-hln-ui-variant='overleafplus-v33'] :where(.lab-ai-chat__starter, .digest-item):nth-child(6) { --hln-v33-stagger: 175ms; }
-[data-hln-ui-variant='overleafplus-v33'] .aw-skill {
-  transition: background-color 180ms var(--hln-ui-ease), border-color 180ms var(--hln-ui-ease);
 }
 [data-hln-ui-variant='overleafplus-v33'] .aw-sidebar__tabs { position: relative; isolation: isolate; }
 [data-hln-ui-variant='overleafplus-v33'] .aw-sidebar__tabs::before {
@@ -292,79 +160,28 @@
   inset: 4px auto 4px 4px;
   width: calc(50% - 4px);
   z-index: -1;
-  border: 1px solid var(--hln-ui-line);
+  border: var(--hln-v33-rule);
   border-radius: var(--hln-ui-radius-sm);
   background: var(--hln-ui-bg-0);
-  transition: transform 300ms var(--hln-ui-ease);
+  transition: transform 280ms var(--hln-v33-ease);
 }
-[data-hln-ui-variant='overleafplus-v33'] .aw-sidebar__tabs:has([aria-controls='aw-skills-panel'][aria-selected='true'])::before {
-  transform: translateX(100%);
-}
+[data-hln-ui-variant='overleafplus-v33'] .aw-sidebar__tabs:has([aria-controls='aw-skills-panel'][aria-selected='true'])::before { transform: translateX(100%); }
 [data-hln-ui-variant='overleafplus-v33'] .aw-sidebar__tab[aria-selected='true'] { background: transparent; border-color: transparent; }
-[data-hln-ui-variant='overleafplus-v33'] .aw-side-panel:not([hidden]) { animation: hln-v33-panel 320ms var(--hln-ui-ease) both; }
-[data-hln-ui-variant='overleafplus-v33'] .aw-skill-dialog[open] { animation: hln-v33-enter 280ms var(--hln-ui-ease) both; }
-[data-hln-ui-variant='overleafplus-v33'] .aw-skill-dialog[open]::backdrop { animation: hln-v33-backdrop 240ms ease-out both; }
-[data-hln-ui-variant='overleafplus-v33'] .lab-ai-chat__message[data-motion-enter] { animation: hln-v33-enter 320ms var(--hln-ui-ease) both; }
-[data-hln-ui-variant='overleafplus-v33'] .lab-ai-chat__composer {
-  transition: border-color 180ms var(--hln-ui-ease), background-color 180ms var(--hln-ui-ease);
-}
-[data-hln-ui-variant='overleafplus-v33'] .lab-ai-chat__composer:focus-within {
-  border-block-start-color: var(--hln-ui-accent);
-  background: color-mix(in srgb, var(--hln-ui-accent) 4%, var(--hln-ui-bg-1));
-}
-[data-hln-ui-variant='overleafplus-v33'] .digest-reader {
-  border-block-start-color: var(--hln-v33-role-color, var(--hln-ui-line));
-}
-[data-hln-ui-variant='overleafplus-v33'] .digest-reader :where(.digest-reader__title, .digest-reader__abstract) {
-  animation: hln-v33-disclose 240ms var(--hln-ui-ease);
-}
-[data-hln-ui-variant='overleafplus-v33'] .digest-provenance[open] .digest-dates {
-  animation: hln-v33-panel 200ms var(--hln-ui-ease);
-}
-[data-hln-ui-variant='overleafplus-v33'] .digest-badge:first-child {
-  padding: 1px 5px;
-  border-radius: var(--hln-ui-radius-xs);
-  background: color-mix(in srgb, var(--hln-v33-role-color) 8%, var(--hln-ui-bg-1));
-  color: var(--hln-ui-text);
-}
-[data-hln-ui-variant='overleafplus-v33'] .digest-summary { max-width: 100ch; }
-[data-hln-ui-variant='overleafplus-v33'] #digest-refresh[aria-busy='true'] svg { animation: hln-v33-spin 900ms linear infinite; }
 [data-hln-ui-variant='overleafplus-v33'] .lab-ai-chat[aria-busy='true'] .lab-ai-chat__status::before {
   content: '';
+  flex: 0 0 12px;
   width: 12px;
   height: 12px;
-  flex: 0 0 12px;
   border: 2px solid var(--hln-ui-line);
   border-block-start-color: var(--hln-ui-accent);
   border-radius: 50%;
   animation: hln-v33-spin 900ms linear infinite;
 }
-@keyframes hln-v33-panel {
-  from { opacity: 0.5; transform: translateX(8px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-@keyframes hln-v33-backdrop {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
+[data-hln-ui-variant='overleafplus-v33'] #digest-refresh[aria-busy='true'] svg { animation: hln-v33-spin 900ms linear infinite; }
+@keyframes hln-v33-enter { from { opacity: .55; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes hln-v33-disclose { from { opacity: .5; clip-path: inset(0 0 6% 0); transform: translateY(4px); } to { opacity: 1; clip-path: inset(0); transform: translateY(0); } }
+@keyframes hln-v33-fade { from { opacity: 0; } to { opacity: 1; } }
 @keyframes hln-v33-spin { to { transform: rotate(360deg); } }
-
-@media (max-width: 640px) {
-  [data-hln-ui-variant='overleafplus-v33'] .aw-chat-host .lab-ai-chat__empty h2 {
-    padding-block-end: 16px;
-    font-size: 20px;
-  }
-  [data-hln-ui-variant='overleafplus-v33'] .aw-chat-host .lab-ai-chat__starter { min-height: 52px; }
-  [data-hln-ui-variant='overleafplus-v33'] .hln-v33-data-table {
-    font-size: 11.5px;
-  }
-
-  [data-hln-ui-variant='overleafplus-v33'] .hln-v33-data-table th,
-  [data-hln-ui-variant='overleafplus-v33'] .hln-v33-data-table td {
-    padding-inline: 7px;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   [data-hln-ui-variant='overleafplus-v33'],
   [data-hln-ui-variant='overleafplus-v33'] *,
@@ -373,14 +190,5 @@
     animation: none !important;
     transition: none !important;
     scroll-behavior: auto !important;
-  }
-  [data-hln-ui-variant='overleafplus-v33'] :where(.aw-skill-dialog[open], .lab-ai-reply__workflow[open], .lab-ai-chat[aria-busy='true'] .lab-ai-chat__status) { animation: none; }
-  [data-hln-ui-variant='overleafplus-v33'] .hln-v33-enter {
-    animation: none;
-  }
-
-  [data-hln-ui-variant='overleafplus-v33'] [data-hln-ui-control],
-  [data-hln-ui-variant='overleafplus-v33'] [data-hln-ui-field] {
-    transition-duration: 0.01ms;
   }
 }
