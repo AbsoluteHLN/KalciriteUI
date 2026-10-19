@@ -1,0 +1,213 @@
+/* KalciriteUI v3.3 OverleafPlus additive overlay. Load after the v3.2 bundle. */
+
+[data-hln-ui-variant='overleafplus-v33'] {
+  --hln-v33-density-row-height: 34px;
+  --hln-v33-density-cell-padding-block: 6px;
+  --hln-v33-density-cell-padding-inline: 10px;
+  --hln-v33-density-section-gap: 16px;
+  --hln-v33-density-figure-gap: 12px;
+  --hln-v33-control-height: 34px;
+  --hln-v33-control-radius: 4px;
+  --hln-v33-enter-duration: 160ms;
+
+  --hln-v33-ai-reading-surface: color-mix(in srgb, var(--hln-ui-accent) 5%, var(--hln-ui-bg-1));
+  --hln-v33-table-heading-surface: color-mix(in srgb, var(--hln-ui-accent) 7%, var(--hln-ui-bg-1));
+  --hln-v33-selection-surface: color-mix(in srgb, var(--hln-ui-accent) 11%, var(--hln-ui-bg-1));
+  --hln-v33-control-hover-surface: color-mix(in srgb, var(--hln-ui-accent) 7%, var(--hln-ui-bg-1));
+  --hln-v33-text-secondary: var(--hln-ui-text-muted);
+  --hln-v33-rule: 1px solid var(--hln-ui-line);
+  --hln-v33-axis-rule-color: color-mix(in srgb, var(--hln-ui-line) 78%, var(--hln-ui-text-muted));
+  --hln-v33-grid-rule-color: color-mix(in srgb, var(--hln-ui-line) 72%, transparent);
+  --hln-v33-vector-rule-color: color-mix(in srgb, var(--hln-ui-accent) 78%, var(--hln-ui-line));
+  --hln-v33-tabular-numbers: tabular-nums lining-nums;
+
+  min-width: 0;
+  line-height: 1.5;
+  letter-spacing: 0;
+  font-variant-numeric: var(--hln-v33-tabular-numbers);
+}
+
+[data-hln-ui-variant='overleafplus-v33'] :where(*) {
+  letter-spacing: 0;
+}
+
+[data-hln-ui-variant='overleafplus-v33'] .hln-v33-ai-reading-surface {
+  min-width: 0;
+  margin-block: var(--hln-v33-density-section-gap);
+  padding: 12px 14px;
+  border-block: var(--hln-v33-rule);
+  border-radius: 0;
+  background: var(--hln-v33-ai-reading-surface);
+  color: var(--hln-ui-text);
+  overflow-wrap: anywhere;
+}
+
+[data-hln-ui-variant='overleafplus-v33'] .hln-v33-data-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: var(--hln-ui-text);
+  font-size: 12px;
+  font-variant-numeric: var(--hln-v33-tabular-numbers);
+  line-height: 1.4;
+  text-align: start;
+}
+
+[data-hln-ui-variant='overleafplus-v33'] .hln-v33-data-table thead {
+  background: var(--hln-v33-table-heading-surface);
+}
+
+[data-hln-ui-variant='overleafplus-v33'] .hln-v33-data-table tbody tr {
+  height: var(--hln-v33-density-row-height);
+}
+
+[data-hln-ui-variant='overleafplus-v33'] .hln-v33-data-table th,
+[data-hln-ui-variant='overleafplus-v33'] .hln-v33-data-table td {
+  min-height: var(--hln-v33-density-row-height);
+  padding: var(--hln-v33-density-cell-padding-block) var(--hln-v33-density-cell-padding-inline);
+  border-block-end: var(--hln-v33-rule);
+  vertical-align: middle;
+  overflow-wrap: anywhere;
+}
+
+[data-hln-ui-variant='overleafplus-v33'] .hln-v33-data-table th {
+  color: var(--hln-v33-text-secondary);
+  font-family: var(--hln-ui-font-technical, ui-monospace, monospace);
+  font-size: 11px;
+  font-weight: 600;
+  text-align: start;
+}
+
+[data-hln-ui-variant='overleafplus-v33'] .hln-v33-data-table [data-numeric='true'] {
+  font-variant-numeric: var(--hln-v33-tabular-numbers);
+  text-align: end;
+  white-space: nowrap;
+}
+
+[data-hln-ui-variant='overleafplus-v33'] .hln-v33-data-table tbody tr:hover {
+  background: var(--hln-v33-selection-surface);
+}
+
+[data-hln-ui-variant='overleafplus-v33'] .hln-v33-figure {
+  min-width: 0;
+  margin-block: var(--hln-v33-density-figure-gap);
+  padding-block: var(--hln-v33-density-figure-gap);
+  border-block: var(--hln-v33-rule);
+  overflow: auto hidden;
+}
+
+[data-hln-ui-variant='overleafplus-v33'] .hln-v33-figure :where(svg, canvas) {
+  display: block;
+  max-inline-size: 100%;
+}
+
+[data-hln-ui-variant='overleafplus-v33'] .hln-v33-caption {
+  margin-block-start: 8px;
+  color: var(--hln-v33-text-secondary);
+  font-size: 11px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+[data-hln-ui-variant='overleafplus-v33'] .hln-v33-stat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 8rem), 1fr));
+  min-width: 0;
+  border-block: var(--hln-v33-rule);
+  font-variant-numeric: var(--hln-v33-tabular-numbers);
+}
+
+[data-hln-ui-variant='overleafplus-v33'] .hln-v33-stat-row > * {
+  min-width: 0;
+  padding: 8px 12px;
+  overflow-wrap: anywhere;
+}
+
+[data-hln-ui-variant='overleafplus-v33'] .hln-v33-stat-row > * + * {
+  border-inline-start: var(--hln-v33-rule);
+}
+
+[data-hln-ui-variant='overleafplus-v33'] [data-vector-axis] {
+  stroke: var(--hln-v33-axis-rule-color);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+[data-hln-ui-variant='overleafplus-v33'] [data-vector-gridline] {
+  stroke: var(--hln-v33-grid-rule-color);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+[data-hln-ui-variant='overleafplus-v33'] [data-vector-path] {
+  fill: none;
+  stroke: var(--hln-v33-vector-rule-color);
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+}
+
+[data-hln-ui-variant='overleafplus-v33'] [data-vector-point] {
+  fill: var(--hln-ui-bg-1);
+  stroke: var(--hln-v33-vector-rule-color);
+  stroke-width: 1.25;
+  vector-effect: non-scaling-stroke;
+}
+
+[data-hln-ui-variant='overleafplus-v33'] [data-vector-bar] {
+  fill: var(--hln-v33-vector-rule-color);
+}
+
+[data-hln-ui-variant='overleafplus-v33'] [data-hln-ui-control] {
+  min-height: var(--hln-v33-control-height);
+  border-radius: var(--hln-v33-control-radius);
+  padding-inline: 10px;
+  font-size: 12px;
+  transition-duration: 160ms;
+}
+
+[data-hln-ui-variant='overleafplus-v33'] [data-hln-ui-control]:hover {
+  background: var(--hln-v33-control-hover-surface);
+}
+
+[data-hln-ui-variant='overleafplus-v33'] [data-hln-ui-field] {
+  min-height: var(--hln-v33-control-height);
+  border-radius: var(--hln-v33-control-radius);
+  font-size: 12px;
+}
+
+[data-hln-ui-variant='overleafplus-v33'] .hln-v33-enter {
+  animation: hln-v33-enter var(--hln-v33-enter-duration) var(--hln-ui-ease, ease-out) both;
+}
+
+@keyframes hln-v33-enter {
+  from {
+    opacity: 0;
+    transform: translateY(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  [data-hln-ui-variant='overleafplus-v33'] .hln-v33-data-table {
+    font-size: 11.5px;
+  }
+
+  [data-hln-ui-variant='overleafplus-v33'] .hln-v33-data-table th,
+  [data-hln-ui-variant='overleafplus-v33'] .hln-v33-data-table td {
+    padding-inline: 7px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-hln-ui-variant='overleafplus-v33'] .hln-v33-enter {
+    animation: none;
+  }
+
+  [data-hln-ui-variant='overleafplus-v33'] [data-hln-ui-control],
+  [data-hln-ui-variant='overleafplus-v33'] [data-hln-ui-field] {
+    transition-duration: 0.01ms;
+  }
+}
