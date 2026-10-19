@@ -8,6 +8,8 @@ body[data-hln-ui-variant='overleafplus-v33'] {
 }
 
 [data-hln-ui-variant='overleafplus-v33'] {
+  --hln-v33-font-ui: var(--hln-ui-font-display);
+  --hln-v33-font-heading: var(--hln-ui-font-cjk-song);
   --hln-v33-type-caption: 13px;
   --hln-v33-type-meta: 14px;
   --hln-v33-type-label: 15px;
@@ -47,6 +49,12 @@ body[data-hln-ui-variant='overleafplus-v33'] {
 }
 
 [data-hln-ui-variant='overleafplus-v33'] :where(*) { letter-spacing: 0; }
+[data-hln-ui-root][data-hln-ui-variant='overleafplus-v33'] { font-family: var(--hln-v33-font-ui); }
+[data-hln-ui-variant='overleafplus-v33'] :is(.app-bar__title, .plugin-heading h1, .sd-center-heading h1) {
+  font-family: var(--hln-v33-font-heading);
+  line-height: 1.4;
+}
+[data-hln-ui-variant='overleafplus-v33'] :is([data-hln-ui-control], [data-hln-ui-field]) { font-family: var(--hln-v33-font-ui); }
 [data-hln-ui-variant='overleafplus-v33'] [data-hln-ui-control] { font-size: var(--hln-v33-type-meta); }
 [data-hln-ui-variant='overleafplus-v33'] [data-hln-ui-field] { font-size: var(--hln-v33-type-body); }
 [data-hln-ui-variant='overleafplus-v33'] ::selection {

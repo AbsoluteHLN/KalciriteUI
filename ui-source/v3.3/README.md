@@ -22,3 +22,8 @@ See [contract.md](contract.md) for tokens, build guards and rollback.
 v3.3.4 restores readable workspace type through `--hln-v33-type-*`: page title
 26px, navigation/body 16px, auxiliary text 13-14px. It keeps the neutral palette,
 font preferences, icons and document typography; it does not zoom the page.
+
+v3.3.5 adds font roles sourced only from v3.2: `--hln-v33-font-ui` uses the
+display sans stack; `--hln-v33-font-heading` uses the CJK song stack for page
+headings. No font downloads or new families. The host retains document font
+boundaries and owns responsive layout and drawer behavior.
