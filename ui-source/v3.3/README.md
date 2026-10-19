@@ -18,3 +18,7 @@ transitions, disclosure, tabs, dialogs, new messages and busy feedback, and obey
 reduced-motion. Layouts and business behavior remain the consuming app's concern.
 
 See [contract.md](contract.md) for tokens, build guards and rollback.
+
+v3.3.4 restores readable workspace type through `--hln-v33-type-*`: page title
+26px, navigation/body 16px, auxiliary text 13-14px. It keeps the neutral palette,
+font preferences, icons and document typography; it does not zoom the page.

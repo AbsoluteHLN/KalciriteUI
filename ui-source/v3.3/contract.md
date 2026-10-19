@@ -7,6 +7,10 @@ Load after the exact canonical v3.2 artifact. Opt in only through
 migration or v3.2 token redefinition. The six base themes are unchanged:
 obsidian, platinum, amber, paper, emerald and mono (all retain `linear-` IDs).
 Component geometry and icons inherit v3.2. The host owns page layouts and behavior.
+Version 3.3.4 restores readable workspace typography: caption 13px, metadata 14px,
+label 15px, body/navigation 16px, reading 17px, section 18px, compact title 22px,
+page title 26px. These opt-in tokens do not scale the whole page, icons, source
+documents or native Overleaf. Existing font preferences remain authoritative.
 
 ## Palette And Semantics
 
@@ -60,7 +64,7 @@ caret, selection and scrollbar colors follow the theme.
 
 ## Deterministic Build
 
-Provenance schema `kalcirite-ui-overlay-provenance/v1`, version 3.3.3:
+Provenance schema `kalcirite-ui-overlay-provenance/v1`, version 3.3.4:
 `baseSHA` hashes exact base bytes; `sourceSHA` hashes LF-normalized CSS;
 `paletteSHA` hashes the parsed palette serialized with two-space JSON + LF;
 `artifactSHA` hashes emitted overlay bytes. No timestamps or local paths.

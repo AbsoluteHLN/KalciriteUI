@@ -51,6 +51,15 @@ body[data-hln-ui-variant='overleafplus-v33'] {
 }
 
 [data-hln-ui-variant='overleafplus-v33'] {
+  --hln-v33-type-caption: 13px;
+  --hln-v33-type-meta: 14px;
+  --hln-v33-type-label: 15px;
+  --hln-v33-type-body: 16px;
+  --hln-v33-type-reading: 17px;
+  --hln-v33-type-section: 18px;
+  --hln-v33-type-compact-title: 22px;
+  --hln-v33-type-title: 26px;
+  --hln-v33-type-nav: 16px;
   --hln-v33-density-row-height: 38px;
   --hln-v33-density-cell-padding-block: 8px;
   --hln-v33-density-cell-padding-inline: 12px;
@@ -70,6 +79,7 @@ body[data-hln-ui-variant='overleafplus-v33'] {
   --hln-v33-vector-rule-color: var(--hln-v33-analysis);
   --hln-v33-tabular-numbers: tabular-nums lining-nums;
   min-width: 0;
+  font-size: var(--hln-v33-type-body);
   line-height: 1.5;
   letter-spacing: 0;
   font-variant-numeric: var(--hln-v33-tabular-numbers);
@@ -80,6 +90,8 @@ body[data-hln-ui-variant='overleafplus-v33'] {
 }
 
 [data-hln-ui-variant='overleafplus-v33'] :where(*) { letter-spacing: 0; }
+[data-hln-ui-variant='overleafplus-v33'] [data-hln-ui-control] { font-size: var(--hln-v33-type-meta); }
+[data-hln-ui-variant='overleafplus-v33'] [data-hln-ui-field] { font-size: var(--hln-v33-type-body); }
 [data-hln-ui-variant='overleafplus-v33'] ::selection {
   background: var(--hln-v33-selection-surface);
   color: var(--hln-ui-text);
@@ -117,7 +129,7 @@ body[data-hln-ui-variant='overleafplus-v33'] {
   flex-wrap: wrap;
   gap: 6px;
 }
-[data-hln-ui-variant='overleafplus-v33'] .app-bar__title .app-nav__sup { margin-inline-start: 0; font-size: 12px; }
+[data-hln-ui-variant='overleafplus-v33'] .app-bar__title .app-nav__sup { margin-inline-start: 0; font-size: var(--hln-v33-type-caption); }
 
 [data-hln-ui-variant='overleafplus-v33'] .hln-v33-ai-reading-surface {
   min-width: 0;
@@ -133,7 +145,7 @@ body[data-hln-ui-variant='overleafplus-v33'] {
   border-collapse: collapse;
   border-spacing: 0;
   color: var(--hln-ui-text);
-  font-size: 13px;
+  font-size: var(--hln-v33-type-label);
   line-height: 1.5;
   text-align: start;
 }
@@ -147,7 +159,7 @@ body[data-hln-ui-variant='overleafplus-v33'] {
 }
 [data-hln-ui-variant='overleafplus-v33'] .hln-v33-data-table th {
   color: var(--hln-v33-text-secondary);
-  font-size: 12px;
+  font-size: var(--hln-v33-type-meta);
   font-weight: 600;
   text-align: start;
 }
@@ -161,7 +173,7 @@ body[data-hln-ui-variant='overleafplus-v33'] {
   overflow: auto hidden;
 }
 [data-hln-ui-variant='overleafplus-v33'] .hln-v33-figure :where(svg, canvas) { display: block; max-inline-size: 100%; }
-[data-hln-ui-variant='overleafplus-v33'] .hln-v33-caption { margin-block-start: 8px; color: var(--hln-v33-text-secondary); font-size: 12px; overflow-wrap: anywhere; }
+[data-hln-ui-variant='overleafplus-v33'] .hln-v33-caption { margin-block-start: 8px; color: var(--hln-v33-text-secondary); font-size: var(--hln-v33-type-meta); overflow-wrap: anywhere; }
 [data-hln-ui-variant='overleafplus-v33'] .hln-v33-stat-row {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 8rem), 1fr));
