@@ -26,12 +26,18 @@ this overlay has no visible effect on existing pages. Keep the existing
 
 All six v3.2 themes remain compatible. Navigation, icons, buttons and fields
 inherit v3.2 geometry, theme colors and states without global control overrides.
-Muted research accents are restricted to small source labels, not navigation,
-starter surfaces or skill rows. Labels keep the base foreground contrast.
+Muted research accents identify source marks, real feed-coverage bars and small
+research-task icons. Neutral open rows and skill controls remain consistent
+with v3.2. A faint cool structural surface distinguishes navigation and toolbars.
+Labels keep the base foreground contrast.
 No theme definitions are replaced.
 
 The academic role vocabulary adds analysis, writing, review and media accents.
-Only source labels consume category colors; controls retain the v3.2 language.
+Controls retain the v3.2 language; academic expression comes from fine rules,
+source-grounded data marks, tabular numerals and reading hierarchy.
 Content enters with bounded staggering; tab indicators slide, panels disclose,
 dialogs fade and newly arriving messages enter once. Busy indicators animate
-only while an operation is active. Reduced-motion disables all overlay motion.
+only while an operation is active. The digest uses an index/reader composition,
+an understated reading reveal and progressive provenance disclosure. On phones,
+the selected article replaces the index and returns to its previous position.
+Reduced-motion disables all overlay motion.

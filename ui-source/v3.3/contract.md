@@ -16,9 +16,10 @@ scoped to this attribute. Without it, pages retain v3.2 presentation.
 ## Tokens
 
 Tokens are declared only on the opt-in subtree. Structural tokens alias v3.2.
-Muted research accents are limited to small source labels with an 8% tint;
-navigation, icons, starter actions and skill rows inherit v3.2 theme colors.
-Text keeps the inherited high-contrast foreground.
+Muted research accents are limited to small source labels, real feed-coverage
+marks, reader rules and task icons. Navigation and skill controls retain v3.2
+theme colors. Neutral toolbar/navigation surfaces have a 3% blue-gray tint;
+text keeps the inherited high-contrast foreground.
 
 | Token | Meaning |
 | --- | --- |
@@ -54,10 +55,11 @@ palette, or decorative orbs are introduced.
 
 Existing `[data-hln-ui-control]` and `[data-hln-ui-field]` controls retain their
 v3.2 dimensions, spacing, straight edges, primary/quiet/disabled states and icon
-geometry. Starter actions keep the original neutral open rows and 52px minimum
-height, without colored side rails or decorative squares. The workbench send
-target remains at least 44px. `.hln-v33-enter` provides a 360ms entrance. Source rows and
-starter actions stagger only the first six entries, capped at 175ms delay.
+geometry. Starter actions keep neutral open rows, without colored fills, side
+rails or decorative squares. Their desktop height is 64px and phone height is
+52px; Lucide task glyphs use the v3.2 1.5px stroke. The workbench send target
+remains at least 44px. `.hln-v33-enter` provides a 360ms entrance. Starter
+actions stagger only the first six entries, capped at 175ms delay.
 Panels disclose in 320ms and the tab selection indicator slides in 300ms.
 Dialogs/backdrops fade on opening; all overlay animations and transitions are
 removed by `prefers-reduced-motion: reduce`.
@@ -65,12 +67,19 @@ removed by `prefers-reduced-motion: reduce`.
 ## Build and provenance
 
 `data-academic-role` selects `analysis`, `writing`, `review`, or `media` semantic
-accents in muted teal, blue, amber and orchid for source labels only. They are research categories, not success
+accents in muted teal, blue, amber and orchid for small research marks. They are research categories, not success
 or error claims. `data-motion-enter` is added only to newly arriving messages
 in the active conversation, never replayed for unchanged history or a loaded
 conversation. Busy spinner motion requires actual `aria-busy=true` on the chat
 or digest refresh button. All motion obeys reduced-motion preferences.
 No decorative data or measurements are introduced by these treatments.
+
+The Research Digest index shows compact source/date/title/excerpt rows beside
+a sticky source-grounded reader. Full timestamps, identifiers and matching
+rules remain in native disclosure markup, never discarded. At 1100px and
+below, reading replaces the index; the return action restores its focus and
+scroll position. Feed-coverage bars represent fetched fixed subscriptions in
+the selected scope, not scientific impact, relevance or a fabricated trend.
 
 `build.mjs` uses only Node built-ins. It reads the original v3.2 CSS artifact
 for its base hash and emits only additive CSS, not a combined v3.2+v3.3 bundle.
