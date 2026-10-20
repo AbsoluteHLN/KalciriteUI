@@ -7,15 +7,18 @@ Load after the exact canonical v3.2 artifact. Opt in only through
 migration or v3.2 token redefinition. The six base themes are unchanged:
 obsidian, platinum, amber, paper, emerald and mono (all retain `linear-` IDs).
 Component geometry and icons inherit v3.2. The host owns page layouts and behavior.
-Version 3.3.4 restores readable workspace typography: caption 13px, metadata 14px,
-label 15px, body/navigation 16px, reading 17px, section 18px, compact title 22px,
-page title 26px. These opt-in tokens do not scale the whole page, icons, source
-documents or native Overleaf. Existing font preferences remain authoritative.
+Version 3.3.7 sets the workspace type ladder to: caption 11px, metadata 12px,
+label 13px, body 14px, reading 15px, section 16px, compact title 20px,
+page title 22px, navigation 15px. These opt-in tokens do not scale the whole
+page, icons, source documents or native Overleaf. Existing font preferences
+remain authoritative.
 Version 3.3.6 uses `--hln-v33-font-ui` (current v3.2 profile, neo-grotesque fallback)
 and `--hln-v33-font-heading` (the same UI stack). They affect workspace UI and page
 headings, not document font tokens. Keep the original document family at editable
 content boundaries. No remote font requests or extra font payload are required;
 clients use the first installed family in the canonical fallback stacks.
+Version 3.3.7 moves the page type ladder down two steps and navigation down one
+step; density, motion, role colors and font families are unchanged.
 
 ## Palette And Semantics
 
@@ -69,7 +72,7 @@ caret, selection and scrollbar colors follow the theme.
 
 ## Deterministic Build
 
-Provenance schema `kalcirite-ui-overlay-provenance/v1`, version 3.3.6:
+Provenance schema `kalcirite-ui-overlay-provenance/v1`, version 3.3.7:
 `baseSHA` hashes exact base bytes; `sourceSHA` hashes LF-normalized CSS;
 `paletteSHA` hashes the parsed palette serialized with two-space JSON + LF;
 `artifactSHA` hashes emitted overlay bytes. No timestamps or local paths.

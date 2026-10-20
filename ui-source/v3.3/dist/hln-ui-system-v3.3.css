@@ -53,15 +53,15 @@ body[data-hln-ui-variant='overleafplus-v33'] {
 [data-hln-ui-variant='overleafplus-v33'] {
   --hln-v33-font-ui: var(--hln-ui-font-current, var(--hln-ui-font-neo-grotesque));
   --hln-v33-font-heading: var(--hln-v33-font-ui);
-  --hln-v33-type-caption: 13px;
-  --hln-v33-type-meta: 14px;
-  --hln-v33-type-label: 15px;
-  --hln-v33-type-body: 16px;
-  --hln-v33-type-reading: 17px;
-  --hln-v33-type-section: 18px;
-  --hln-v33-type-compact-title: 22px;
-  --hln-v33-type-title: 26px;
-  --hln-v33-type-nav: 16px;
+  --hln-v33-type-caption: 11px;
+  --hln-v33-type-meta: 12px;
+  --hln-v33-type-label: 13px;
+  --hln-v33-type-body: 14px;
+  --hln-v33-type-reading: 15px;
+  --hln-v33-type-section: 16px;
+  --hln-v33-type-compact-title: 20px;
+  --hln-v33-type-title: 22px;
+  --hln-v33-type-nav: 15px;
   --hln-v33-density-row-height: 48px;
   --hln-v33-density-cell-padding-block: 8px;
   --hln-v33-density-cell-padding-inline: 12px;
