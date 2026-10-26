@@ -1,0 +1,136 @@
+/* ProjectHLN UI System v4.1 — Components (components.css)
+   The Wash / soft geometry / hairline / one-shot motion / pigment pair.
+   全部类仅在 data-hln-ui-variant='hln-v41'|'overleafplus-v41' 下生效。 */
+
+/* ==========================================================================
+   1. The Wash —— 选中态（v4 核心签名）
+   主色 10% 淡底 + 主色字 600 + 2px 前导条。
+   color-mix 派生 ⇒ 亮/暗主题通用，不需要每主题写一遍。 */
+[data-hln-ui-variant='hln-v41'] .hln-v41-wash,
+[data-hln-ui-variant='overleafplus-v41'] .hln-v41-wash {
+  background: color-mix(in srgb, var(--hln-v41-pigment-primary) 10%, transparent);
+  color: var(--hln-v41-pigment-primary);
+  font-weight: 600;
+}
+
+[data-hln-ui-variant='hln-v41'] .hln-v41-wash-bar,
+[data-hln-ui-variant='overleafplus-v41'] .hln-v41-wash-bar {
+  position: relative;
+}
+
+[data-hln-ui-variant='hln-v41'] .hln-v41-wash-bar::before,
+[data-hln-ui-variant='overleafplus-v41'] .hln-v41-wash-bar::before {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 0;
+  width: 2px;
+  background: var(--hln-v41-pigment-primary);
+}
+
+[data-hln-ui-variant='hln-v41'] .hln-v41-wash:focus-visible,
+[data-hln-ui-variant='overleafplus-v41'] .hln-v41-wash:focus-visible {
+  outline: 2px solid var(--hln-ui-focus, var(--hln-v41-pigment-primary));
+  outline-offset: 3px;
+}
+
+/* ==========================================================================
+   2. Soft geometry 三档 + hairline */
+[data-hln-ui-variant='hln-v41'] .hln-v41-soft,
+[data-hln-ui-variant='overleafplus-v41'] .hln-v41-soft {
+  border-radius: var(--hln-v41-radius-soft);
+}
+[data-hln-ui-variant='hln-v41'] .hln-v41-soft-md,
+[data-hln-ui-variant='overleafplus-v41'] .hln-v41-soft-md {
+  border-radius: var(--hln-v41-radius-soft-md);
+}
+[data-hln-ui-variant='hln-v41'] .hln-v41-soft-lg,
+[data-hln-ui-variant='overleafplus-v41'] .hln-v41-soft-lg {
+  border-radius: var(--hln-v41-radius-soft-lg);
+}
+
+[data-hln-ui-variant='hln-v41'] .hln-v41-hairline,
+[data-hln-ui-variant='overleafplus-v41'] .hln-v41-hairline {
+  border-width: var(--hln-ui-hairline, 1px);
+  border-style: solid;
+  border-color: var(--hln-ui-line, currentColor);
+}
+
+/* ==========================================================================
+   3. One-shot motion（opacity + transform，不做环境循环） */
+@keyframes hln-v41-enter {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 4px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+[data-hln-ui-variant='hln-v41'] .hln-v41-enter,
+[data-hln-ui-variant='overleafplus-v41'] .hln-v41-enter {
+  animation: hln-v41-enter var(--hln-ui-duration-standard, 220ms) var(--hln-ui-ease-spring) both;
+}
+
+[data-hln-ui-variant='hln-v41'] .hln-v41-stagger > *,
+[data-hln-ui-variant='overleafplus-v41'] .hln-v41-stagger > * {
+  animation: hln-v41-enter var(--hln-ui-duration-standard, 220ms) var(--hln-ui-ease-spring) both;
+}
+[data-hln-ui-variant='hln-v41'] .hln-v41-stagger > *:nth-child(2),
+[data-hln-ui-variant='overleafplus-v41'] .hln-v41-stagger > *:nth-child(2) { animation-delay: calc(var(--hln-ui-motion-stagger) * 1); }
+[data-hln-ui-variant='hln-v41'] .hln-v41-stagger > *:nth-child(3),
+[data-hln-ui-variant='overleafplus-v41'] .hln-v41-stagger > *:nth-child(3) { animation-delay: calc(var(--hln-ui-motion-stagger) * 2); }
+[data-hln-ui-variant='hln-v41'] .hln-v41-stagger > *:nth-child(4),
+[data-hln-ui-variant='overleafplus-v41'] .hln-v41-stagger > *:nth-child(4) { animation-delay: calc(var(--hln-ui-motion-stagger) * 3); }
+[data-hln-ui-variant='hln-v41'] .hln-v41-stagger > *:nth-child(5),
+[data-hln-ui-variant='overleafplus-v41'] .hln-v41-stagger > *:nth-child(5) { animation-delay: calc(var(--hln-ui-motion-stagger) * 4); }
+[data-hln-ui-variant='hln-v41'] .hln-v41-stagger > *:nth-child(n + 6),
+[data-hln-ui-variant='overleafplus-v41'] .hln-v41-stagger > *:nth-child(n + 6) { animation-delay: calc(var(--hln-ui-motion-stagger) * 5); }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-hln-ui-variant='hln-v41'] .hln-v41-enter,
+  [data-hln-ui-variant='hln-v41'] .hln-v41-stagger > *,
+  [data-hln-ui-variant='overleafplus-v41'] .hln-v41-enter,
+  [data-hln-ui-variant='overleafplus-v41'] .hln-v41-stagger > * {
+    animation: none;
+  }
+}
+
+/* ==========================================================================
+   4. Pigment pair：次颜料用于结构性区分，不用于交互态 */
+[data-hln-ui-variant='hln-v41'] .hln-v41-pigment-alt,
+[data-hln-ui-variant='overleafplus-v41'] .hln-v41-pigment-alt {
+  color: var(--hln-v41-pigment-secondary);
+}
+
+/* ==========================================================================
+   5. 环境面静态（static ambient，v4 的既定事实）
+   宿主接入本层时，环境层钩子不再循环。 */
+[data-hln-ui-variant='hln-v41'][data-hln-ui-root] *::before,
+[data-hln-ui-variant='hln-v41'][data-hln-ui-root] *::after,
+[data-hln-ui-variant='overleafplus-v41'][data-hln-ui-root] *::before,
+[data-hln-ui-variant='overleafplus-v41'][data-hln-ui-root] *::after {
+  animation-iteration-count: 1;
+}
+
+/* ==========================================================================
+   6. Typography 应用（宿主绑定层，示例语义 —— 宿主也可自行绑定到自己的选择器）
+   正文与控件应用微调后的阶梯；页头标题由宿主契约管理，本层不碰。 */
+[data-hln-ui-variant='hln-v41'][data-hln-ui-root],
+[data-hln-ui-variant='overleafplus-v41'][data-hln-ui-root] {
+  font-family: var(--hln-v41-font-ui);
+  font-size: var(--hln-v41-type-body);
+  line-height: var(--hln-v41-leading-body);
+  letter-spacing: var(--hln-v41-tracking-body);
+  font-variant-numeric: tabular-nums;
+}
+
+[data-hln-ui-variant='hln-v41'] [data-hln-ui-control],
+[data-hln-ui-variant='overleafplus-v41'] [data-hln-ui-control] {
+  font-family: var(--hln-v41-font-ui);
+  font-size: var(--hln-v41-type-label);
+  line-height: var(--hln-v41-leading-ui);
+  letter-spacing: var(--hln-v41-tracking-label);
+}
