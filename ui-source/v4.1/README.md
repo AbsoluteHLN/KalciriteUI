@@ -37,6 +37,21 @@ cd ui-source/v4.1 && node build.mjs   # 产出 dist/hln-ui-system-v4.1.css
 组件类：`.hln-v41-wash` / `.hln-v41-wash-bar` / `.hln-v41-soft{,-md,-lg}` /
 `.hln-v41-hairline` / `.hln-v41-enter` / `.hln-v41-stagger` / `.hln-v41-pigment-alt`。
 
+## 宿主绑定的两条排版通则（2026-10-27 实测）
+
+1. **表头与数据行的横向内边距必须同源，且 auto 列要右对齐。**
+   宿主列表常写成 `grid-template-columns: 1fr auto auto`（列宽按内容占），
+   若表头与行的 padding-inline 不同（如 20px vs 16px），三列起点会分别错位；
+   即便 padding 相同，第 2/3 列是 auto 宽时**列边界仍随内容变化**
+   （表头写「最近更新」、数据是「10-27 07:42」）⇒ 右缘也顶不齐。
+   正解：统一 padding-inline，并让 auto 列 `justify-self: end`，
+   必要时把末列固定宽度（本平台用 52px），三列右缘才会成线。
+
+2. **不要在宿主已有关闭容器外再套一层带 padding 的容器。**
+   典型如把面板主体包成 `.app-body > .sd-center`，两层 padding 叠加 16px，
+   标题与正文列表就不在一条竖线上了（实测 272 vs 288）。
+   先量宿主真实的层级（哪个元素承担 padding），再决定要不要容器。
+
 ## 首批实测踩坑（2026-10-27，OverleafPlus 本地核验）
 
 1. **软档位引用宿主 canonical 会塌角** —— OverleafPlus v3.2 的
