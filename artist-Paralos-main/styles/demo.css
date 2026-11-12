@@ -2412,7 +2412,11 @@ body:not([data-hln-ui-version="v3.8"]) [data-showcase-view="v38"] {
   display: none !important;
 }
 
-body:is([data-hln-ui-version="v3"], [data-hln-ui-version="v3.2"], [data-hln-ui-version="v3.5"], [data-hln-ui-version="v3.8"]) [data-showcase-view="legacy"] {
+body:not([data-hln-ui-version="v4"]) [data-showcase-view="v4"] {
+  display: none !important;
+}
+
+body:is([data-hln-ui-version="v3"], [data-hln-ui-version="v3.2"], [data-hln-ui-version="v3.5"], [data-hln-ui-version="v3.8"], [data-hln-ui-version="v4"]) [data-showcase-view="legacy"] {
   display: none !important;
 }
 

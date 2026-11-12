@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500;600;700&amp;family=Noto+Serif+SC:wght@500;600;700&amp;display=swap">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.css">
     <link id="hln-ui-stylesheet" rel="stylesheet" href="styles/hln-ui-system-v3.css">
-    <link rel="stylesheet" href="styles/demo.css?v=hci-20260928-cjk">
+    <link rel="stylesheet" href="styles/demo.css?v=hci-20261023-v4">
   </head>
   <body data-hln-ui-root data-hln-ui-version="v3" data-hln-theme="euclidean-cyan" data-hln-bg-motion="euclidean-grid" data-hln-font="geometric" data-hln-cjk-font="auto">
     <div id="app" class="paralos-shell">
@@ -127,6 +127,7 @@
               <button type="button" class="version-btn" data-ui-version="v3.2" data-active="false" aria-checked="false" role="radio">v3.2 Linear</button>
               <button type="button" class="version-btn" data-ui-version="v3.5" data-active="false" aria-checked="false" role="radio">v3.5 Algorithmic</button>
               <button type="button" class="version-btn" data-ui-version="v3.8" data-active="false" aria-checked="false" role="radio">v3.8 Cosmic Lens</button>
+              <button type="button" class="version-btn" data-ui-version="v4" data-active="false" aria-checked="false" role="radio">v4 Folio</button>
             </div>
             <button class="icon-button" data-hln-ui-control data-hln-motion="control" type="button" aria-label="Tactical Grid" id="btn-toggle-grid">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></svg>
@@ -1744,6 +1745,250 @@
           </footer>
         </div>
 
+        <!-- ==================================================================
+             v4 FOLIO — Calm Minimal Multi-Pigment Reading Desk
+             ================================================================== -->
+        <div class="hln-v4-desk" id="demo-layout-v4" data-showcase-view="v4">
+          <header class="hln-v4-masthead" data-hln-ui-bar>
+            <span class="hln-v4-masthead__mark" aria-hidden="true">F·04</span>
+            <span class="hln-v4-masthead__runhead">Folio · Calm Minimal Multi-Pigment</span>
+            <h2 class="hln-v4-masthead__title">阅读台</h2>
+            <span class="hln-v4-masthead__meta">v4.0.0 · 8 THEME PAIRS · 6 TYPE PROFILES</span>
+          </header>
+
+          <div class="hln-v4-cols">
+            <!-- ============ Column 1 · Conversation & Composer ============ -->
+            <section class="hln-v4-col">
+              <article class="hln-v4-panel" data-hln-ui-surface="panel" data-hln-motion="panel">
+                <header class="hln-v4-panel__head">
+                  <span class="hln-v4-runhead">Thread</span>
+                  <h3 class="hln-v4-panel__title">会话</h3>
+                </header>
+                <div class="hln-v4-panel__body">
+                  <div class="hln-v4-thread" data-hln-ui-scroll>
+                    <div class="hln-v4-msg hln-v4-msg--user">
+                      <p class="hln-v4-msg__meta">用户 · 09:12</p>
+                      <p class="hln-v4-msg__body">把默认主题换成瓷白，其余主题先留着，我逐个看。</p>
+                    </div>
+                    <div class="hln-v4-msg">
+                      <p class="hln-v4-msg__meta">助手 · 09:12</p>
+                      <p class="hln-v4-msg__body">已切到瓷白 Porcelain。主色靛蓝 #2f4b7c，副色青瓷 #3f7d6e，正文用人文宋，控件用兰亭黑。</p>
+                    </div>
+                    <div class="hln-v4-msg hln-v4-msg--user">
+                      <p class="hln-v4-msg__meta">用户 · 09:14</p>
+                      <p class="hln-v4-msg__body">深色那几套里石墨最稳，把它当深色首选。</p>
+                    </div>
+                    <div class="hln-v4-msg">
+                      <p class="hln-v4-msg__meta">助手 · 09:14</p>
+                      <p class="hln-v4-msg__body">石墨 Graphite 设为深色首选，琥珀 #d9a441 为主色，灰蓝 #6f9dd1 为副色。八套主题可随时切换，切换只换变量，不重绘 DOM。</p>
+                    </div>
+                  </div>
+                </div>
+                <footer class="hln-v4-panel__foot">
+                  <span>4 条消息</span>
+                  <span>上下文占用 18%</span>
+                </footer>
+              </article>
+
+              <div class="hln-v4-composer" data-hln-motion="panel">
+                <textarea class="hln-v4-composer__field" rows="3" placeholder="写下你的回复…"></textarea>
+                <div class="hln-v4-composer__row">
+                  <div class="hln-v4-composer__tools">
+                    <button type="button" class="hln-v4-btn" data-hln-ui-control data-variant="quiet" aria-label="添加附件">
+                      <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21.4 11.05 12.2 20.2a5 5 0 0 1-7.07-7.07l9.2-9.19a3.3 3.3 0 0 1 4.67 4.67l-9.19 9.19a1.66 1.66 0 0 1-2.35-2.35l8.49-8.48"/></svg>
+                      附件
+                    </button>
+                    <button type="button" class="hln-v4-btn" data-hln-ui-control data-variant="quiet" aria-label="插入引用">
+                      <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 17h4l2-12H7zM14 17h4l2-12h-6"/></svg>
+                      引用
+                    </button>
+                    <button type="button" class="hln-v4-btn" data-hln-ui-control data-variant="quiet" aria-label="插入清单">
+                      <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/></svg>
+                      清单
+                    </button>
+                  </div>
+                  <button type="button" class="hln-v4-btn" data-hln-ui-control data-variant="accent" aria-label="发送消息">发送</button>
+                </div>
+              </div>
+            </section>
+
+            <!-- ============ Column 2 · Control Desk ============ -->
+            <section class="hln-v4-col">
+              <article class="hln-v4-panel" data-hln-ui-surface="panel" data-hln-motion="panel">
+                <header class="hln-v4-panel__head">
+                  <span class="hln-v4-runhead">Control Desk</span>
+                  <h3 class="hln-v4-panel__title">参数面板</h3>
+                </header>
+                <div class="hln-v4-panel__body">
+                  <div class="hln-v4-fieldset">
+                    <span class="hln-v4-fieldset__label" id="v4-density-label">显示密度</span>
+                    <div class="hln-v4-seg" role="radiogroup" aria-labelledby="v4-density-label">
+                      <button type="button" class="hln-v4-seg__opt" data-hln-ui-control role="radio" aria-checked="false">紧凑</button>
+                      <button type="button" class="hln-v4-seg__opt" data-hln-ui-control data-active="true" role="radio" aria-checked="true">标准</button>
+                      <button type="button" class="hln-v4-seg__opt" data-hln-ui-control role="radio" aria-checked="false">宽松</button>
+                    </div>
+                  </div>
+
+                  <hr class="hln-v4-rule" />
+
+                  <div class="hln-v4-fieldset">
+                    <span class="hln-v4-fieldset__label">排版选项</span>
+                    <button type="button" class="hln-v4-switch" data-hln-ui-control data-active="true" aria-checked="true" aria-label="智能换行">
+                      <span class="hln-v4-switch__track" aria-hidden="true"><span class="hln-v4-switch__dot"></span></span>
+                      <span>智能换行</span>
+                    </button>
+                    <button type="button" class="hln-v4-switch" data-hln-ui-control aria-checked="false" aria-label="显示标尺">
+                      <span class="hln-v4-switch__track" aria-hidden="true"><span class="hln-v4-switch__dot"></span></span>
+                      <span>显示标尺</span>
+                    </button>
+                  </div>
+
+                  <hr class="hln-v4-rule" />
+
+                  <div class="hln-v4-fieldset">
+                    <div class="hln-v4-fieldset__row">
+                      <span class="hln-v4-fieldset__label" id="v4-ink-label">墨色浓度</span>
+                      <span class="hln-v4-slider__readout" id="v4-ink-readout">72%</span>
+                    </div>
+                    <input class="hln-v4-slider" type="range" min="0" max="100" value="72" style="--fill: 72%" aria-labelledby="v4-ink-label" id="v4-slider-ink" />
+                  </div>
+
+                  <hr class="hln-v4-rule" />
+
+                  <div class="hln-v4-fieldset">
+                    <span class="hln-v4-fieldset__label">同步状态</span>
+                    <div class="hln-v4-chips">
+                      <span class="hln-v4-chip" data-tone="success">已同步</span>
+                      <span class="hln-v4-chip" data-tone="warning">待复核</span>
+                      <span class="hln-v4-chip" data-tone="danger">已阻塞</span>
+                      <span class="hln-v4-chip" data-tone="accent">草稿</span>
+                    </div>
+                  </div>
+
+                  <hr class="hln-v4-rule" />
+
+                  <div class="hln-v4-fieldset">
+                    <label class="hln-v4-fieldset__label" for="v4-title-field">文档标题</label>
+                    <input class="hln-v4-field" type="text" id="v4-title-field" placeholder="未命名文档" data-hln-ui-field />
+                  </div>
+                </div>
+                <footer class="hln-v4-panel__foot">
+                  <span>未保存的更改 2 处</span>
+                  <span class="hln-v4-slider__readout">AUTO</span>
+                </footer>
+              </article>
+
+              <article class="hln-v4-panel" data-hln-ui-surface="panel" data-hln-motion="panel">
+                <header class="hln-v4-panel__head">
+                  <span class="hln-v4-runhead">Actions</span>
+                  <h3 class="hln-v4-panel__title">操作</h3>
+                </header>
+                <div class="hln-v4-panel__body">
+                  <div class="hln-v4-actions">
+                    <button type="button" class="hln-v4-btn" data-hln-ui-control data-variant="accent">保存</button>
+                    <button type="button" class="hln-v4-btn" data-hln-ui-control>另存为…</button>
+                    <button type="button" class="hln-v4-btn" data-hln-ui-control data-variant="ghost">预览</button>
+                    <button type="button" class="hln-v4-btn" data-hln-ui-control data-variant="danger">放弃更改</button>
+                  </div>
+                </div>
+              </article>
+            </section>
+
+            <!-- ============ Column 3 · Readout ============ -->
+            <section class="hln-v4-col">
+              <article class="hln-v4-card" data-hln-motion="panel">
+                <span class="hln-v4-card__folio">F—04</span>
+                <h3 class="hln-v4-card__title">第四代引擎规格</h3>
+                <p class="hln-v4-card__lede">以纸墨为底重排界面：暖白画布、4/6/8px 圆角、每套主题两种颜料、底纹完全静态。</p>
+
+                <dl class="hln-v4-spec">
+                  <div class="hln-v4-spec__row">
+                    <dt class="hln-v4-spec__k">版本</dt>
+                    <dd class="hln-v4-spec__v">4.0.0</dd>
+                  </div>
+                  <div class="hln-v4-spec__row">
+                    <dt class="hln-v4-spec__k">主题</dt>
+                    <dd class="hln-v4-spec__v">8 套 · 每套双颜料</dd>
+                  </div>
+                  <div class="hln-v4-spec__row">
+                    <dt class="hln-v4-spec__k">字体档案</dt>
+                    <dd class="hln-v4-spec__v">6 款</dd>
+                  </div>
+                  <div class="hln-v4-spec__row">
+                    <dt class="hln-v4-spec__k">底纹预设</dt>
+                    <dd class="hln-v4-spec__v">7 款 · 静态</dd>
+                  </div>
+                  <div class="hln-v4-spec__row">
+                    <dt class="hln-v4-spec__k">动效</dt>
+                    <dd class="hln-v4-spec__v">7 种 · 单次</dd>
+                  </div>
+                  <div class="hln-v4-spec__row">
+                    <dt class="hln-v4-spec__k">圆角上限</dt>
+                    <dd class="hln-v4-spec__v">8px</dd>
+                  </div>
+                  <div class="hln-v4-spec__row">
+                    <dt class="hln-v4-spec__k">模糊</dt>
+                    <dd class="hln-v4-spec__v">12px</dd>
+                  </div>
+                </dl>
+
+                <div class="hln-v4-pigments">
+                  <div class="hln-v4-pigment">
+                    <span class="hln-v4-pigment__chip" style="--pigment: var(--hln-ui-accent)" aria-hidden="true"></span>
+                    <span class="hln-v4-pigment__name">主颜料</span>
+                  </div>
+                  <div class="hln-v4-pigment">
+                    <span class="hln-v4-pigment__chip" style="--pigment: var(--hln-ui-accent-cool)" aria-hidden="true"></span>
+                    <span class="hln-v4-pigment__name">副颜料</span>
+                  </div>
+                  <div class="hln-v4-pigment">
+                    <span class="hln-v4-pigment__chip" style="--pigment: var(--hln-ui-bg-1)" aria-hidden="true"></span>
+                    <span class="hln-v4-pigment__name">纸面</span>
+                  </div>
+                  <div class="hln-v4-pigment">
+                    <span class="hln-v4-pigment__chip" style="--pigment: var(--hln-ui-text)" aria-hidden="true"></span>
+                    <span class="hln-v4-pigment__name">墨</span>
+                  </div>
+                </div>
+
+                <div class="hln-v4-bars">
+                  <div class="hln-v4-bar">
+                    <span class="hln-v4-bar__label">留白</span>
+                    <span class="hln-v4-bar__track"><span class="hln-v4-bar__fill" style="--fill: 92%" data-tone="neutral"></span></span>
+                  </div>
+                  <div class="hln-v4-bar">
+                    <span class="hln-v4-bar__label">主色</span>
+                    <span class="hln-v4-bar__track"><span class="hln-v4-bar__fill" style="--fill: 78%"></span></span>
+                  </div>
+                  <div class="hln-v4-bar">
+                    <span class="hln-v4-bar__label">副色</span>
+                    <span class="hln-v4-bar__track"><span class="hln-v4-bar__fill" style="--fill: 46%" data-tone="cool"></span></span>
+                  </div>
+                  <div class="hln-v4-bar">
+                    <span class="hln-v4-bar__label">墨色</span>
+                    <span class="hln-v4-bar__track"><span class="hln-v4-bar__fill" style="--fill: 100%" data-tone="ink"></span></span>
+                  </div>
+                </div>
+
+                <div class="hln-v4-steps">
+                  <div class="hln-v4-step" data-state="done">
+                    <span class="hln-v4-step__dot" aria-hidden="true"></span>
+                    <span class="hln-v4-step__label">读取</span>
+                  </div>
+                  <div class="hln-v4-step" data-state="current">
+                    <span class="hln-v4-step__dot" aria-hidden="true"></span>
+                    <span class="hln-v4-step__label">起草</span>
+                  </div>
+                  <div class="hln-v4-step" data-state="pending">
+                    <span class="hln-v4-step__dot" aria-hidden="true"></span>
+                    <span class="hln-v4-step__label">复核</span>
+                  </div>
+                </div>
+              </article>
+            </section>
+          </div>
+        </div>
+
         <!-- Status Bar -->
         <footer class="paralos-statusbar">
           <button class="status-user" data-hln-ui-control data-hln-motion="control" type="button" id="btn-status-user" aria-haspopup="dialog" aria-controls="settings-popover" aria-expanded="false">
@@ -1773,6 +2018,7 @@
       <label>
         <span>Active UI Engine</span>
         <select data-hln-ui-field id="select-ui-version">
+          <option value="v4">v4.0 Folio (Calm Minimal Multi-Pigment)</option>
           <option value="v3.8">v3.8 Cosmic Viewport Lens (Astrophysics Observatory)</option>
           <option value="v3.5">v3.5 Algorithmic Vector &amp; Data-Stream (AI Studio)</option>
           <option value="v3.2">v3.2 Subtractive Linear (Minimalist)</option>
@@ -1805,6 +2051,6 @@
       </label>
     </div>
 
-    <script src="app.js?v=hci-20260928-cjk"></script>
+    <script src="app.js?v=hci-20261023-v4"></script>
   </body>
 </html>

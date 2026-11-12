@@ -162,6 +162,47 @@ const themesV35 = [
   { id: "bauhaus-compiler", label: "Bauhaus Compiler", swatch: "#fcfaf5", accent: "#dc2626" },
 ]
 
+const themesV4 = [
+  { id: "folio-porcelain", label: "瓷白 Porcelain", swatch: "#fdfcfa", accent: "#2f4b7c" },
+  { id: "folio-sage", label: "苔青 Sage", swatch: "#f7f9f5", accent: "#2d664b" },
+  { id: "folio-apricot", label: "杏色 Apricot", swatch: "#fffaf5", accent: "#974725" },
+  { id: "folio-lilac", label: "藕荷 Lilac", swatch: "#faf9fd", accent: "#5b4b9e" },
+  { id: "folio-graphite", label: "石墨 Graphite", swatch: "#1c1f23", accent: "#d9a441" },
+  { id: "folio-pine", label: "苍松 Pine", swatch: "#161e1a", accent: "#cbb27a" },
+  { id: "folio-plum", label: "墨梅 Plum", swatch: "#1d1822", accent: "#cf8a5a" },
+  { id: "folio-slate", label: "靛青 Slate", swatch: "#171b21", accent: "#7f9be0" },
+]
+
+const fontsV4 = [
+  { id: "grotesque", label: "兰亭黑 · Grotesque" },
+  { id: "editorial", label: "人文宋 · Editorial" },
+  { id: "display", label: "凝练黑 · Display" },
+  { id: "technical", label: "工程黑 · Technical" },
+  { id: "label", label: "铭牌体 · Label" },
+  { id: "fangsong", label: "清仿宋 · FangSong" },
+]
+
+const bgPresetsV4 = [
+  { id: "paper-grain", label: "Paper Grain", note: "fine warm fibre grain" },
+  { id: "margin-rule", label: "Margin Rule", note: "single margin hairline" },
+  { id: "tint-wash", label: "Tint Wash", note: "broad pigment wash" },
+  { id: "ruled-lines", label: "Ruled Lines", note: "32px writing rules" },
+  { id: "folio-grid", label: "Folio Grid", note: "40px baseline grid" },
+  { id: "vellum-fiber", label: "Vellum Fiber", note: "soft vertical fibre" },
+  { id: "quiet", label: "Quiet", note: "flat matte, no ornament" },
+]
+
+const motionActionsV4 = [
+  { id: "rise", label: "Rise", type: "panel", variant: "rise" },
+  { id: "unfold", label: "Unfold", type: "panel", variant: "unfold" },
+  { id: "spring", label: "Spring", type: "panel", variant: "spring" },
+  { id: "slide-left", label: "Slide Left", type: "panel", variant: "slide-left" },
+  { id: "slide-right", label: "Slide Right", type: "panel", variant: "slide-right" },
+  { id: "type-in", label: "Type In", type: "panel", variant: "type-in" },
+  { id: "page-shift", label: "Page Shift", type: "panel", variant: "page-shift" },
+  { id: "items", label: "Stagger Items", type: "items", variant: "" },
+]
+
 const themesV38 = [
   { id: "cosmic-euclid", label: "Cosmic Euclid", swatch: "#080c14", accent: "#00f0ff" },
   { id: "pulsar-gold", label: "Pulsar Gold", swatch: "#0e0c08", accent: "#ffb703" },
@@ -370,6 +411,7 @@ const versionDescriptions = {
   "v3.2": "v3.2 Subtractive Linear Architecture — Pure 1px Horizon Discipline",
   "v3.5": "v3.5 Algorithmic Vector, AI-Native, Procedural & Data-Stream Studio",
   "v3.8": "v3.8 Cosmic Viewport Lens — Relativistic Gravitational & Spectroscopic Observatory",
+  v4: "v4.0 Folio — Calm Minimal Multi-Pigment Edition",
 }
 
 const skinTokenMap = {
@@ -385,6 +427,7 @@ const root = document.body
 const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)")
 
 function getFontsForVersion(version) {
+  if (version === "v4") return fontsV4
   if (version === "v3.8") return fontsV3
   if (version === "v3.5") return fontsV3
   if (version === "v3.2") return fontsV32
@@ -396,6 +439,7 @@ function getFontsForVersion(version) {
 }
 
 function getThemesForVersion(version) {
+  if (version === "v4") return themesV4
   if (version === "v3.8") return themesV38
   if (version === "v3.5") return themesV35
   if (version === "v3.2") return themesV32
@@ -407,6 +451,7 @@ function getThemesForVersion(version) {
 }
 
 function getBgPresetsForVersion(version) {
+  if (version === "v4") return bgPresetsV4
   if (version === "v3.8") return bgPresetsV38
   if (version === "v3.5") return bgPresetsV35
   if (version === "v3.2") return bgPresetsV32
@@ -418,6 +463,7 @@ function getBgPresetsForVersion(version) {
 }
 
 function getMotionActionsForVersion(version) {
+  if (version === "v4") return motionActionsV4
   if (version === "v3.8") return motionActionsV38
   if (version === "v3.5") return motionActionsV35
   if (version === "v3.2") return motionActionsV32
@@ -439,9 +485,11 @@ const stylesheetForVersion = {
   "v3.2": "styles/hln-ui-system-v3.2.css",
   "v3.5": "styles/hln-ui-system-v3.5.css",
   "v3.8": "styles/hln-ui-system-v3.8.css",
+  v4: "styles/hln-ui-system-v4.css",
 }
 
 function getActiveShowcaseLayout() {
+  if (currentUiVersion === "v4") return document.querySelector("#demo-layout-v4")
   if (currentUiVersion === "v3.8") return document.querySelector("#demo-layout-v38")
   if (currentUiVersion === "v3.5") return document.querySelector("#demo-layout-v35")
   if (currentUiVersion === "v3.2") return document.querySelector("#demo-layout-v32")
@@ -450,6 +498,7 @@ function getActiveShowcaseLayout() {
 }
 
 function defaultThemeForVersion(version) {
+  if (version === "v4") return "folio-porcelain"
   if (version === "v3.8") return "cosmic-euclid"
   if (version === "v3.5") return "singularity-cyan"
   if (version === "v3.2") return "linear-obsidian"
@@ -458,6 +507,7 @@ function defaultThemeForVersion(version) {
 }
 
 function defaultBgForVersion(version) {
+  if (version === "v4") return "paper-grain"
   if (version === "v3.8") return "cosmic-geodesic"
   if (version === "v3.5") return "tensor-stream"
   if (version === "v3.2") return "horizon-rule"
@@ -467,10 +517,12 @@ function defaultBgForVersion(version) {
 }
 
 function defaultFontForVersion(version) {
+  if (version === "v4") return "grotesque"
   return version === "v3" || version === "v3.2" || version === "v3.5" || version === "v3.8" ? "geometric" : "display"
 }
 
 function entryVariantForVersion(version) {
+  if (version === "v4") return "rise"
   if (version === "v3.8") return "reticle-lock"
   if (version === "v3.5") return "stream-cascade"
   if (version === "v3.2") return "line-extend"
@@ -517,7 +569,7 @@ function buildCjkTypographyMatrix() {
 }
 
 function setUiVersion(version) {
-  const allowed = ["v1", "v2", "v2.3", "v2.5", "v3", "v3.2", "v3.5", "v3.8"]
+  const allowed = ["v1", "v2", "v2.3", "v2.5", "v3", "v3.2", "v3.5", "v3.8", "v4"]
   if (allowed.indexOf(version) === -1) return
   currentUiVersion = version
 
@@ -1814,6 +1866,46 @@ function initStochasticPointField() {
   }
 }
 
+// v4 Folio — Reading Desk interactivity
+function bindV4Controls() {
+  // Segmented control: exactly one option is active at a time.
+  document.querySelectorAll(".hln-v4-seg").forEach((group) => {
+    const options = group.querySelectorAll(".hln-v4-seg__opt")
+    options.forEach((option) => {
+      option.addEventListener("click", () => {
+        options.forEach((other) => {
+          const isActive = other === option
+          other.dataset.active = String(isActive)
+          other.setAttribute("aria-checked", String(isActive))
+        })
+      })
+    })
+  })
+
+  // Switch: toggles its own active state and aria-checked.
+  document.querySelectorAll(".hln-v4-switch").forEach((toggle) => {
+    toggle.addEventListener("click", () => {
+      const next = toggle.getAttribute("aria-checked") !== "true"
+      toggle.setAttribute("aria-checked", String(next))
+      toggle.dataset.active = String(next)
+    })
+  })
+
+  // Ink density slider drives its own numeric readout and its filled track.
+  const inkSlider = document.querySelector("#v4-slider-ink")
+  const inkReadout = document.querySelector("#v4-ink-readout")
+  const paintInkSlider = () => {
+    if (!inkSlider) return
+    const min = Number(inkSlider.min || 0)
+    const max = Number(inkSlider.max || 100)
+    const pct = ((Number(inkSlider.value) - min) / (max - min)) * 100
+    inkSlider.style.setProperty("--fill", `${pct}%`)
+    if (inkReadout) inkReadout.textContent = `${inkSlider.value}%`
+  }
+  inkSlider?.addEventListener("input", paintInkSlider)
+  paintInkSlider()
+}
+
 function updateMotionStatus() {
   const motionStatus = document.querySelector("#motion-status")
   if (motionStatus) {
@@ -1825,6 +1917,7 @@ function updateMotionStatus() {
 
 document.addEventListener("DOMContentLoaded", () => {
   bindControls()
+  bindV4Controls()
   initStochasticPointField()
   setUiVersion("v3")
   updateMotionStatus()
